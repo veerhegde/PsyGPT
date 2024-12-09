@@ -16,7 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from services import UserServices
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('psyapi/v1/users/auth/login', UserServices.user_login),
+    path('psyapi/v1/users/auth/logout', UserServices.user_logout),
+    path('psyapi/v1/users/auth/register', UserServices.user_register),
+    path('psyapi/v1/users/auth/profile', UserServices.get_profile),
 ]
