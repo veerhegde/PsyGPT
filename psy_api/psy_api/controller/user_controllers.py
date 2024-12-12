@@ -30,3 +30,6 @@ def user_auth(request):
             user_service.user_logout(user_id)
     except Exception as e:
         print(e)
+
+def user_profile(request):
+    pass
