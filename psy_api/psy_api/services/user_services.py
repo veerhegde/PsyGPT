@@ -51,7 +51,8 @@ class UserServices:
     def user_register(self, data):
         reg_dict = {}
         data = json.loads(data)
-        required_fields = ['username', 'password', 'email', 'phone', 'full_name', 'emergency_contact', 'name_emergency_constant']
+        required_fields = ['username', 'password', 'email', 'phone', 'full_name', 'emergency_contact',
+                           'name_emergency_constant']
         if not all(field in data for field in required_fields):
             return JsonResponse({'error': 'Missing required user information'}, status=400)
         try:
@@ -61,7 +62,7 @@ class UserServices:
                 'email': data['email'],
                 'phone_no': data['phone'],
                 'emergency_contact': data['emergency_contact'],
-                'name_emergency_constant':data['name_emergency_constant'],
+                'name_emergency_constant': data['name_emergency_constant'],
                 'createdAt': datetime.now(),
                 'updatedAt': datetime.now()
             }
@@ -96,3 +97,5 @@ class UserServices:
 
 # class UserSSOServices(UserServices):
 #     def google_sso_login(self):
+
+# TODO: create email verification apis
