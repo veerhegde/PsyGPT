@@ -26,8 +26,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-SITE_ID = 1
-
+SITE_ID = 2
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'http'
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -152,4 +153,3 @@ AUTHENTICATION_BACKENDS = [
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-

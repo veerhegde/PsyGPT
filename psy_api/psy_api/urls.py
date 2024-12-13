@@ -26,5 +26,5 @@ urlpatterns = [
     path('psyapi/v1/users/profile', user_controllers.user_profile),
     path('psyapi/v1/users/profile/update', user_controllers.user_profile),
     path('psyapi/v1/users/profile/delete', user_controllers.user_profile),
-    path('psyapi/v1/socialaccounts/', include('allauth.urls')),
+    path('accounts/', include('allauth.urls')),
 ]
