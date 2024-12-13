@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from .controller import user_controllers
 
 urlpatterns = [
@@ -26,4 +26,5 @@ urlpatterns = [
     path('psyapi/v1/users/profile', user_controllers.user_profile),
     path('psyapi/v1/users/profile/update', user_controllers.user_profile),
     path('psyapi/v1/users/profile/delete', user_controllers.user_profile),
+    path('psyapi/v1/socialaccounts/', include('allauth.urls')),
 ]
