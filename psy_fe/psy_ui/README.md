@@ -1,6 +1,6 @@
 # psy_ui
 
-MindQ Ui Module
+MindQ UI module
 
 ## Getting Started
 
