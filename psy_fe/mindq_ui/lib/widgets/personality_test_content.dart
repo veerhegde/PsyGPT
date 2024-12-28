@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-// Data model for a question
 class Question {
   final String text;
   final List<String> options;
@@ -14,7 +13,6 @@ class Question {
   });
 }
 
-// Helper function to build the Personality Test Widget
 Widget buildPersonalityTestWidget({
   required List<Question> questions,
   required Function(int, double) onAnswerChanged,
@@ -208,7 +206,6 @@ class _PersonalityTestContentState extends State<PersonalityTestContent> {
               ),
             ),
 
-            // Bottom Navigation Bar
             Container(
               padding: const EdgeInsets.all(20),
               decoration: const BoxDecoration(
