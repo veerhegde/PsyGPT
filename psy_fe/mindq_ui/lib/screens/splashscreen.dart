@@ -48,7 +48,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset('lib/assets/mindq_logo.svg', width: 100, height: 100),
+            SvgPicture.asset('lib/assets/owl_mq.svg', width: 200, height: 200),
             const SizedBox(height: 30),
             Text(
               'Mimbnd Q',

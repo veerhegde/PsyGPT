@@ -308,7 +308,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
         onPressed: () {
           if (kDebugMode) {
             // In debug mode, navigate to onboarding
-            Navigator.pushNamed(context, '/onboarding');
+            Navigator.pushNamed(context, '/startonboard');
           } else {
             // In release mode, implement actual login/registration logic
             // TODO: Implement login/register logic

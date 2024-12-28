@@ -39,11 +39,19 @@ dependencies:
   material_symbols_icons: ^4.2801.0
   flutter_svg: ^2.0.9
   lottie: ^3.3.0
+  flutter_launcher_icons: ^0.14.2
 #  mindq_soul:
 
 dev_dependencies:
+  flutter_launcher_icons: "^0.14.2"
   flutter_test:
     sdk: flutter
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "lib/assets/favicon.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -70,7 +78,9 @@ flutter:
      - lib/assets/mind.svg
      - lib/assets/mindq_logo.svg
      - lib/assets/qdnim.png
+     - lib/assets/owl_mq.svg
      - lib/assets/lottie/introvert.json
+     - lib/assets/favicon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
