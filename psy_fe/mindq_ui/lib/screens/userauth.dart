@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:intl/intl.dart';
+import 'package:material_symbols_icons/symbols.dart'; // Import for date formatting
 
 class AuthScreen extends StatefulWidget {
   @override
@@ -81,10 +82,10 @@ class _AuthScreenState extends State<AuthScreen>
                   controller: _tabController,
                   children: [
                     // Login Form
-                    LoginForm(),
+                    SingleChildScrollView(child: LoginForm()),
 
                     // Registration Form
-                    RegistrationForm(),
+                    SingleChildScrollView(child: RegistrationForm()),
                   ],
                 ),
               ),
@@ -122,111 +123,297 @@ class LoginForm extends StatelessWidget {
 }
 
 // Registration Form Widget
-class RegistrationForm extends StatelessWidget {
+class RegistrationForm extends StatefulWidget {
+  @override
+  _RegistrationFormState createState() => _RegistrationFormState();
+}
+
+class _RegistrationFormState extends State<RegistrationForm> {
+  DateTime _selectedDate = DateTime.now();
+  final TextEditingController _dateController = TextEditingController();
+  String _selectedGender = '';
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: _selectedDate,
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+      builder: (BuildContext context, Widget? child) {
+        return Theme(
+          data: ThemeData.light().copyWith(
+            colorScheme: const ColorScheme.light(
+              primary: Color(0xFF77dd77),
+              onPrimary: Colors.black,
+              onSurface: Colors.black,
+            ),
+            dialogBackgroundColor: Colors.white,
+            textButtonTheme: TextButtonThemeData(
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.black,
+              ),
+            ),
+          ),
+          child: child!,
+        );
+      },
+    );
+    if (picked != null && picked != _selectedDate) {
+      setState(() {
+        _selectedDate = picked;
+        _dateController.text = DateFormat('yyyy-MM-dd').format(_selectedDate);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // Email Field
+        _buildTextField(label: "Username", icon: Icons.account_circle_rounded),
+        const SizedBox(height: 20),
         _buildTextField(label: "Email", icon: Icons.email),
         const SizedBox(height: 20),
-
-        // Password Field
+        _buildGenderField(),
+        const SizedBox(height: 20),
         _buildTextField(label: "Password", icon: Icons.lock, obscureText: true),
         const SizedBox(height: 20),
-
-        // Confirm Password Field
         _buildTextField(
             label: "Confirm Password", icon: Icons.lock, obscureText: true),
+        const SizedBox(height: 20),
+        _buildDateOfBirthField(),
         const SizedBox(height: 30),
-
-        // Register Button
         _buildButton(label: "Register", color: const Color(0xFF77dd77)),
         const SizedBox(height: 20),
-
-        // Social Logins
         _buildSocialLogins(),
       ],
     );
   }
-}
 
-// Helper function to build text fields
-Widget _buildTextField(
-    {required String label,
-      required IconData icon,
-      bool obscureText = false}) {
-  return Container(
-    decoration: BoxDecoration(
-      color: const Color(0xFFe0e0e0),
-      borderRadius: BorderRadius.circular(8),
-      border: Border.all(color: Colors.black, width: 2),
-    ),
-    child: TextField(
-      obscureText: obscureText,
-      decoration: InputDecoration(
-        contentPadding: const EdgeInsets.all(16),
-        labelText: label,
-        labelStyle: const TextStyle(color: Colors.black87),
-        prefixIcon: Icon(icon, color: Colors.black),
-        border: InputBorder.none,
-      ),
-    ),
-  );
-}
-
-// Helper function to build buttons
-Widget _buildButton({required String label, required Color color}) {
-  return Container(
-    width: double.infinity,
-    decoration: BoxDecoration(
-      color: color,
-      borderRadius: BorderRadius.circular(8),
-      border: Border.all(color: Colors.black, width: 3),
-      boxShadow: const [
-        BoxShadow(
-          color: Colors.black,
-          offset: Offset(4, 4),
+  Widget _buildDateOfBirthField() {
+    return InkWell(
+      onTap: () => _selectDate(context),
+      child: Container(
+        decoration: BoxDecoration(
+          color: const Color(0xFFe0e0e0),
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(color: Colors.black, width: 2),
         ),
+        child: IgnorePointer(
+          child: TextField(
+            controller: _dateController,
+            decoration: const InputDecoration(
+              contentPadding: EdgeInsets.all(16),
+              labelText: "Date of Birth",
+              labelStyle: TextStyle(color: Colors.black87),
+              prefixIcon: Icon(Icons.calendar_today_rounded, color: Colors.black),
+              border: InputBorder.none,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildGenderField() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        _buildGenderOption(Symbols.male, "M"),
+        _buildGenderOption(Symbols.female, "F"),
+        _buildGenderOption(Icons.transgender, "Others"),
       ],
-    ),
-    child: TextButton(
-      onPressed: () {}, // TODO: Implement login/register logic
-      child: Text(
-        label,
-        style: const TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-          color: Colors.black,
+    );
+  }
+
+  Widget _buildGenderOption(IconData icon, String gender) {
+    return InkWell(
+      onTap: () {
+        setState(() {
+          _selectedGender = gender;
+        });
+      },
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: _selectedGender == gender
+              ? const Color(0xFF77dd77)
+              : const Color(0xFFe0e0e0),
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(
+            color: Colors.black,
+            width: 2,
+          ),
+        ),
+        child: Row(
+          children: [
+            Icon(icon, color: Colors.black, size: 30),
+            const SizedBox(width: 4),
+            Text(
+              gender,
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
       ),
-    ),
-  );
+    );
+  }
+
+  Widget _buildTextField(
+      {required String label,
+        required IconData icon,
+        bool obscureText = false}) {
+    return Container(
+      decoration: BoxDecoration(
+        color: const Color(0xFFe0e0e0),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: Colors.black, width: 2),
+      ),
+      child: TextField(
+        obscureText: obscureText,
+        decoration: InputDecoration(
+          contentPadding: const EdgeInsets.all(16),
+          labelText: label,
+          labelStyle: const TextStyle(color: Colors.black87),
+          prefixIcon: Icon(icon, color: Colors.black),
+          border: InputBorder.none,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildButton({required String label, required Color color}) {
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: Colors.black, width: 3),
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black,
+            offset: Offset(4, 4),
+          ),
+        ],
+      ),
+      child: TextButton(
+        onPressed: () {}, // TODO: Implement login/register logic
+        child: Text(
+          label,
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSocialLogins() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        _buildSocialButton(
+            icon: Icons.g_mobiledata, color: const Color(0xFFdb4437)), // Google
+        _buildSocialButton(
+            icon: Icons.facebook, color: const Color(0xFF4267b2)), // Facebook
+      ],
+    );
+  }
+
+  Widget _buildSocialButton({required IconData icon, required Color color}) {
+    return Container(
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        border: Border.all(color: Colors.black, width: 2),
+        color: color,
+      ),
+      child: IconButton(
+        icon: Icon(icon, size: 30, color: Colors.white),
+        onPressed: () {}, // TODO: Implement social login logic
+      ),
+    );
+  }
 }
 
-// Helper function to build social login buttons
-Widget _buildSocialLogins() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    children: [
-      _buildSocialButton(icon: Icons.g_mobiledata, color: const Color(0xFFdb4437)), // Google
-      _buildSocialButton(icon: Icons.facebook, color: const Color(0xFF4267b2)), // Facebook
-      _buildSocialButton(icon: Icons.abc_outlined, color: Colors.black), // Twitter (X)
-    ],
-  );
-}
+Widget _buildTextField(
+      {required String label, required IconData icon, bool obscureText = false}) {
+    return Container(
+      decoration: BoxDecoration(
+        color: const Color(0xFFe0e0e0),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: Colors.black, width: 2),
+      ),
+      child: TextField(
+        obscureText: obscureText,
+        decoration: InputDecoration(
+          contentPadding: const EdgeInsets.all(16),
+          labelText: label,
+          labelStyle: const TextStyle(color: Colors.black87),
+          prefixIcon: Icon(icon, color: Colors.black),
+          border: InputBorder.none,
+        ),
+      ),
+    );
+  }
 
-// Helper function to build individual social login buttons
-Widget _buildSocialButton({required IconData icon, required Color color}) {
-  return Container(
-    decoration: BoxDecoration(
-      shape: BoxShape.circle,
-      border: Border.all(color: Colors.black, width: 2),
-      color: color,
-    ),
-    child: IconButton(
-      icon: Icon(icon, size: 30, color: Colors.white),
-      onPressed: () {}, // TODO: Implement social login logic
-    ),
-  );
-}
+  Widget _buildButton({required String label, required Color color}) {
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: Colors.black, width: 3),
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black,
+            offset: Offset(4, 4),
+          ),
+        ],
+      ),
+      child: TextButton(
+        onPressed: () {}, // TODO: Implement login/register logic
+        child: Text(
+          label,
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSocialLogins() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        _buildSocialButton(
+            icon: Icons.g_mobiledata, color: const Color(0xFFdb4437)), // Google
+        _buildSocialButton(
+            icon: Icons.facebook, color: const Color(0xFF4267b2)), // Facebook
+      ],
+    );
+  }
+
+  Widget _buildSocialButton({required IconData icon, required Color color}) {
+    return Container(
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        border: Border.all(color: Colors.black, width: 2),
+        color: color,
+      ),
+      child: IconButton(
+        icon: Icon(icon, size: 30, color: Colors.white),
+        onPressed: () {}, // TODO: Implement social login logic
+      ),
+    );
+  }
+
+
