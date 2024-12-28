@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const SplashScreen(),
         '/main': (context) => const MyHomePage(title: 'MindQ'),
         '/home':(context) =>  HomeScreen(),
-        '/onboarding':(context) => OnboardingPage(),
+        '/onboarding':(context) => OnboardingScreen(),
         // '/userauth':(context) => const UserAuth(title: 'Login/Register'),
         '/userauth':(context) => AuthScreen(),
         '/mindqtest':(context) => MindqTest()

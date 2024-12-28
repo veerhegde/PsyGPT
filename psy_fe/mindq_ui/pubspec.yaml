@@ -38,6 +38,7 @@ dependencies:
   google_fonts: 6.1.0
   material_symbols_icons: ^4.2801.0
   flutter_svg: ^2.0.9
+  lottie: ^3.3.0
 #  mindq_soul:
 
 dev_dependencies:
@@ -69,6 +70,7 @@ flutter:
      - lib/assets/mind.svg
      - lib/assets/mindq_logo.svg
      - lib/assets/qdnim.png
+     - lib/assets/lottie/introvert.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
