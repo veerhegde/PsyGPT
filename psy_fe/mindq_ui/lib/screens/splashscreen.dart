@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void _navigateToMain() {
     print("Navigating to /main");
-    Navigator.pushReplacementNamed(context, '/main');
+    Navigator.pushReplacementNamed(context, '/userauth');
   }
 
   @override

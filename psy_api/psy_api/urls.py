@@ -17,6 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from .controller import user_controllers
+from rest_framework_swagger.views import get_swagger_view
+
+# schema_view = get_swagger_view(title='Pastebin API')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,4 +30,5 @@ urlpatterns = [
     path('psyapi/v1/users/profile/update', user_controllers.user_profile),
     path('psyapi/v1/users/profile/delete', user_controllers.user_profile),
     path('accounts/', include('allauth.urls')),
+    # path('psyapi/v1/swagger', schema_view)
 ]
