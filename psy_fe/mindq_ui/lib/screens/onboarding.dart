@@ -16,21 +16,21 @@ class OnboardingPage1 extends StatelessWidget {
           bgColor: Colors.indigo,
         ),
         OnboardingPageModel(
-          title: ‘Understand your mind ‘,
-          description: ‘Understand how your body and mind react to people, places, environments, stress. So that you are in control!’,
+          title: "Understand your mind ",
+          description: "Understand how your body and mind react to people, places, environments, stress. So that you are in control!",
           imageUrl: 'https://i.ibb.co/LvmZypG/storefront-illustration-2.png',
           bgColor: const Color(0xff1eb090),
         ),
         OnboardingPageModel(
-          title: ‘Become the best version of yourself’,
+          title: "Become the best version of yourself",
           description:
-          ‘Become more productive and manifest your best self.’,
+          "Become more productive and manifest your best self.",
           imageUrl: 'https://i.ibb.co/420D7VP/building.png',
           bgColor: const Color(0xfffeae4f),
         ),
         OnboardingPageModel(
           title: 'Follow your Growth',
-          description: 'Follow your progress and see how much you have grown.’,
+          description: "Follow your progress and see how much you have grown.",
           imageUrl: 'https://i.ibb.co/cJqsPSB/scooter.png',
           bgColor: Colors.purple,
         ),
@@ -99,7 +99,7 @@ class _OnboardingPageState extends State<OnboardingPagePresenter> {
                                 child: Text(item.title,
                                     style: Theme.of(context)
                                         .textTheme
-                                        .headline6
+                                        .titleLarge
                                         ?.copyWith(
                                       fontWeight: FontWeight.bold,
                                       color: item.textColor,
@@ -114,7 +114,7 @@ class _OnboardingPageState extends State<OnboardingPagePresenter> {
                                     textAlign: TextAlign.center,
                                     style: Theme.of(context)
                                         .textTheme
-                                        .bodyText2
+                                        .bodyMedium
                                         ?.copyWith(
                                       color: item.textColor,
                                     )),
