@@ -44,7 +44,7 @@ class _StartOnboardingScreenState extends State<StartOnboardingScreen> {
                       ],
                     ),
                     child: const Text(
-                      "Hi there! Let's get started \nwith some questions!",
+                      "Hi there! my name is Phoebe\nI want to ask questions \nto know you better \nHOOT HOOT!!",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 18,
@@ -78,7 +78,7 @@ class _StartOnboardingScreenState extends State<StartOnboardingScreen> {
                 elevation: 4,
               ),
               child: const Text(
-                "Start",
+                "Let's get started",
                 style: TextStyle(color: Colors.black),
               ),
             ),
