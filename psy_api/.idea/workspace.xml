@@ -1,4 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PropertiesComponent">{}</component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="089be53d-dbd9-4d41-b50e-6ffbf0a5a189" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../psy_fe/mindq_ui/lib/screens/onboarding.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../psy_fe/mindq_ui/lib/screens/sliderd.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/psy_api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/psy_api.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../psy_fe/mindq_ui/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../psy_fe/mindq_ui/android/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../psy_fe/mindq_ui/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../psy_fe/mindq_ui/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../psy_fe/mindq_ui/lib/screens/splashscreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../psy_fe/mindq_ui/lib/screens/splashscreen.dart" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2qkaM9JnUTUJq9z38ObKkLovRSr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "veer__dev",
+    "last_opened_file_path": "/Users/veerhegde/Documents/MQ/codebases/PsyGPT/psy_api"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-d7ad00fb9fc3-c546a90a8094-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.23726.102" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="089be53d-dbd9-4d41-b50e-6ffbf0a5a189" name="Changes" comment="" />
+      <created>1735208975925</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1735208975925</updated>
+    </task>
+    <servers />
+  </component>
 </project>

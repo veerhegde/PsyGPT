@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_symbols_icons/symbols.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -42,19 +43,15 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     print("SplashScreen build");
     return Scaffold(
-      backgroundColor: Colors.greenAccent,
+      backgroundColor: Colors.blueAccent,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
-              Symbols.neurology,
-              size: 100,
-              color: Colors.white,
-            ),
+            SvgPicture.asset('lib/assets/mindq_logo.svg', width: 100, height: 100),
             const SizedBox(height: 30),
             Text(
-              'Mind Q',
+              'Mimbnd Q',
               style: GoogleFonts.poppins(
                 textStyle: Theme.of(context).textTheme.displayLarge,
                 fontSize: 48,
@@ -64,11 +61,11 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             const SizedBox(height: 20),
             const Text(
-              'Holistic Therapy',
+              'Holmistic Therapy',
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
-                color: Colors.white,
+                color: Colors.redAccent,
               ),
             ),
             const SizedBox(height: 140),

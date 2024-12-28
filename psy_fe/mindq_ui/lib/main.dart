@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mindq_ui/screens/userauth.dart';
 // import 'package:mindq_ui/screens/userauth.dart';
 import 'screens/splashscreen.dart'; // Import the splash_screen.dart file
+import 'package:mindq_ui/screens/homescreen.dart';
+import 'package:mindq_ui/screens/onboarding.dart';
+import 'screens/splashscreen.dart'; // Import the splash_screen.dart file
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'MindQ',
+      title: 'MindkQ',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         useMaterial3: true,
@@ -22,6 +25,9 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const SplashScreen(),
         '/main': (context) => const MyHomePage(title: 'MindQ'),
+        '/home':(context) =>  HomeScreen(),
+        '/onboarding':(context) => OnboardingPage1(),
+        // '/userauth':(context) => const UserAuth(title: 'Login/Register'),
         '/userauth':(context) => AuthScreen(),
       },
     );
