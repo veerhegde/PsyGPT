@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:material_symbols_icons/symbols.dart'; // Import for date formatting
@@ -183,7 +184,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
         const SizedBox(height: 20),
         _buildDateOfBirthField(),
         const SizedBox(height: 30),
-        _buildButton(label: "Register", color: const Color(0xFF77dd77)),
+        _buildButton(label: "Register", color: const Color(0xFF77dd77), context: context),
         const SizedBox(height: 20),
         _buildSocialLogins(),
       ],
@@ -286,7 +287,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
     );
   }
 
-  Widget _buildButton({required String label, required Color color}) {
+  Widget _buildButton(
+      {required String label,
+        required Color color,
+        required BuildContext context}) {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -301,7 +305,16 @@ class _RegistrationFormState extends State<RegistrationForm> {
         ],
       ),
       child: TextButton(
-        onPressed: () {}, // TODO: Implement login/register logic
+        onPressed: () {
+          if (kDebugMode) {
+            // In debug mode, navigate to onboarding
+            Navigator.pushNamed(context, '/onboarding');
+          } else {
+            // In release mode, implement actual login/registration logic
+            // TODO: Implement login/register logic
+            print("Login/Register logic in release mode");
+          }
+        },
         child: Text(
           label,
           style: const TextStyle(

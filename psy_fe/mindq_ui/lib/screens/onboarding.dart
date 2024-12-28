@@ -114,7 +114,7 @@ class _OnboardingPageState extends State<OnboardingPagePresenter> {
                                     textAlign: TextAlign.center,
                                     style: Theme.of(context)
                                         .textTheme
-                                        .bodyMedium
+                                        .bodySmall
                                         ?.copyWith(
                                       color: item.textColor,
                                     )),
