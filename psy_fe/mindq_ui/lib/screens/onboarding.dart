@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
-class OnboardingPage1 extends StatelessWidget {
-  const OnboardingPage1({Key? key}) : super(key: key);
+class OnboardingPage extends StatelessWidget {
+  const OnboardingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -169,6 +169,7 @@ class _OnboardingPageState extends State<OnboardingPagePresenter> {
                       onPressed: () {
                         if (_currentPage == widget.pages.length - 1) {
                           widget.onFinish?.call();
+                          Navigator.pushNamed(context, '/main');
                         } else {
                           _pageController.animateToPage(_currentPage + 1,
                               curve: Curves.easeInOutCubic,

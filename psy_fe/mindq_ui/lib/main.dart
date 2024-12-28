@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mindq_ui/screens/mindq_test.dart';
 import 'package:mindq_ui/screens/userauth.dart';
 // import 'package:mindq_ui/screens/userauth.dart';
 import 'screens/splashscreen.dart'; // Import the splash_screen.dart file
@@ -26,9 +27,10 @@ class MyApp extends StatelessWidget {
         '/': (context) => const SplashScreen(),
         '/main': (context) => const MyHomePage(title: 'MindQ'),
         '/home':(context) =>  HomeScreen(),
-        '/onboarding':(context) => OnboardingPage1(),
+        '/onboarding':(context) => OnboardingPage(),
         // '/userauth':(context) => const UserAuth(title: 'Login/Register'),
         '/userauth':(context) => AuthScreen(),
+        '/mindqtest':(context) => MindqTest()
       },
     );
   }

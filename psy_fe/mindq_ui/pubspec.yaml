@@ -68,6 +68,7 @@ flutter:
   assets:
      - lib/assets/mind.svg
      - lib/assets/mindq_logo.svg
+     - lib/assets/qdnim.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
