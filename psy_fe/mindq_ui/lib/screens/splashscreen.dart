@@ -51,7 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
             SvgPicture.asset('lib/assets/owl_mq.svg', width: 200, height: 200),
             const SizedBox(height: 30),
             Text(
-              'Mimbnd Q',
+              'MindQ',
               style: GoogleFonts.poppins(
                 textStyle: Theme.of(context).textTheme.displayLarge,
                 fontSize: 48,
@@ -61,7 +61,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             const SizedBox(height: 20),
             const Text(
-              'Holmistic Therapy',
+              'HOLISTIC THERAPY',
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
