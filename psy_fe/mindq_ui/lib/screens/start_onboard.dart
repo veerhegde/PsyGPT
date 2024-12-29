@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
 class StartOnboardingScreen extends StatefulWidget {
@@ -43,13 +44,15 @@ class _StartOnboardingScreenState extends State<StartOnboardingScreen> {
                         ),
                       ],
                     ),
-                    child: const Text(
-                      "Hi there! my name is Phoebe\nI want to ask questions \nto know you better \nHOOT HOOT!!",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold
+                    child:
+                    RichText(
+                      text: TextSpan(
+                        text: 'Hi There!! my name is',
+                        style: GoogleFonts.roboto(fontSize: 16),
+                        children: <TextSpan>[
+                          TextSpan(text: 'Phoebe', style: TextStyle(fontWeight: FontWeight.bold)),
+                          TextSpan(text: ' text.'),
+                        ],
                       ),
                     ),
                   ),
