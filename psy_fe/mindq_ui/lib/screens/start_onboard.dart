@@ -47,11 +47,14 @@ class _StartOnboardingScreenState extends State<StartOnboardingScreen> {
                     child:
                     RichText(
                       text: TextSpan(
-                        text: 'Hi There!! my name is',
-                        style: GoogleFonts.roboto(fontSize: 16),
+                        text: 'Hi There! my name is ',
+                        style: GoogleFonts.roboto(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold),
                         children: <TextSpan>[
-                          TextSpan(text: 'Phoebe', style: TextStyle(fontWeight: FontWeight.bold)),
-                          TextSpan(text: ' text.'),
+                          TextSpan(text: 'Phoebe', style: GoogleFonts.getFont('Poppins', textStyle: const TextStyle(
+                            color: Colors.deepPurple, decoration: TextDecoration.underline
+                          ))),
+                        const TextSpan(
+                        text: '. \nI will be your companion in this journey! \nNow lets learn about you.',)
                         ],
                       ),
                     ),
