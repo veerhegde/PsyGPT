@@ -27,7 +27,7 @@ class OnboardingScreen extends StatelessWidget {
             Question(
               text: "How do you feel about schedules? Like, are you the kind of person who’s got color-coded planners? Or are you more like, 'Whatever happens, happens'?",
               options: ["Nope!", "Eh.", "Meh.", "Yep!", "Totally!"],
-              lottieAnimationUrl: "https://lottie.host/d1f4a79c-0204-4a92-9f5f-d3d906ccdb28/e3QvqgNPR7.json",
+              lottieAnimationUrl: "https://lottie.host/e830bc87-a72b-43df-85bc-3f6e373b4de0/PRUkGNSFsT.json",
             ),
             Question(
               text: "Ooh! Do you get excited about learning new things? Like, ‘I’m gonna learn how to make a birdhouse today!’ Or is that not your vibe?",

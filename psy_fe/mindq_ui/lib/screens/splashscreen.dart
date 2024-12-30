@@ -43,31 +43,33 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     print("SplashScreen build");
     return Scaffold(
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: Color(0xfff4d738),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset('lib/assets/owl_mq.svg', width: 200, height: 200),
-            const SizedBox(height: 30),
+            SvgPicture.asset('lib/assets/owl.svg', width: 300, height: 300,color: Color(0xffb74093)),
             Text(
-              'Mimbnd Q',
+              'MindQ',
               style: GoogleFonts.poppins(
                 textStyle: Theme.of(context).textTheme.displayLarge,
-                fontSize: 48,
+                fontSize: 90,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
             ),
-            const SizedBox(height: 20),
-            const Text(
-              'Holmistic Therapy',
-              style: TextStyle(
+
+            Text(
+              'HOLISTIC THERAPY',
+              style: GoogleFonts.aboreto(
+                textStyle: Theme.of(context).textTheme.displayLarge,
                 fontSize: 16,
-                fontWeight: FontWeight.w500,
-                color: Colors.redAccent,
+                  color: Colors.black38,
+                fontWeight: FontWeight.w700,
+                  letterSpacing: 12
               ),
             ),
+
             const SizedBox(height: 140),
 
             // Show loading indicator or button based on _isLoading
@@ -80,10 +82,10 @@ class _SplashScreenState extends State<SplashScreen> {
                 ElevatedButton(
                   onPressed: _navigateToMain,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.yellow,
+                    backgroundColor: Color(0xffb74093),
                     padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
                   ),
-                  child: const Icon(Symbols.arrow_circle_right_rounded, size: 50,)
+                  child: const Icon(Symbols.play_circle, size: 50, color: Color(0xfff4d738),)
                 ),
             ],
 
