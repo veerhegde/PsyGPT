@@ -82,10 +82,10 @@ class _SplashScreenState extends State<SplashScreen> {
                 ElevatedButton(
                   onPressed: _navigateToMain,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.yellow,
+                    backgroundColor: Color(0xffb74093),
                     padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
                   ),
-                  child: const Icon(Symbols.arrow_circle_right_rounded, size: 50,)
+                  child: const Icon(Symbols.play_circle, size: 50, color: Color(0xfff4d738),)
                 ),
             ],
 
