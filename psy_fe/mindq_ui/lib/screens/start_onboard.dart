@@ -80,7 +80,7 @@ class MascotWelcomePage extends StatelessWidget {
                               color: Color(0xffb74093), fontWeight: FontWeight.bold, fontStyle: FontStyle.italic
                           ))),
                           TextSpan(
-                            text: 'I’m your',
+                            text: 'I’ll be your ',
                           ),
                           TextSpan(
                             text: ' guide, ',
@@ -91,53 +91,50 @@ class MascotWelcomePage extends StatelessWidget {
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                           TextSpan(
+                            text: 'maybe even\nyour ',
+                          ),
+
+                          TextSpan(
                             text: 'partner-in-crime',
                             style: TextStyle(fontStyle: FontStyle.italic),
                           ),
                           TextSpan(
-                            text: '!\n Sooo, since it’s our ',
+                            text: '! Since it’s our ',
                           ),
                           TextSpan(
-                            text: 'first hangout',
+                            text: '\nfirst hangout',
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                           TextSpan(
-                            text: ', let’s\nget to know your ',
+                            text: ', let’s figure out',
                           ),
                           TextSpan(
-                            text: 'vibe',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          TextSpan(
-                            text: '—what makes you\n',
+                            text: '—what\nmakes you ',
                           ),
                           TextSpan(
                             text: 'tick',
                             style: TextStyle(fontStyle: FontStyle.italic),
                           ),
                           TextSpan(
-                            text: ', ',
+                            text: ', what ',
                           ),
                           TextSpan(
-                            text: 'groove',
+                            text: 'excites you',
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                           TextSpan(
-                            text: ', or go ',
+                            text: ' and\nwhat ',
                           ),
                           TextSpan(
-                            text: '\'meh!\'',
+                            text: 'doesn’t.\n',
                             style: TextStyle(fontStyle: FontStyle.italic),
                           ),
                           TextSpan(
-                            text: ' Sound fun? \n',
+                            text: 'Ready? ',
                           ),
                           TextSpan(
-                            text: 'Let’s do this!',
+                            text: 'Let’s dive in!',
                             style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          TextSpan(
-                            text: ' 😊🎸✨',
                           ),
                         ],
                       ),
