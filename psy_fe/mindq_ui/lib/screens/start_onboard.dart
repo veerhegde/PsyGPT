@@ -64,7 +64,7 @@ class _StartOnboardingScreenState extends State<StartOnboardingScreen> {
                             text: 'I’ll be your ',
                           ),
                           TextSpan(
-                            text: ' guide, ',
+                            text: 'guide, ',
                             style: TextStyle(fontStyle: FontStyle.italic),
                           ),
                           TextSpan(
@@ -90,7 +90,7 @@ class _StartOnboardingScreenState extends State<StartOnboardingScreen> {
                             text: ', let’s figure out',
                           ),
                           TextSpan(
-                            text: '—what\nmakes you ',
+                            text: ' what\nmakes you ',
                           ),
                           TextSpan(
                             text: 'tick',
