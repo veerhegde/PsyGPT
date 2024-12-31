@@ -41,7 +41,7 @@ class MascotWelcomePage extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 SizedBox(
-                  height: 550,
+                  height: 619,
                   child: Lottie.network(
                     "https://lottie.host/36524179-6d79-4706-ad5a-c63ccce95318/InrUUm3QS9.json",
                   ),
