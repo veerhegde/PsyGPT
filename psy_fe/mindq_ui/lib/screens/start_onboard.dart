@@ -83,7 +83,7 @@ class MascotWelcomePage extends StatelessWidget {
                             text: 'I’ll be your ',
                           ),
                           TextSpan(
-                            text: ' guide, ',
+                            text: 'guide, ',
                             style: TextStyle(fontStyle: FontStyle.italic),
                           ),
                           TextSpan(
@@ -109,7 +109,7 @@ class MascotWelcomePage extends StatelessWidget {
                             text: ', let’s figure out',
                           ),
                           TextSpan(
-                            text: '—what\nmakes you ',
+                            text: ' what\nmakes you ',
                           ),
                           TextSpan(
                             text: 'tick',
