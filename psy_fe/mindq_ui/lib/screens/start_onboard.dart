@@ -13,7 +13,7 @@ class _StartOnboardingScreenState extends State<StartOnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFD8C2FF),
+      backgroundColor: const Color(0xfff4d738),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -22,14 +22,14 @@ class _StartOnboardingScreenState extends State<StartOnboardingScreen> {
               alignment: Alignment.center,
               children: [
                 SizedBox(
-                  height: 350,
+                  height: 550,
                   child: Lottie.network(
                     "https://lottie.host/36524179-6d79-4706-ad5a-c63ccce95318/InrUUm3QS9.json",
                   ),
                 ),
 
                 Positioned(
-                  bottom: 20,
+                  bottom: 30,
                   child: Container(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 30, vertical: 15),
@@ -54,7 +54,7 @@ class _StartOnboardingScreenState extends State<StartOnboardingScreen> {
                             color: Colors.deepPurple, decoration: TextDecoration.underline
                           ))),
                         const TextSpan(
-                        text: '. \nI will be your companion in this journey! \nNow lets learn about you.',)
+                        text: '. \nI’ll be your guide, buddy, partner-in-crime!\n Sooo, since it’s our first hangout, let’s get\nto know your vibe—what makes you tick,\ngroove, or go ’meh!’ Sound fun?\n Let’s do this!',)
                         ],
                       ),
                     ),

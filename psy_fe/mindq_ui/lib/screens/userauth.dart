@@ -27,7 +27,7 @@ class _AuthScreenState extends State<AuthScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFf5f5f5),
+      backgroundColor: const Color(0xffaa30cd),
       body: SafeArea(
         child: Container(
           padding: const EdgeInsets.all(20.0),
@@ -37,7 +37,7 @@ class _AuthScreenState extends State<AuthScreen>
               width: 4,
             ),
             borderRadius: BorderRadius.circular(16),
-            color: Colors.white,
+            color: Color(0xfff4d738),
             boxShadow: const [
               BoxShadow(
                 color: Colors.black,
