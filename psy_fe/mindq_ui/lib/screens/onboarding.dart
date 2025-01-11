@@ -6,7 +6,6 @@ class OnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffb74093),
       body: Center(
         child: buildPersonalityTestWidget(
           questions: [
