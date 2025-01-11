@@ -13,7 +13,7 @@ class _StartOnboardingScreenState extends State<StartOnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFD8C2FF),
+      backgroundColor: const Color(0xfff4d738),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -22,14 +22,14 @@ class _StartOnboardingScreenState extends State<StartOnboardingScreen> {
               alignment: Alignment.center,
               children: [
                 SizedBox(
-                  height: 350,
+                  height: 550,
                   child: Lottie.network(
                     "https://lottie.host/36524179-6d79-4706-ad5a-c63ccce95318/InrUUm3QS9.json",
                   ),
                 ),
 
                 Positioned(
-                  bottom: 20,
+                  bottom: 30,
                   child: Container(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 30, vertical: 15),
@@ -47,17 +47,82 @@ class _StartOnboardingScreenState extends State<StartOnboardingScreen> {
                     child:
                     RichText(
                       text: TextSpan(
-                        text: 'Hi There! my name is ',
-                        style: GoogleFonts.roboto(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold),
-                        children: <TextSpan>[
-                          TextSpan(text: 'Phoebe', style: GoogleFonts.getFont('Poppins', textStyle: const TextStyle(
-                            color: Colors.deepPurple, decoration: TextDecoration.underline
+                        style: TextStyle(fontSize: 18.0, color: Colors.black),
+                        children: [
+                          TextSpan(
+                            text: 'Hi there! ',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text: 'my name is ',
+                          ),
+
+                          TextSpan(text: 'Phoebe\n', style: GoogleFonts.getFont('Poppins', textStyle: const TextStyle(
+                              color: Color(0xffb74093), fontWeight: FontWeight.bold, fontStyle: FontStyle.italic
                           ))),
-                        const TextSpan(
-                        text: '. \nI will be your companion in this journey! \nNow lets learn about you.',)
+                          TextSpan(
+                            text: 'I’m your',
+                          ),
+                          TextSpan(
+                            text: ' guide, ',
+                            style: TextStyle(fontStyle: FontStyle.italic),
+                          ),
+                          TextSpan(
+                            text: 'buddy, ',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text: 'partner-in-crime',
+                            style: TextStyle(fontStyle: FontStyle.italic),
+                          ),
+                          TextSpan(
+                            text: '!\n Sooo, since it’s our ',
+                          ),
+                          TextSpan(
+                            text: 'first hangout',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text: ', let’s\nget to know your ',
+                          ),
+                          TextSpan(
+                            text: 'vibe',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text: '—what makes you\n',
+                          ),
+                          TextSpan(
+                            text: 'tick',
+                            style: TextStyle(fontStyle: FontStyle.italic),
+                          ),
+                          TextSpan(
+                            text: ', ',
+                          ),
+                          TextSpan(
+                            text: 'groove',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text: ', or go ',
+                          ),
+                          TextSpan(
+                            text: '\'meh!\'',
+                            style: TextStyle(fontStyle: FontStyle.italic),
+                          ),
+                          TextSpan(
+                            text: ' Sound fun? \n',
+                          ),
+                          TextSpan(
+                            text: 'Let’s do this!',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text: ' 😊🎸✨',
+                          ),
                         ],
                       ),
-                    ),
+                    )
                   ),
                 ),
               ],
