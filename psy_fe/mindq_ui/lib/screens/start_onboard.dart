@@ -34,7 +34,7 @@ class _StartOnboardingScreenState extends State<StartOnboardingScreen> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 30, vertical: 15),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.black45,
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(color: Colors.black, width: 2),
                       boxShadow: const [
@@ -47,7 +47,7 @@ class _StartOnboardingScreenState extends State<StartOnboardingScreen> {
                     child:
                     RichText(
                       text: TextSpan(
-                        style: TextStyle(fontSize: 18.0, color: Colors.black),
+                        style: TextStyle(fontSize: 18.0, color: Colors.yellow),
                         children: [
                           TextSpan(
                             text: 'Hi there! ',
