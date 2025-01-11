@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:dotlottie_loader/dotlottie_loader.dart';
 
 class Question {
   final String text;
@@ -41,10 +42,32 @@ class PersonalityTestContent extends StatefulWidget {
   _PersonalityTestContentState createState() => _PersonalityTestContentState();
 }
 
-class _PersonalityTestContentState extends State<PersonalityTestContent> {
+class _PersonalityTestContentState extends State<PersonalityTestContent>
+    with TickerProviderStateMixin {
   final PageController _pageController = PageController();
   int _currentPage = 0;
   final Map<int, double> _answers = {};
+  final Map<int, AnimationController> _lottieControllers = {};
+
+  @override
+  void initState() {
+    super.initState();
+    _initializeAnimationControllers();
+  }
+
+  void _initializeAnimationControllers() {
+    for (int i = 0; i < widget.questions.length; i++) {
+      _lottieControllers[i] = AnimationController(vsync: this);
+    }
+  }
+
+  @override
+  void dispose() {
+    for (final controller in _lottieControllers.values) {
+      controller.dispose();
+    }
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +94,11 @@ class _PersonalityTestContentState extends State<PersonalityTestContent> {
                 controller: _pageController,
                 itemCount: widget.questions.length,
                 physics: const NeverScrollableScrollPhysics(),
+                onPageChanged: (int index) {
+                  setState(() {
+                    _currentPage = index;
+                  });
+                },
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.all(20.0),
@@ -89,24 +117,29 @@ class _PersonalityTestContentState extends State<PersonalityTestContent> {
                             ],
                           ),
                           height: 250,
-                          child: Lottie.network(
+                          child: DotLottieLoader.fromNetwork(
                             widget.questions[index].lottieAnimationUrl,
-                            errorBuilder: (context, error, stacktrace) {
-                              print("Lottie Error: $error");
-                              print("Stacktrace: $stacktrace");
-                              return Container(
-                                color: Colors.grey,
-                                child: const Center(
-                                  child: Text("Error loading animation",
-                                      style: TextStyle(color: Colors.black)),
-                                ),
-                              );
+                            frameBuilder: (ctx, dotLottie) {
+                              if (dotLottie != null) {
+                                return Lottie.memory(
+                                  dotLottie.animations.values.first,
+                                  controller: _lottieControllers[index],
+                                  onLoaded: (composition) {
+                                    _lottieControllers[index]
+                                      ?..duration = composition.duration;
+                                  },
+                                );
+                              } else {
+                                return const CircularProgressIndicator();
+                              }
+                            },
+                            errorBuilder: (ctx, e, s) {
+                              print(s);
+                              return Text(e.toString());
                             },
                           ),
                         ),
-                        const SizedBox(
-                          height: 20,
-                        ),
+                        const SizedBox(height: 20),
                         Container(
                           decoration: BoxDecoration(
                             border: Border.all(
@@ -135,7 +168,6 @@ class _PersonalityTestContentState extends State<PersonalityTestContent> {
                           ),
                         ),
                         const SizedBox(height: 40),
-
                         Container(
                           decoration: BoxDecoration(
                             border: Border.all(
@@ -163,7 +195,6 @@ class _PersonalityTestContentState extends State<PersonalityTestContent> {
                           ),
                         ),
                         const SizedBox(height: 20),
-
                         SliderTheme(
                           data: SliderTheme.of(context).copyWith(
                             activeTrackColor: const Color(0xFF77dd77),
@@ -189,14 +220,15 @@ class _PersonalityTestContentState extends State<PersonalityTestContent> {
                             min: 1,
                             max: 5,
                             divisions: 4,
-                            label: _getAnswerText(
-                                index), // Display option text as label
+                            label: _getAnswerText(index),
                             onChanged: (double value) {
                               setState(() {
                                 _answers[index] = value;
                               });
+                              _applySliderValueToAnimation(index);
                               widget.onAnswerChanged(index, value);
                             },
+                            onChangeEnd: (double value) {},
                           ),
                         ),
                       ],
@@ -205,7 +237,6 @@ class _PersonalityTestContentState extends State<PersonalityTestContent> {
                 },
               ),
             ),
-
             Container(
               padding: const EdgeInsets.all(20),
               decoration: const BoxDecoration(
@@ -214,8 +245,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent> {
                     top: BorderSide(color: Colors.black, width: 2),
                     left: BorderSide(color: Colors.black, width: 2),
                     right: BorderSide(color: Colors.black, width: 2),
-                    bottom: BorderSide(color: Colors.black, width: 2)
-                ),
+                    bottom: BorderSide(color: Colors.black, width: 2)),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black,
@@ -223,7 +253,6 @@ class _PersonalityTestContentState extends State<PersonalityTestContent> {
                   ),
                 ],
               ),
-
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -242,9 +271,6 @@ class _PersonalityTestContentState extends State<PersonalityTestContent> {
                           duration: const Duration(milliseconds: 300),
                           curve: Curves.easeIn,
                         );
-                        setState(() {
-                          _currentPage++;
-                        });
                       } else {
                         widget.onTestComplete();
                       }
@@ -283,6 +309,16 @@ class _PersonalityTestContentState extends State<PersonalityTestContent> {
         ),
       ),
     );
+  }
+
+  void _applySliderValueToAnimation(int index) {
+    double? value = _answers[index];
+    if (value != null && _lottieControllers.containsKey(index)) {
+      // Map the slider value (1-5) to animation progress (0-1)
+      double progress = (value - 1) / 4;
+      // Directly set the animation controller's value to the calculated progress
+      _lottieControllers[index]!.value = progress;
+    }
   }
 
   String _getAnswerText(int questionIndex) {

@@ -12,7 +12,7 @@ class OnboardingScreen extends StatelessWidget {
             Question(
               text: "Okay, so... do you like hanging out with people more, or are you like, 'Nah, me time, please'?.",
               options: ["Nope!", "Eh.", "Meh.", "Yep!", "Totally!"],
-              lottieAnimationUrl: "https://lottie.host/8ef36c39-7b7c-43fb-bff9-f5864f5a10d8/OxcSr390OG.json",
+              lottieAnimationUrl: "https://lottie.host/c47d9e9a-7db7-4289-8849-9f880144585c/4agQoMsOSN.lottie",
             ),
             Question(
               text: "When you're looking at something, are you more into all the tiny little details? Like, 'Ooh, look at this tiny thingymajig!' Or do you just go for the big picture?",
