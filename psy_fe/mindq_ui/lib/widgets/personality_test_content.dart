@@ -314,9 +314,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
   void _applySliderValueToAnimation(int index) {
     double? value = _answers[index];
     if (value != null && _lottieControllers.containsKey(index)) {
-      // Map the slider value (1-5) to animation progress (0-1)
       double progress = (value - 1) / 4;
-      // Directly set the animation controller's value to the calculated progress
       _lottieControllers[index]!.value = progress;
     }
   }
