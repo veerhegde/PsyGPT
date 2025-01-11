@@ -47,7 +47,7 @@ class _StartOnboardingScreenState extends State<StartOnboardingScreen> {
                     child:
                     RichText(
                       text: TextSpan(
-                        style: GoogleFonts.getFont('Cardo', textStyle: const TextStyle(fontSize: 18.0, color: Colors.yellow)),
+                        style: GoogleFonts.getFont('Cardo', textStyle: const TextStyle(fontSize: 18.0, color: Colors.white60)),
                         children: [
                           TextSpan(
                             text: 'Hi there! ',
