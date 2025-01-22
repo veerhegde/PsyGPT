@@ -33,7 +33,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                    'assets/background.jpg'), // Replace with your background image
+                    'lib/assets/login_background.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -52,10 +52,9 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                 ),
               ),
               child: Column(
-                mainAxisSize: MainAxisSize.min, // Make the column take minimum space
+                mainAxisSize: MainAxisSize.min,
                 children: [
 
-                  // Sliding Container for Login/Registration
                   AnimatedContainer(
                     duration: Duration(milliseconds: 300),
                     curve: Curves.easeInOut,
@@ -69,11 +68,9 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                   ),
                   SizedBox(height: 20),
 
-                  // Sliding Button
                   buildSlidingButton(),
                   SizedBox(height: 20),
 
-                  // Social Media Buttons
                   Text("Or continue with"),
                   SizedBox(height: 10),
                   Row(
@@ -131,11 +128,11 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
           decoration: InputDecoration(
             labelText: 'Username',
             prefixIcon: Icon(Icons.person),
-            border: OutlineInputBorder(), // Add border to all sides
-            focusedBorder: OutlineInputBorder( // Customize border when focused
+            border: OutlineInputBorder(),
+            focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black, width: 2.0),
             ),
-            enabledBorder: OutlineInputBorder( // Customize border when not focused
+            enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black, width: 1.0),
             ),
           ),
@@ -146,11 +143,11 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             labelText: 'Password',
             prefixIcon: Icon(Icons.lock),
             suffixIcon: Icon(Icons.visibility),
-            border: OutlineInputBorder(), // Add border to all sides
-            focusedBorder: OutlineInputBorder( // Customize border when focused
+            border: OutlineInputBorder(),
+            focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black, width: 2.0),
             ),
-            enabledBorder: OutlineInputBorder( // Customize border when not focused
+            enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black, width: 1.0),
             ),
           ),
@@ -205,11 +202,11 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             prefixIcon: Icon(Icons.person_outline),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10)
-            ), // Add border to all sides
-            focusedBorder: OutlineInputBorder( // Customize border when focused
+            ),
+            focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black, width: 2.0),
             ),
-            enabledBorder: OutlineInputBorder( // Customize border when not focused
+            enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black, width: 1.0),
             ),
           ),
@@ -219,11 +216,11 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
           decoration: InputDecoration(
             labelText: 'Email',
             prefixIcon: Icon(Icons.email),
-            border: OutlineInputBorder(), // Add border to all sides
-            focusedBorder: OutlineInputBorder( // Customize border when focused
+            border: OutlineInputBorder(),
+            focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black, width: 2.0),
             ),
-            enabledBorder: OutlineInputBorder( // Customize border when not focused
+            enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black, width: 1.0),
             ),
           ),
@@ -234,11 +231,11 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             labelText: 'Password',
             prefixIcon: Icon(Icons.lock),
             suffixIcon: Icon(Icons.visibility),
-            border: OutlineInputBorder(), // Add border to all sides
-            focusedBorder: OutlineInputBorder( // Customize border when focused
+            border: OutlineInputBorder(),
+            focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black, width: 2.0),
             ),
-            enabledBorder: OutlineInputBorder( // Customize border when not focused
+            enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black, width: 1.0),
             ),
           ),
@@ -250,11 +247,26 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             labelText: 'Confirm Password',
             prefixIcon: Icon(Icons.lock_outline),
             suffixIcon: Icon(Icons.visibility),
-            border: OutlineInputBorder(), // Add border to all sides
-            focusedBorder: OutlineInputBorder( // Customize border when focused
+            border: OutlineInputBorder(),
+            focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black, width: 2.0),
             ),
-            enabledBorder: OutlineInputBorder( // Customize border when not focused
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.black, width: 1.0),
+            ),
+          ),
+          obscureText: true,
+        ),
+        SizedBox(height: 20),
+        TextField(
+          decoration: InputDecoration(
+            labelText: 'Confirm Password',
+            prefixIcon: Icon(Icons.calendar_today_rounded),
+            border: OutlineInputBorder(),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.black, width: 2.0),
+            ),
+            enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black, width: 1.0),
             ),
           ),
@@ -263,7 +275,6 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
       ],
     );
   }
-  // Sliding Button Widget
   Widget buildSlidingButton() {
     return Container(
       width: 300,
@@ -345,7 +356,6 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
     );
   }
 
-  // Social Media Button
   Widget buildSocialButton(String imagePath) {
     return InkWell(
       onTap: () {
@@ -356,17 +366,17 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: Colors.white,
-          boxShadow: [ // Add the boxShadow here
+          boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.2), // Shadow color with opacity
-              blurRadius: 5.0, // Spread of the shadow
-              offset: Offset(0, 2), // Offset of the shadow (x, y)
+              color: Colors.black.withOpacity(0.2),
+              blurRadius: 5.0,
+              offset: Offset(0, 2),
             ),
           ],
           shape: BoxShape.rectangle,
           borderRadius:  BorderRadius.circular(5),
           border: Border.all(
-            color: Colors.grey.shade400, // Light grey border
+            color: Colors.grey.shade400,
             width: 0.5,
           ),
         ),

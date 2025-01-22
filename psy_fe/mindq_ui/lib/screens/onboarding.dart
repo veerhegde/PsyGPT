@@ -78,7 +78,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF371942), // Dark purple background
+      backgroundColor: Color(0xFF371942),
       body: Column(
         children: [
           Expanded(
@@ -122,7 +122,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                                     onLoaded: (composition) {
                                       _lottieControllers[index]
                                         ?..duration = composition.duration
-                                        ..value = 0.5; // Start at midpoint
+                                        ..value = 0.5;
                                     },
                                   );
                                 } else {
@@ -147,7 +147,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                         child: Column(
                           children: [
                             Container(
-                              height: 150, // Fixed height for the carousel
+                              height: 150,
                               child: PageView.builder(
                                 controller: _optionPageControllers[index],
                                 itemCount: widget.questions[index].options.length,
@@ -204,7 +204,6 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // Previous Button
                 if (_currentPage > 0)
                   ElevatedButton(
                     onPressed: () {
@@ -214,7 +213,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.grey[300], // Light grey for previous
+                      backgroundColor: Colors.grey[300],
                       padding: EdgeInsets.symmetric(
                         horizontal: 20,
                         vertical: 10,
@@ -253,7 +252,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                     }
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF771F92), // Dark purple button
+                    backgroundColor: Color(0xFF771F92),
                     padding: EdgeInsets.symmetric(
                       horizontal: 20,
                       vertical: 10,
