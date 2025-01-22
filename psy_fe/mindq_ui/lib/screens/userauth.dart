@@ -21,14 +21,14 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _LoginRegistrationScreenState extends State<AuthScreen> {
-  bool isLogin = true; // Initially set to login screen
+  bool isLogin = true;
+  int selectedGenderIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          // Background Image
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
@@ -92,8 +92,6 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
       ),
     );
   }
-
-  // Login Form
   Widget buildLoginForm() {
     return Column(
       children: [
@@ -165,7 +163,6 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
     );
   }
 
-  // Registration Form
   Widget buildRegistrationForm() {
     return Column(
       children: [
@@ -173,6 +170,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
           top: 100,
           left: 0,
           right: 0,
+
           child: Center(
             child: Column(
               children: [
@@ -260,7 +258,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
         SizedBox(height: 20),
         TextField(
           decoration: InputDecoration(
-            labelText: 'Confirm Password',
+            labelText: 'Data of Birth',
             prefixIcon: Icon(Icons.calendar_today_rounded),
             border: OutlineInputBorder(),
             focusedBorder: OutlineInputBorder(
@@ -270,8 +268,9 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
               borderSide: BorderSide(color: Colors.black, width: 1.0),
             ),
           ),
-          obscureText: true,
         ),
+        SizedBox(height: 20),
+        buildGenderSlidingButton()
       ],
     );
   }
@@ -343,6 +342,105 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                       'Register',
                       style: TextStyle(
                         color: isLogin ? Colors.white : Colors.black,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildGenderSlidingButton() {
+    return Container(
+      width: 300,
+      height: 50,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        gradient: LinearGradient(
+          colors: [
+            Color(0xFF99627A),
+            Color(0xFFF08A5D),
+          ],
+        ),
+      ),
+      child: Stack(
+        children: [
+          // Animated Slider
+          AnimatedPositioned(
+            duration: Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+            left: selectedGenderIndex * (300 / 3), // Calculate position based on index
+            top: 0,
+            bottom: 0,
+            width: 300 / 3, // Each section is 1/3 of the total width
+            child: GestureDetector(
+              onTap: () {
+                // We don't need to do anything here as the labels handle the tap
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+              ),
+            ),
+          ),
+          // Gender Labels
+          Row(
+            children: [
+              Expanded(
+                child: Center(
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedGenderIndex = 0; // Male
+                      });
+                    },
+                    child: Text(
+                      'Male',
+                      style: TextStyle(
+                        color: selectedGenderIndex == 0 ? Colors.black : Colors.white,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Center(
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedGenderIndex = 1; // Female
+                      });
+                    },
+                    child: Text(
+                      'Female',
+                      style: TextStyle(
+                        color: selectedGenderIndex == 1 ? Colors.black : Colors.white,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Center(
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedGenderIndex = 2; // Others
+                      });
+                    },
+                    child: Text(
+                      'Others',
+                      style: TextStyle(
+                        color: selectedGenderIndex == 2 ? Colors.black : Colors.white,
                         fontSize: 18,
                       ),
                     ),
