@@ -1,91 +1,115 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 
-class StartOnboardingScreen extends StatefulWidget {
-  const StartOnboardingScreen({Key? key}) : super(key: key);
-
-  @override
-  _StartOnboardingScreenState createState() => _StartOnboardingScreenState();
+void main() {
+  runApp(MyApp());
 }
 
-class _StartOnboardingScreenState extends State<StartOnboardingScreen> {
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MascotWelcomePage(),
+    );
+  }
+}
+
+class MascotWelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFD8C2FF),
-      body: Center(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFF471554), // Dark purple
+              Color(0xFFEF7822), // Orange
+            ],
+          ),
+        ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                SizedBox(
-                  height: 350,
-                  child: Lottie.network(
-                    "https://lottie.host/36524179-6d79-4706-ad5a-c63ccce95318/InrUUm3QS9.json",
-                  ),
-                ),
+            SizedBox(height: 40), // Spacing at the top
+            // Mascot Image
+            Center(
+              child: Image.asset(
+                'lib/assets/image/mascot.png', // Replace with your mascot image path
+                height: 250,
+              ),
+            ),
 
-                Positioned(
-                  bottom: 20,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 30, vertical: 15),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.black, width: 2),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Colors.black,
-                          offset: Offset(3, 3),
-                        ),
-                      ],
+            // Welcome Text
+            Container(
+              padding: EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.8), // Semi-transparent white
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
+                ),
+              ),
+              child: Column(
+                children: [
+                  Text(
+                    'Hi! I am Phoebe',
+                    style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
                     ),
-                    child:
-                    RichText(
-                      text: TextSpan(
-                        text: 'Hi There! my name is ',
-                        style: GoogleFonts.roboto(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold),
-                        children: <TextSpan>[
-                          TextSpan(text: 'Phoebe', style: GoogleFonts.getFont('Poppins', textStyle: const TextStyle(
-                            color: Colors.deepPurple, decoration: TextDecoration.underline
-                          ))),
-                        const TextSpan(
-                        text: '. \nI will be your companion in this journey! \nNow lets learn about you.',)
-                        ],
+                  ),
+                  Text(
+                    'welcome onboard!',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                    decoration: BoxDecoration(
+                      color: Color(0xFFEFD377).withOpacity(0.8), // Light yellow
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Text(
+                      "I'll be your guide, buddy, maybe even partner-in-crime! Since it's our first hangout, let's get to know your vibe—what makes you tick, groove, or go 'meh!' Sound fun?",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 16, color: Colors.black),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    'Continue to Test',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.black54,
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  // Continue Button
+                  ElevatedButton(
+                    onPressed: () {
+                      // Handle continue action
+                    },
+                    child: Text(
+                      'Lets do this',
+                      style: TextStyle(fontSize: 18, color: Colors.white),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red[400], // Red button
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 50),
-
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/onboarding');
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF77dd77),
-                padding:
-                const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                textStyle: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-                side: const BorderSide(color: Colors.black, width: 2),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                shadowColor: Colors.black,
-                elevation: 4,
-              ),
-              child: const Text(
-                "Let's get started",
-                style: TextStyle(color: Colors.black),
+                  SizedBox(height: 20), // Spacing at the bottom
+                ],
               ),
             ),
           ],

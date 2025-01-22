@@ -54,33 +54,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min, // Make the column take minimum space
                 children: [
-                  Positioned(
-                    top: 100,
-                    left: 0,
-                    right: 0,
-                    child: Center(
-                      child: Column(
-                        children: [
-                          Text(
-                            'Welcome Back!',
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                          SizedBox(height: 10),
-                          Text(
-                            'we missed you...',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+
                   // Sliding Container for Login/Registration
                   AnimatedContainer(
                     duration: Duration(milliseconds: 300),
@@ -126,6 +100,33 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
   Widget buildLoginForm() {
     return Column(
       children: [
+        Positioned(
+          top: 100,
+          left: 0,
+          right: 0,
+          child: Center(
+            child: Column(
+              children: [
+                Text(
+                  'Welcome Back!',
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  'we missed you...',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
         TextField(
           decoration: InputDecoration(
             labelText: 'Username',
@@ -171,6 +172,33 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
   Widget buildRegistrationForm() {
     return Column(
       children: [
+        Positioned(
+          top: 100,
+          left: 0,
+          right: 0,
+          child: Center(
+            child: Column(
+              children: [
+                Text(
+                  'Get Started',
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  'we missed you...',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
         TextField(
           decoration: InputDecoration(
             labelText: 'Full Name',
