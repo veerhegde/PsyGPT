@@ -48,7 +48,6 @@ class _AuthScreenState extends State<AuthScreen>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              // Tabs
               Container(
                 decoration: BoxDecoration(
                   color: const Color(0xfff4d738),
@@ -76,16 +75,11 @@ class _AuthScreenState extends State<AuthScreen>
                 ),
               ),
               const SizedBox(height: 30),
-
-              // Tab Views
               Expanded(
                 child: TabBarView(
                   controller: _tabController,
                   children: [
-                    // Login Form
                     SingleChildScrollView(child: LoginForm()),
-
-                    // Registration Form
                     SingleChildScrollView(child: RegistrationForm()),
                   ],
                 ),
@@ -98,32 +92,23 @@ class _AuthScreenState extends State<AuthScreen>
   }
 }
 
-// Login Form Widget
 class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // Email Field
         _buildTextField(label: "Email", icon: Icons.email),
         const SizedBox(height: 20),
-
-        // Password Field
         _buildTextField(label: "Password", icon: Icons.lock, obscureText: true),
         const SizedBox(height: 30),
-
-        // Login Button
         _buildButton(label: "Login", color: const Color(0xFF77dd77)),
         const SizedBox(height: 20),
-
-        // Social Logins
         _buildSocialLogins(),
       ],
     );
   }
 }
 
-// Registration Form Widget
 class RegistrationForm extends StatefulWidget {
   @override
   _RegistrationFormState createState() => _RegistrationFormState();
@@ -307,10 +292,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
       child: TextButton(
         onPressed: () {
           if (kDebugMode) {
-            // In debug mode, navigate to onboarding
             Navigator.pushNamed(context, '/startonboard');
           } else {
-            // In release mode, implement actual login/registration logic
             // TODO: Implement login/register logic
             print("Login/Register logic in release mode");
           }
