@@ -72,13 +72,12 @@ class _SplashScreenState extends State<SplashScreen> {
 
             const SizedBox(height: 140),
 
-            // Show loading indicator or button based on _isLoading
             if (_isLoading) ...[
               const CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
               ),
             ] else ...[
-              if (_showButton) // Show button only if _showButton is true
+              if (_showButton)
                 ElevatedButton(
                   onPressed: _navigateToMain,
                   style: ElevatedButton.styleFrom(

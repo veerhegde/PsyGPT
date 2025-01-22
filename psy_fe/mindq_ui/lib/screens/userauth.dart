@@ -38,7 +38,6 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
               ),
             ),
           ),
-
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -85,6 +84,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                   ),
                   SizedBox(height: 20)
                 ],
+
               ),
             ),
           ),
@@ -92,6 +92,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
       ),
     );
   }
+
   Widget buildLoginForm() {
     return Column(
       children: [

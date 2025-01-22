@@ -18,6 +18,7 @@ class MascotWelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -29,84 +30,115 @@ class MascotWelcomePage extends StatelessWidget {
             ],
           ),
         ),
+
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SizedBox(height: 40), // Spacing at the top
-            // Mascot Image
-            Center(
-              child: Image.asset(
-                'lib/assets/image/mascot.png', // Replace with your mascot image path
-                height: 250,
-              ),
-            ),
-
-            // Welcome Text
-            Container(
-              padding: EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.8), // Semi-transparent white
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                SizedBox(
+                  height: 550,
+                  child: Lottie.network(
+                    "https://lottie.host/36524179-6d79-4706-ad5a-c63ccce95318/InrUUm3QS9.json",
+                  ),
                 ),
-              ),
-              child: Column(
-                children: [
-                  Text(
-                    'Hi! I am Phoebe',
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                  Text(
-                    'welcome onboard!',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.black,
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+
+                Positioned(
+                  bottom: 30,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 15),
                     decoration: BoxDecoration(
-                      color: Color(0xFFEFD377).withOpacity(0.8), // Light yellow
-                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.black45,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.black, width: 2),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black,
+                          offset: Offset(3, 3),
+                        ),
+                      ],
                     ),
-                    child: Text(
-                      "I'll be your guide, buddy, maybe even partner-in-crime! Since it's our first hangout, let's get to know your vibe—what makes you tick, groove, or go 'meh!' Sound fun?",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 16, color: Colors.black),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Text(
-                    'Continue to Test',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.black54,
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  // Continue Button
-                  ElevatedButton(
-                    onPressed: () {
-                      // Handle continue action
-                    },
-                    child: Text(
-                      'Lets do this',
-                      style: TextStyle(fontSize: 18, color: Colors.white),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red[400], // Red button
-                      padding:
-                      EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                    child:
+                    RichText(
+                      text: TextSpan(
+                        style: GoogleFonts.getFont('Cardo', textStyle: const TextStyle(fontSize: 18.0, color: Colors.white)),
+                        children: [
+                          TextSpan(
+                            text: 'Hi there! ',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text: 'my name is ',
+                          ),
+
+                          TextSpan(text: 'Phoebe\n', style: GoogleFonts.getFont('Montserrat', textStyle: const TextStyle(
+                              color: Color(0xffb74093), fontWeight: FontWeight.bold, fontStyle: FontStyle.italic
+                          ))),
+                          TextSpan(
+                            text: 'I’m your',
+                          ),
+                          TextSpan(
+                            text: ' guide, ',
+                            style: TextStyle(fontStyle: FontStyle.italic),
+                          ),
+                          TextSpan(
+                            text: 'buddy, ',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text: 'partner-in-crime',
+                            style: TextStyle(fontStyle: FontStyle.italic),
+                          ),
+                          TextSpan(
+                            text: '!\n Sooo, since it’s our ',
+                          ),
+                          TextSpan(
+                            text: 'first hangout',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text: ', let’s\nget to know your ',
+                          ),
+                          TextSpan(
+                            text: 'vibe',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text: '—what makes you\n',
+                          ),
+                          TextSpan(
+                            text: 'tick',
+                            style: TextStyle(fontStyle: FontStyle.italic),
+                          ),
+                          TextSpan(
+                            text: ', ',
+                          ),
+                          TextSpan(
+                            text: 'groove',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text: ', or go ',
+                          ),
+                          TextSpan(
+                            text: '\'meh!\'',
+                            style: TextStyle(fontStyle: FontStyle.italic),
+                          ),
+                          TextSpan(
+                            text: ' Sound fun? \n',
+                          ),
+                          TextSpan(
+                            text: 'Let’s do this!',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text: ' 😊🎸✨',
+                          ),
+                        ],
                       ),
-                    ),
+                    )
                   ),
                   SizedBox(height: 20), // Spacing at the bottom
                 ],

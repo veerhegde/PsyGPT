@@ -72,14 +72,14 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFf5f5f5),
+      backgroundColor: const Color(0xffb74093),
       body: Container(
         decoration: BoxDecoration(
           border: Border.all(
             color: Colors.black,
             width: 4,
           ),
-          color: Colors.white,
+          color: Color(0xffb74093),
           boxShadow: const [
             BoxShadow(
               color: Colors.black,
@@ -111,7 +111,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                             border: Border.all(color: Colors.black, width: 2),
                             boxShadow: const [
                               BoxShadow(
-                                color: Colors.white,
+                                color: Color(0xFFe0e0e0),
                                 offset: Offset(3, 3),
                               ),
                             ],
@@ -180,7 +180,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                                 offset: Offset(4, 4),
                               ),
                             ],
-                            color: const Color(0xFFe0e0e0),
+                            color: const Color(0xfff4d738),
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -240,7 +240,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
             Container(
               padding: const EdgeInsets.all(20),
               decoration: const BoxDecoration(
-                color: Color(0xFFe0e0e0),
+                color: Color(0xfff4d738),
                 border: Border(
                     top: BorderSide(color: Colors.black, width: 2),
                     left: BorderSide(color: Colors.black, width: 2),
@@ -314,9 +314,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
   void _applySliderValueToAnimation(int index) {
     double? value = _answers[index];
     if (value != null && _lottieControllers.containsKey(index)) {
-      // Map the slider value (1-5) to animation progress (0-1)
       double progress = (value - 1) / 4;
-      // Directly set the animation controller's value to the calculated progress
       _lottieControllers[index]!.value = progress;
     }
   }
