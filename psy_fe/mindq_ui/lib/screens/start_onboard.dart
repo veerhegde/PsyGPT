@@ -1,22 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 
-class StartOnboardingScreen extends StatefulWidget {
-  const StartOnboardingScreen({Key? key}) : super(key: key);
-
-  @override
-  _StartOnboardingScreenState createState() => _StartOnboardingScreenState();
+void main() {
+  runApp(MyApp());
 }
 
-class _StartOnboardingScreenState extends State<StartOnboardingScreen> {
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MascotWelcomePage(),
+    );
+  }
+}
+
+class MascotWelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xfff4d738),
-      body: Center(
+
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFF471554), // Dark purple
+              Color(0xFFEF7822), // Orange
+            ],
+          ),
+        ),
+
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Stack(
               alignment: Alignment.center,
@@ -124,33 +140,8 @@ class _StartOnboardingScreenState extends State<StartOnboardingScreen> {
                       ),
                     )
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 50),
-
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/onboarding');
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF77dd77),
-                padding:
-                const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                textStyle: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-                side: const BorderSide(color: Colors.black, width: 2),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                shadowColor: Colors.black,
-                elevation: 4,
-              ),
-              child: const Text(
-                "Let's get started",
-                style: TextStyle(color: Colors.black),
+                  SizedBox(height: 20), // Spacing at the bottom
+                ],
               ),
             ),
           ],

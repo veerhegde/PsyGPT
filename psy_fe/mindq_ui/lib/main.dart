@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         '/onboarding':(context) => OnboardingScreen(),
         '/userauth':(context) => AuthScreen(),
         '/mindqtest':(context) => MindqTest(),
-        '/startonboard':(context) => StartOnboardingScreen()
+        '/startonboard':(context) => MascotWelcomePage()
       },
     );
   }
