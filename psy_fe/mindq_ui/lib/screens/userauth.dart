@@ -53,7 +53,14 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-
+                  Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                            'lib/assets/phobe-removebg-preview.png'),
+                      ),
+                    ),
+                  ),
                   AnimatedContainer(
                     duration: Duration(milliseconds: 300),
                     curve: Curves.easeInOut,
@@ -66,10 +73,8 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                     child: isLogin ? buildLoginForm() : buildRegistrationForm(),
                   ),
                   SizedBox(height: 20),
-
                   buildSlidingButton(),
                   SizedBox(height: 20),
-
                   Text("Or continue with"),
                   SizedBox(height: 10),
                   Row(
@@ -84,7 +89,20 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                   ),
                   SizedBox(height: 20)
                 ],
-
+              ),
+            ),
+          ),
+          Positioned(
+            top: 102,
+            left: 20,
+            child: Container(
+              width: 200,
+              height: 200,
+              child: Image.asset(
+                'lib/assets/phobe-removebg-preview.png',
+                fit: BoxFit.contain,
+                color: Colors.white.withOpacity(0.8),
+                colorBlendMode: BlendMode.modulate,
               ),
             ),
           ),

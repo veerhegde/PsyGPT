@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -140,9 +143,8 @@ class MascotWelcomePage extends StatelessWidget {
                       ),
                     )
                   ),
-                  SizedBox(height: 20), // Spacing at the bottom
-                ],
-              ),
+                ),
+              ],
             ),
           ],
         ),
