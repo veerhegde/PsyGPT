@@ -351,7 +351,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                       'Login',
                       style: TextStyle(
                         color: isLogin ? Colors.white : Colors.black38,
-                        fontSize: 18,
+                        fontSize: 18, fontWeight:FontWeight.bold,
                       ),
                     ),
                   ),
@@ -369,7 +369,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                       'Register',
                       style: TextStyle(
                         color: isLogin ? Colors.black38: Colors.white,
-                        fontSize: 18,
+                        fontSize: 18, fontWeight:FontWeight.bold,
                       ),
                     ),
                   ),
