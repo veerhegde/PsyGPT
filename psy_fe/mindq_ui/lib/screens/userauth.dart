@@ -144,14 +144,16 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
         SizedBox(height: 60),
         TextField(
           decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.black,
             labelText: 'Username',
             prefixIcon: Icon(Icons.person),
             border: OutlineInputBorder(),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 2.0),borderRadius: BorderRadius.circular(15)
+              borderSide: BorderSide(color: Colors.white, width: 2.0),borderRadius: BorderRadius.circular(15)
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1.0),borderRadius: BorderRadius.circular(15)
+              borderSide: BorderSide(color: Colors.white, width: 1.0),borderRadius: BorderRadius.circular(15)
             ),
           ),
         ),
@@ -381,12 +383,23 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
       height: 50,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
+
         gradient: LinearGradient(
           colors: [
             Color(0xFF99627A),
             Color(0xFFF08A5D),
           ],
         ),
+        boxShadow: [
+          const BoxShadow(
+            color: Colors.black12,
+          ),
+          const BoxShadow(
+            color: Colors.black12,
+            spreadRadius: -12.0,
+            blurRadius: 12.0,
+          ),
+        ],
       ),
       child: Stack(
         children: [
