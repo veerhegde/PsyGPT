@@ -87,7 +87,8 @@ flutter:
      - lib/assets/icons/apple.png
      - lib/assets/icons/google.png
      - lib/assets/login_background.jpg
-     - lib/assets/reg_logo.png
+     - lib/assets/phobe-removebg-preview.png
+#     - lib/assets/reg_logo.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
