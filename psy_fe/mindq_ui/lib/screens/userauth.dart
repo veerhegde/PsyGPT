@@ -93,8 +93,8 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             ),
           ),
           Positioned(
-            top: 102,
-            left: 20,
+            top: 147,
+            right: 0,
             child: Container(
               width: 200,
               height: 200,
@@ -124,33 +124,34 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                 Text(
                   'Welcome Back!',
                   style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 44,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 0),
                 Text(
                   'we missed you...',
                   style: TextStyle(
                     fontSize: 16,
-                    color: Colors.white,
+                    color: Colors.black45,
                   ),
                 ),
               ],
             ),
           ),
         ),
+        SizedBox(height: 60),
         TextField(
           decoration: InputDecoration(
             labelText: 'Username',
             prefixIcon: Icon(Icons.person),
             border: OutlineInputBorder(),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 2.0),
+              borderSide: BorderSide(color: Colors.black, width: 2.0),borderRadius: BorderRadius.circular(15)
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1.0),
+              borderSide: BorderSide(color: Colors.black, width: 1.0),borderRadius: BorderRadius.circular(15)
             ),
           ),
         ),
@@ -162,10 +163,10 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             suffixIcon: Icon(Icons.visibility),
             border: OutlineInputBorder(),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 2.0),
+              borderSide: BorderSide(color: Colors.black, width: 2.0),borderRadius: BorderRadius.circular(15)
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1.0),
+              borderSide: BorderSide(color: Colors.black, width: 1.0),borderRadius: BorderRadius.circular(15)
             ),
           ),
           obscureText: true,
@@ -218,13 +219,13 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             labelText: 'Full Name',
             prefixIcon: Icon(Icons.person_outline),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10)
+              borderRadius: BorderRadius.circular(15)
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 2.0),
+              borderSide: BorderSide(color: Colors.black, width: 2.0,),borderRadius: BorderRadius.circular(15)
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1.0),
+              borderSide: BorderSide(color: Colors.black, width: 1.0),borderRadius: BorderRadius.circular(15)
             ),
           ),
         ),
@@ -235,10 +236,10 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             prefixIcon: Icon(Icons.email),
             border: OutlineInputBorder(),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 2.0),
+              borderSide: BorderSide(color: Colors.black, width: 2.0),borderRadius: BorderRadius.circular(15)
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1.0),
+              borderSide: BorderSide(color: Colors.black, width: 1.0),borderRadius: BorderRadius.circular(15)
             ),
           ),
         ),
@@ -250,10 +251,10 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             suffixIcon: Icon(Icons.visibility),
             border: OutlineInputBorder(),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 2.0),
+              borderSide: BorderSide(color: Colors.black, width: 2.0),borderRadius: BorderRadius.circular(15)
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1.0),
+              borderSide: BorderSide(color: Colors.black, width: 1.0),borderRadius: BorderRadius.circular(15)
             ),
           ),
           obscureText: true,
@@ -266,10 +267,10 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             suffixIcon: Icon(Icons.visibility),
             border: OutlineInputBorder(),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 2.0),
+              borderSide: BorderSide(color: Colors.black, width: 2.0),borderRadius: BorderRadius.circular(15)
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1.0),
+              borderSide: BorderSide(color: Colors.black, width: 1.0),borderRadius: BorderRadius.circular(15)
             ),
           ),
           obscureText: true,
@@ -277,14 +278,14 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
         SizedBox(height: 20),
         TextField(
           decoration: InputDecoration(
-            labelText: 'Data of Birth',
+            labelText: 'Date of Birth',
             prefixIcon: Icon(Icons.calendar_today_rounded),
             border: OutlineInputBorder(),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 2.0),
+              borderSide: BorderSide(color: Colors.black, width: 2.0),borderRadius: BorderRadius.circular(15)
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1.0),
+              borderSide: BorderSide(color: Colors.black, width: 1.0),borderRadius: BorderRadius.circular(15)
             ),
           ),
         ),
