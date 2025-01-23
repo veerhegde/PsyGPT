@@ -65,10 +65,10 @@ class _SplashScreenState extends State<SplashScreen> {
             SvgPicture.asset('lib/assets/owl.svg', width: 300, height: 300,color: Color(0xffb74093)),
             Text(
               'MindQ',
-              style: GoogleFonts.poppins(
+              style: GoogleFonts.interTight(
                 textStyle: Theme.of(context).textTheme.displayLarge,
-                fontSize: 77, letterSpacing: 4.4,
-                fontWeight: FontWeight.w700,
+                fontSize: 61, letterSpacing: 2.4,
+                fontWeight: FontWeight.w900,
                 color: Colors.white,
               ),
             ),
@@ -101,7 +101,6 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
       ),
             const SizedBox(height: 140),
-
             if (_isLoading) ...[
               const CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
