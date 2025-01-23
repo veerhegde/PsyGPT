@@ -43,8 +43,22 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     print("SplashScreen build");
     return Scaffold(
-      backgroundColor: Color(0xfff4d738),
-      body: Center(
+      body: Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color(0xFF887820),
+                Color(0xFFF4D738),
+                Color(0xFFF4D738),
+                Color(0xFFFFD700),
+                Color(0xFF887820),
+              ],
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+            ),
+          ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -58,18 +72,34 @@ class _SplashScreenState extends State<SplashScreen> {
                 color: Colors.white,
               ),
             ),
-
-            Text(
-              'HOLISTIC THERAPY',
-              style: GoogleFonts.aboreto(
-                textStyle: Theme.of(context).textTheme.displayLarge,
-                fontSize: 16,
-                  color: Colors.black38,
-                fontWeight: FontWeight.w700,
-                  letterSpacing: 12
-              ),
-            ),
-
+       Container(
+      margin: const EdgeInsets.symmetric(horizontal: 44), // 20-pixel margins on either side
+      padding: const EdgeInsets.all(5), // 20-pixel padding within the banner
+      decoration: BoxDecoration(
+      gradient: LinearGradient(
+      colors: [
+          Color(0XFFFEE24D),
+        Color(0XFFFFF25B),
+        Color(0XFFFEE24D),
+      ],
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      ),
+      borderRadius: BorderRadius.circular(9), // Rounded corners
+      ),
+      child: Center(
+      child: Text(
+      'HOLISTIC THERAPY', // Banner text
+      textAlign: TextAlign.center, // Center-align the text
+      style: GoogleFonts.aboreto(
+      fontSize: 16, // Font size
+          fontWeight: FontWeight.w700,
+          letterSpacing: 8, // Bold text
+      color: Color(0XFFC9832B), // Grey text color
+      ),
+      ),
+      ),
+      ),
             const SizedBox(height: 140),
 
             if (_isLoading) ...[
