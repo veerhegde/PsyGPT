@@ -186,7 +186,6 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
       ],
     );
   }
-
   Widget buildRegistrationForm() {
     return Column(
       children: [

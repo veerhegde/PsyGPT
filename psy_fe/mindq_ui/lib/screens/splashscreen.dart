@@ -53,8 +53,8 @@ class _SplashScreenState extends State<SplashScreen> {
               'MindQ',
               style: GoogleFonts.poppins(
                 textStyle: Theme.of(context).textTheme.displayLarge,
-                fontSize: 90,
-                fontWeight: FontWeight.bold,
+                fontSize: 77, letterSpacing: 4.4,
+                fontWeight: FontWeight.w700,
                 color: Colors.white,
               ),
             ),
@@ -82,9 +82,9 @@ class _SplashScreenState extends State<SplashScreen> {
                   onPressed: _navigateToMain,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xffb74093),
-                    padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   ),
-                  child: const Icon(Symbols.play_circle, size: 50, color: Color(0xfff4d738),)
+                  child: const Icon(Symbols.play_arrow, size: 44, color: Color(0xfff4d738),)
                 ),
             ],
 
