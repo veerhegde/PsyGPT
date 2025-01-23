@@ -326,8 +326,13 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.white,
                   borderRadius: BorderRadius.circular(15),
+                  gradient: LinearGradient(
+                    colors: [
+                      Color(0xFF9C3FE4),
+                      Color(0xFFC65647),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -345,7 +350,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                     child: Text(
                       'Login',
                       style: TextStyle(
-                        color: isLogin ? Colors.black : Colors.white,
+                        color: isLogin ? Colors.white : Colors.black38,
                         fontSize: 18,
                       ),
                     ),
@@ -363,7 +368,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                     child: Text(
                       'Register',
                       style: TextStyle(
-                        color: isLogin ? Colors.white : Colors.black,
+                        color: isLogin ? Colors.black38: Colors.white,
                         fontSize: 18,
                       ),
                     ),
@@ -382,14 +387,6 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
       width: 300,
       height: 50,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-
-        gradient: LinearGradient(
-          colors: [
-            Color(0xFF99627A),
-            Color(0xFFF08A5D),
-          ],
-        ),
         boxShadow: [
           const BoxShadow(
             color: Colors.black12,
@@ -400,6 +397,14 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             blurRadius: 12.0,
           ),
         ],
+        borderRadius: BorderRadius.circular(15),
+
+        gradient: LinearGradient(
+          colors: [
+            Color(0xFF99627A),
+            Color(0xFFF08A5D),
+          ],
+        ),
       ),
       child: Stack(
         children: [
