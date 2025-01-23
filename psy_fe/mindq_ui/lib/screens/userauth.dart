@@ -33,8 +33,8 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                    'lib/assets/login_background.jpg'),
-                fit: BoxFit.cover,
+                    'lib/assets/mindq_right_bg.jpg'),
+                fit: BoxFit.fill,
               ),
             ),
           ),
@@ -93,8 +93,8 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             ),
           ),
           Positioned(
-            top: 147,
-            right: 0,
+            top: 33,
+            right: -4.4,
             child: Container(
               width: 200,
               height: 200,
@@ -182,6 +182,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             child: Text('Forgot Password?'),
           ),
         ),
+        SizedBox(height: 113),
       ],
     );
   }
