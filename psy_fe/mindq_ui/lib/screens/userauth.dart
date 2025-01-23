@@ -129,7 +129,6 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(height: 0),
                 Text(
                   'we missed you...',
                   style: TextStyle(
@@ -160,6 +159,8 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
         SizedBox(height: 20),
         TextField(
           decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.black,
             labelText: 'Password',
             prefixIcon: Icon(Icons.lock),
             suffixIcon: Icon(Icons.visibility),
