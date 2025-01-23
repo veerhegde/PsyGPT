@@ -108,14 +108,36 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ] else ...[
               if (_showButton)
-                ElevatedButton(
-                  onPressed: _navigateToMain,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xffb74093),
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0xffffffff).withOpacity(.6),
+                        blurRadius: 20,
+                        spreadRadius: 5,
+                        offset: Offset(0, 0),
+                      ),
+                    ],
                   ),
-                  child: const Icon(Symbols.play_arrow, size: 44, color: Color(0xfff4d738),)
-                ),
+                  child: ElevatedButton(
+                    onPressed: _navigateToMain,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xffb74093),
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(44),
+                      ),
+                      shadowColor: Color(0xffc10bff).withOpacity(1),
+                      elevation: 8,
+                    ),
+                    child: const Icon(
+                      Symbols.play_arrow,
+                      size: 44,
+                      color: Color(0xfff4d738), // Icon color
+                    ),
+                  ),
+                )
+
             ],
 
             const SizedBox(height: 20),
