@@ -63,23 +63,27 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SvgPicture.asset('lib/assets/owl.svg', width: 300, height: 300,color: Color(0xffb74093)),
+            const SizedBox(height: 10),
             Text(
               'MindQ',
               style: GoogleFonts.interTight(
                 textStyle: Theme.of(context).textTheme.displayLarge,
-                fontSize: 61, letterSpacing: 2.4,
+                fontSize: 69, letterSpacing: 3.3,
                 fontWeight: FontWeight.w900,
                 color: Colors.white,
               ),
             ),
+            const SizedBox(height: 9),
        Container(
       margin: const EdgeInsets.symmetric(horizontal: 44), // 20-pixel margins on either side
       padding: const EdgeInsets.all(5), // 20-pixel padding within the banner
       decoration: BoxDecoration(
       gradient: LinearGradient(
       colors: [
-          Color(0XFFFEE24D),
+        Color(0XFFFEE24D),
+        Color(0XFFF5DA41),
         Color(0XFFFFF25B),
+        Color(0XFFF5DA41),
         Color(0XFFFEE24D),
       ],
       begin: Alignment.topLeft,
@@ -87,6 +91,7 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
       borderRadius: BorderRadius.circular(9), // Rounded corners
       ),
+
       child: Center(
       child: Text(
       'HOLISTIC THERAPY', // Banner text
@@ -94,8 +99,8 @@ class _SplashScreenState extends State<SplashScreen> {
       style: GoogleFonts.aboreto(
       fontSize: 16, // Font size
           fontWeight: FontWeight.w700,
-          letterSpacing: 8, // Bold text
-      color: Color(0XFFC9832B), // Grey text color
+          letterSpacing: 9, // Bold text
+      color: Color(0XFFC9832B),
       ),
       ),
       ),
