@@ -63,7 +63,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset('lib/assets/mq3.svg', width: 200, height: 400),
+            SvgPicture.asset('lib/assets/mindq2.svg', width: 200, height: 400),
             const SizedBox(height: 9),
        Container(
       margin: const EdgeInsets.symmetric(horizontal: 44), // 20-pixel margins on either side
