@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../constants/styles/color_const.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -90,7 +91,7 @@ class _SplashScreenState extends State<SplashScreen> {
       fontSize: 16, // Font size
           fontWeight: FontWeight.w700,
           letterSpacing: 9, // Bold text
-      color: Color(0XFFC9832B),
+      color: ThemeColor.splashScreenText,
       ),
       ),
       ),
@@ -106,7 +107,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
-                        color: Color(0xffffffff).withOpacity(.6),
+                        color: ThemeColor.appBoxShadow.withOpacity(.6),
                         blurRadius: 20,
                         spreadRadius: 5,
                         offset: Offset(0, 0),
@@ -116,18 +117,18 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: ElevatedButton(
                     onPressed: _navigateToMain,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xffb74093),
+                      backgroundColor: ThemeColor.appPrimaryBackground,
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(44),
                       ),
-                      shadowColor: Color(0xffc10bff).withOpacity(1),
+                      shadowColor: ThemeColor.appBoxShadow.withOpacity(1),
                       elevation: 8,
                     ),
-                    child: const Icon(
+                    child: Icon(
                       Symbols.play_arrow,
                       size: 44,
-                      color: Color(0xfff4d738), // Icon color
+                      color: ThemeColor.appPrimaryColor, // Icon color
                     ),
                   ),
                 )

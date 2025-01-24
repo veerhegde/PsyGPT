@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mindq_ui/constants/string_const.dart';
+import 'package:mindq_ui/constants/styles/color_const.dart';
+import 'package:mindq_ui/widgets/TextBox.dart';
 
 void main() {
   runApp(MyApp());
@@ -263,21 +266,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
           obscureText: true,
         ),
         SizedBox(height: 20),
-        TextField(
-          decoration: InputDecoration(
-            labelText: 'Confirm Password',
-            prefixIcon: Icon(Icons.lock_outline),
-            suffixIcon: Icon(Icons.visibility),
-            border: OutlineInputBorder(),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 2.0),borderRadius: BorderRadius.circular(15)
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1.0),borderRadius: BorderRadius.circular(15)
-            ),
-          ),
-          obscureText: true,
-        ),
+        CustomTextbox(labelText: FormTableText.ConfirmPasswordLabel, prefixIcon: Icon(Icons.lock, color: ThemeColor.FormIconShade), fillColor: ThemeColor.filledColorBlack),
         SizedBox(height: 20),
         TextField(
           decoration: InputDecoration(
