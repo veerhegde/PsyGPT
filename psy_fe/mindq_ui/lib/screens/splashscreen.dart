@@ -43,49 +43,95 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     print("SplashScreen build");
     return Scaffold(
-      backgroundColor: Color(0xfff4d738),
-      body: Center(
+      body: Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color(0xFF887820),
+                Color(0xFFF4D738),
+                Color(0xFFF4D738),
+                Color(0xFFFFD700),
+                Color(0xFF887820),
+              ],
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+            ),
+          ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset('lib/assets/owl.svg', width: 300, height: 300,color: Color(0xffb74093)),
-            Text(
-              'MindQ',
-              style: GoogleFonts.poppins(
-                textStyle: Theme.of(context).textTheme.displayLarge,
-                fontSize: 90,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
+            SvgPicture.asset('lib/assets/mq3.svg', width: 200, height: 400),
+            const SizedBox(height: 9),
+       Container(
+      margin: const EdgeInsets.symmetric(horizontal: 44), // 20-pixel margins on either side
+      padding: const EdgeInsets.all(5), // 20-pixel padding within the banner
+      decoration: BoxDecoration(
+      gradient: LinearGradient(
+      colors: [
+        Color(0XFFFEE24D),
+        Color(0XFFF5DA41),
+        Color(0XFFFFF25B),
+        Color(0XFFF5DA41),
+        Color(0XFFFEE24D),
+      ],
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      ),
+      borderRadius: BorderRadius.circular(9), // Rounded corners
+      ),
 
-            Text(
-              'HOLISTIC THERAPY',
-              style: GoogleFonts.aboreto(
-                textStyle: Theme.of(context).textTheme.displayLarge,
-                fontSize: 16,
-                  color: Colors.black38,
-                fontWeight: FontWeight.w700,
-                  letterSpacing: 12
-              ),
-            ),
-
+      child: Center(
+      child: Text(
+      'HOLISTIC THERAPY', // Banner text
+      textAlign: TextAlign.center, // Center-align the text
+      style: GoogleFonts.aboreto(
+      fontSize: 16, // Font size
+          fontWeight: FontWeight.w700,
+          letterSpacing: 9, // Bold text
+      color: Color(0XFFC9832B),
+      ),
+      ),
+      ),
+      ),
             const SizedBox(height: 140),
-
             if (_isLoading) ...[
               const CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
               ),
             ] else ...[
               if (_showButton)
-                ElevatedButton(
-                  onPressed: _navigateToMain,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xffb74093),
-                    padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0xffffffff).withOpacity(.6),
+                        blurRadius: 20,
+                        spreadRadius: 5,
+                        offset: Offset(0, 0),
+                      ),
+                    ],
                   ),
-                  child: const Icon(Symbols.play_circle, size: 50, color: Color(0xfff4d738),)
-                ),
+                  child: ElevatedButton(
+                    onPressed: _navigateToMain,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xffb74093),
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(44),
+                      ),
+                      shadowColor: Color(0xffc10bff).withOpacity(1),
+                      elevation: 8,
+                    ),
+                    child: const Icon(
+                      Symbols.play_arrow,
+                      size: 44,
+                      color: Color(0xfff4d738), // Icon color
+                    ),
+                  ),
+                )
+
             ],
 
             const SizedBox(height: 20),

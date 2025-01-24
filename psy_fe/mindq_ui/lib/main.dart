@@ -5,6 +5,7 @@ import 'package:mindq_ui/screens/userauth.dart';
 import 'screens/splashscreen.dart';
 import 'package:mindq_ui/screens/homescreen.dart';
 import 'package:mindq_ui/screens/onboarding.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,6 +19,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'MindQ',
       theme: ThemeData(
+        textTheme: GoogleFonts.montserratTextTheme(
+          Theme.of(context).textTheme,
+         ),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         useMaterial3: true,
       ),

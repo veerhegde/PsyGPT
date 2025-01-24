@@ -33,8 +33,8 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                    'lib/assets/login_background.jpg'),
-                fit: BoxFit.cover,
+                    'lib/assets/mindq_right_bg.jpg'),
+                fit: BoxFit.fill,
               ),
             ),
           ),
@@ -93,8 +93,8 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             ),
           ),
           Positioned(
-            top: 102,
-            left: 20,
+            top: 33,
+            right: -4.4,
             child: Container(
               width: 200,
               height: 200,
@@ -124,48 +124,52 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                 Text(
                   'Welcome Back!',
                   style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 44,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(height: 10),
                 Text(
                   'we missed you...',
                   style: TextStyle(
                     fontSize: 16,
-                    color: Colors.white,
+                    color: Colors.black45,
                   ),
                 ),
               ],
             ),
           ),
         ),
+        SizedBox(height: 60),
         TextField(
           decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.black,
             labelText: 'Username',
             prefixIcon: Icon(Icons.person),
             border: OutlineInputBorder(),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 2.0),
+              borderSide: BorderSide(color: Colors.white, width: 2.0),borderRadius: BorderRadius.circular(15)
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1.0),
+              borderSide: BorderSide(color: Colors.white, width: 1.0),borderRadius: BorderRadius.circular(15)
             ),
           ),
         ),
         SizedBox(height: 20),
         TextField(
           decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.black,
             labelText: 'Password',
             prefixIcon: Icon(Icons.lock),
             suffixIcon: Icon(Icons.visibility),
             border: OutlineInputBorder(),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 2.0),
+              borderSide: BorderSide(color: Colors.black, width: 2.0),borderRadius: BorderRadius.circular(15)
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1.0),
+              borderSide: BorderSide(color: Colors.black, width: 1.0),borderRadius: BorderRadius.circular(15)
             ),
           ),
           obscureText: true,
@@ -178,10 +182,10 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             child: Text('Forgot Password?'),
           ),
         ),
+        SizedBox(height: 113),
       ],
     );
   }
-
   Widget buildRegistrationForm() {
     return Column(
       children: [
@@ -218,13 +222,13 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             labelText: 'Full Name',
             prefixIcon: Icon(Icons.person_outline),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10)
+              borderRadius: BorderRadius.circular(15)
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 2.0),
+              borderSide: BorderSide(color: Colors.black, width: 2.0,),borderRadius: BorderRadius.circular(15)
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1.0),
+              borderSide: BorderSide(color: Colors.black, width: 1.0),borderRadius: BorderRadius.circular(15)
             ),
           ),
         ),
@@ -235,10 +239,10 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             prefixIcon: Icon(Icons.email),
             border: OutlineInputBorder(),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 2.0),
+              borderSide: BorderSide(color: Colors.black, width: 2.0),borderRadius: BorderRadius.circular(15)
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1.0),
+              borderSide: BorderSide(color: Colors.black, width: 1.0),borderRadius: BorderRadius.circular(15)
             ),
           ),
         ),
@@ -250,10 +254,10 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             suffixIcon: Icon(Icons.visibility),
             border: OutlineInputBorder(),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 2.0),
+              borderSide: BorderSide(color: Colors.black, width: 2.0),borderRadius: BorderRadius.circular(15)
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1.0),
+              borderSide: BorderSide(color: Colors.black, width: 1.0),borderRadius: BorderRadius.circular(15)
             ),
           ),
           obscureText: true,
@@ -266,10 +270,10 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             suffixIcon: Icon(Icons.visibility),
             border: OutlineInputBorder(),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 2.0),
+              borderSide: BorderSide(color: Colors.black, width: 2.0),borderRadius: BorderRadius.circular(15)
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1.0),
+              borderSide: BorderSide(color: Colors.black, width: 1.0),borderRadius: BorderRadius.circular(15)
             ),
           ),
           obscureText: true,
@@ -277,14 +281,14 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
         SizedBox(height: 20),
         TextField(
           decoration: InputDecoration(
-            labelText: 'Data of Birth',
+            labelText: 'Date of Birth',
             prefixIcon: Icon(Icons.calendar_today_rounded),
             border: OutlineInputBorder(),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 2.0),
+              borderSide: BorderSide(color: Colors.black, width: 2.0),borderRadius: BorderRadius.circular(15)
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1.0),
+              borderSide: BorderSide(color: Colors.black, width: 1.0),borderRadius: BorderRadius.circular(15)
             ),
           ),
         ),
@@ -323,8 +327,13 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.white,
                   borderRadius: BorderRadius.circular(15),
+                  gradient: LinearGradient(
+                    colors: [
+                      Color(0xFF9C3FE4),
+                      Color(0xFFC65647),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -342,8 +351,8 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                     child: Text(
                       'Login',
                       style: TextStyle(
-                        color: isLogin ? Colors.black : Colors.white,
-                        fontSize: 18,
+                        color: isLogin ? Colors.white : Colors.black38,
+                        fontSize: 18, fontWeight:FontWeight.bold,
                       ),
                     ),
                   ),
@@ -360,8 +369,8 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                     child: Text(
                       'Register',
                       style: TextStyle(
-                        color: isLogin ? Colors.white : Colors.black,
-                        fontSize: 18,
+                        color: isLogin ? Colors.black38: Colors.white,
+                        fontSize: 18, fontWeight:FontWeight.bold,
                       ),
                     ),
                   ),
@@ -379,7 +388,18 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
       width: 300,
       height: 50,
       decoration: BoxDecoration(
+        boxShadow: [
+          const BoxShadow(
+            color: Colors.black12,
+          ),
+          const BoxShadow(
+            color: Colors.black12,
+            spreadRadius: -12.0,
+            blurRadius: 12.0,
+          ),
+        ],
         borderRadius: BorderRadius.circular(15),
+
         gradient: LinearGradient(
           colors: [
             Color(0xFF99627A),
