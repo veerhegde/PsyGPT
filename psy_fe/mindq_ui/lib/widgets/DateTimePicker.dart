@@ -11,7 +11,6 @@ class _DateAndTimePickerState extends State<DateAndTimePicker> {
   DateTime _selectedDate = DateTime.now();
   TimeOfDay _selectedTime = TimeOfDay.now();
 
-  // Function to show the date picker in a BottomSheet
   Future<void> _showDatePicker(BuildContext context) async {
     final DateTime? pickedDate = await showDatePicker(
       context: context,
@@ -41,7 +40,6 @@ class _DateAndTimePickerState extends State<DateAndTimePicker> {
     }
   }
 
-  // Update the text field with the selected date and time
   void _updateDateTimeText() {
     _dateTimeController.text =
         DateFormat('dd-MMM-yyyy').format(_selectedDate) +
@@ -49,13 +47,12 @@ class _DateAndTimePickerState extends State<DateAndTimePicker> {
             _selectedTime.format(context);
   }
 
-  // Show a modal BottomSheet with the date and time pickers
   void _showDateTimePicker(BuildContext context) {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext builder) {
         return Container(
-          height: 300, // Adjust height as needed
+          height: 300,
           child: Column(
             children: [
               ElevatedButton(
@@ -72,7 +69,7 @@ class _DateAndTimePickerState extends State<DateAndTimePicker> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pop(context); // Close the BottomSheet
+                  Navigator.pop(context);
                 },
                 child: Text("Done"),
               ),
@@ -99,7 +96,7 @@ class _DateAndTimePickerState extends State<DateAndTimePicker> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        _showDateTimePicker(context); // Show BottomSheet on tap
+        _showDateTimePicker(context);
       },
       child: IgnorePointer(
         child: TextField(
