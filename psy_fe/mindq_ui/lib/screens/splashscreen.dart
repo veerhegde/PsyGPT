@@ -62,17 +62,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset('lib/assets/owl.svg', width: 300, height: 300,color: Color(0xffb74093)),
-            const SizedBox(height: 10),
-            Text(
-              'MindQ',
-              style: GoogleFonts.interTight(
-                textStyle: Theme.of(context).textTheme.displayLarge,
-                fontSize: 69, letterSpacing: 3.3,
-                fontWeight: FontWeight.w900,
-                color: Colors.white,
-              ),
-            ),
+            SvgPicture.asset('lib/assets/mq3.svg', width: 200, height: 400),
             const SizedBox(height: 9),
        Container(
       margin: const EdgeInsets.symmetric(horizontal: 44), // 20-pixel margins on either side
