@@ -144,40 +144,9 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
           ),
         ),
         SizedBox(height: 60),
-        TextField(
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: Colors.black,
-            labelText: 'Username',
-            prefixIcon: Icon(Icons.person),
-            border: OutlineInputBorder(),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white, width: 2.0),borderRadius: BorderRadius.circular(15)
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white, width: 1.0),borderRadius: BorderRadius.circular(15)
-            ),
-          ),
-        ),
+        CustomTextbox(labelText: FormTableText.UsernameLabel, prefixIcon: Icon(Icons.person_2_outlined, color: ThemeColor.FormIconShade), fillColor: ThemeColor.fieldbg),
         SizedBox(height: 20),
-        TextField(
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: Colors.black,
-            labelText: 'Password',
-            prefixIcon: Icon(Icons.lock),
-            suffixIcon: Icon(Icons.visibility),
-            border: OutlineInputBorder(),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 2.0),borderRadius: BorderRadius.circular(15)
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1.0),borderRadius: BorderRadius.circular(15)
-            ),
-          ),
-          obscureText: true,
-        ),
-        SizedBox(height: 10),
+        CustomTextbox(labelText: FormTableText.PasswordLabel, prefixIcon: Icon(Icons.key_outlined, color: ThemeColor.FormIconShade), suffixIcon: Icon(Icons.visibility, color: ThemeColor.FormIconShade), fillColor: ThemeColor.fieldbg),
         Align(
           alignment: Alignment.centerRight,
           child: TextButton(
@@ -185,7 +154,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             child: Text('Forgot Password?'),
           ),
         ),
-        SizedBox(height: 113),
+        SizedBox(height: 123),
       ],
     );
   }
@@ -203,14 +172,14 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                 Text(
                   'Get Started',
                   style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 28  ,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(height: 10),
+
                 Text(
-                  'we missed you...',
+                  'Holistic healing',
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.white,
@@ -220,67 +189,16 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             ),
           ),
         ),
-        TextField(
-          decoration: InputDecoration(
-            labelText: 'Full Name',
-            prefixIcon: Icon(Icons.person_outline),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15)
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 2.0,),borderRadius: BorderRadius.circular(15)
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1.0),borderRadius: BorderRadius.circular(15)
-            ),
-          ),
-        ),
         SizedBox(height: 20),
-        TextField(
-          decoration: InputDecoration(
-            labelText: 'Email',
-            prefixIcon: Icon(Icons.email),
-            border: OutlineInputBorder(),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 2.0),borderRadius: BorderRadius.circular(15)
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1.0),borderRadius: BorderRadius.circular(15)
-            ),
-          ),
-        ),
+        CustomTextbox(labelText: FormTableText.UsernameLabel, prefixIcon: Icon(Icons.person_2_outlined, color: ThemeColor.FormIconShade), fillColor: ThemeColor.fieldbg),
         SizedBox(height: 20),
-        TextField(
-          decoration: InputDecoration(
-            labelText: 'Password',
-            prefixIcon: Icon(Icons.lock),
-            suffixIcon: Icon(Icons.visibility),
-            border: OutlineInputBorder(),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 2.0),borderRadius: BorderRadius.circular(15)
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1.0),borderRadius: BorderRadius.circular(15)
-            ),
-          ),
-          obscureText: true,
-        ),
+        CustomTextbox(labelText: FormTableText.EmailLabel, prefixIcon: Icon(Icons.email_outlined, color: ThemeColor.FormIconShade), fillColor: ThemeColor.fieldbg),
         SizedBox(height: 20),
-        CustomTextbox(labelText: FormTableText.ConfirmPasswordLabel, prefixIcon: Icon(Icons.lock, color: ThemeColor.FormIconShade), fillColor: ThemeColor.filledColorBlack),
+        CustomTextbox(labelText: FormTableText.PasswordLabel, prefixIcon: Icon(Icons.key_outlined, color: ThemeColor.FormIconShade), suffixIcon: Icon(Icons.visibility, color: ThemeColor.FormIconShade), fillColor: ThemeColor.fieldbg),
         SizedBox(height: 20),
-        TextField(
-          decoration: InputDecoration(
-            labelText: 'Date of Birth',
-            prefixIcon: Icon(Icons.calendar_today_rounded),
-            border: OutlineInputBorder(),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 2.0),borderRadius: BorderRadius.circular(15)
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1.0),borderRadius: BorderRadius.circular(15)
-            ),
-          ),
-        ),
+        CustomTextbox(labelText: FormTableText.ConfirmPasswordLabel, prefixIcon: Icon(Icons.key_outlined, color: ThemeColor.FormIconShade), fillColor: ThemeColor.fieldbg),
+        SizedBox(height: 20),
+        CustomTextbox(labelText: FormTableText.DOBLabel, prefixIcon: Icon(Icons.calendar_month_outlined, color: ThemeColor.FormIconShade), fillColor: ThemeColor.fieldbg),
         SizedBox(height: 20),
         buildGenderSlidingButton()
       ],
@@ -508,7 +426,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
         ),
         child: Image.asset(
           imagePath,
-          width: 10,
+          width: 30,
           height: 10,
         ),
       ),

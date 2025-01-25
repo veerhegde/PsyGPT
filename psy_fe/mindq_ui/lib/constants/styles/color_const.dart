@@ -7,7 +7,8 @@ class ThemeColor {
   static Color appPrimaryShadow = Color(0xffc10bff);
   static Color appBoxShadow = Color(0xffffffff);
   static Color filledColorBlack = Colors.black;
-  static Color FormIconShade = Colors.white24;
+  static Color fieldbg = Color(0xff231F0B);
+  static Color FormIconShade = Color(0xffA4A4A4);
 }
 
 class ThemeGradient {
