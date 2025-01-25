@@ -172,17 +172,17 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                 Text(
                   'Get Started',
                   style: TextStyle(
-                    fontSize: 28  ,
+                    fontSize: 40.33  ,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
                 ),
 
                 Text(
-                  'Holistic healing',
+                  'Holistic Healing',
                   style: TextStyle(
                     fontSize: 16,
-                    color: Colors.white,
+                    color: Colors.black12,
                   ),
                 ),
               ],
