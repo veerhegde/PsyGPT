@@ -179,7 +179,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                 ),
 
                 Text(
-                  'Holistic Healing',
+                  'Healing Holistically',
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.black12,
