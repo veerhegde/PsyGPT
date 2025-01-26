@@ -3,6 +3,8 @@ import 'package:mindq_ui/constants/string_const.dart';
 import 'package:mindq_ui/constants/styles/color_const.dart';
 import 'package:mindq_ui/widgets/TextBox.dart';
 
+import '../widgets/DateTimePicker.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -249,11 +251,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             fillColor: ThemeColor.fieldbg,
             constraints: constraints),
         SizedBox(height: constraints.maxHeight * 0.02),
-        CustomTextbox(
-            labelText: FormTableText.DOBLabel,
-            prefixIcon: Icons.calendar_month_outlined,
-            fillColor: ThemeColor.fieldbg,
-            constraints: constraints),
+        DateAndTimePicker(),
         SizedBox(height: constraints.maxHeight * 0.02),
         buildGenderSlidingButton(constraints),
       ],

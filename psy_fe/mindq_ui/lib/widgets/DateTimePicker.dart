@@ -46,35 +46,43 @@ class _DateAndTimePickerState extends State<DateAndTimePicker> {
             ' ' +
             _selectedTime.format(context);
   }
-
   void _showDateTimePicker(BuildContext context) {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext builder) {
-        return Container(
-          height: 300,
-          child: Column(
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  _showDatePicker(context);
-                },
-                child: Text("Select Date"),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  _showTimePicker(context);
-                },
-                child: Text("Select Time"),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text("Done"),
-              ),
-            ],
-          ),
+        return Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Wrap(
+              alignment: WrapAlignment.center,
+              runAlignment: WrapAlignment.center,
+              children: [
+                Column(
+                  mainAxisSize: MainAxisSize.min, // Make the column take up minimum space
+                  mainAxisAlignment: MainAxisAlignment.center, // Center vertically
+                  crossAxisAlignment: CrossAxisAlignment.center, // Center horizontally
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        _showDatePicker(context);
+                      },
+                      child: Text("Select Date"),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        _showTimePicker(context);
+                      },
+                      child: Text("Select Time"),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context); // Close the BottomSheet
+                      },
+                      child: Text("Done"),
+                    ),
+                  ],
+                )
+              ],
+            )
         );
       },
     );
@@ -83,7 +91,13 @@ class _DateAndTimePickerState extends State<DateAndTimePicker> {
   @override
   void initState() {
     super.initState();
-    _updateDateTimeText();
+    // Don't call _updateDateTimeText here
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _updateDateTimeText(); // Call it here instead
   }
 
   @override
