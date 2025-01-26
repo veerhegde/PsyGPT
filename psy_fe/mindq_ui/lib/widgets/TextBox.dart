@@ -5,8 +5,10 @@ class CustomTextbox extends StatelessWidget {
   final String labelText;
   final Color borderColor;
   final bool obscureText;
-  final Icon? prefixIcon;
-  final Icon? suffixIcon;
+  final IconData? prefixIcon;
+  final IconData? suffixIcon;
+  final BoxConstraints? constraints;
+  final Color textColor;
 
   const CustomTextbox({
     Key? key,
@@ -16,34 +18,40 @@ class CustomTextbox extends StatelessWidget {
     this.obscureText = false,
     this.prefixIcon,
     this.suffixIcon,
+    this.constraints,
+    this.textColor = Colors.grey,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      decoration: InputDecoration(
-        filled: true,
-        fillColor: fillColor,
-        labelText: labelText,
-        prefixIcon: prefixIcon != null
-            ? prefixIcon
-            : null,
-        suffixIcon: suffixIcon != null
-            ? suffixIcon
-            : null,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
+    return ConstrainedBox(
+      constraints: constraints ?? BoxConstraints(),
+      child: TextField(
+        style: TextStyle(color: textColor),
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: fillColor,
+          labelText: labelText,
+          prefixIcon: prefixIcon != null
+              ? Icon(prefixIcon, color: borderColor)
+              : null,
+          suffixIcon: suffixIcon != null
+              ? Icon(suffixIcon, color: borderColor)
+              : null,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: borderColor, width: 2.0),
+            borderRadius: BorderRadius.circular(15),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: borderColor, width: 1.0),
+            borderRadius: BorderRadius.circular(15),
+          ),
         ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: borderColor, width: 2.0),
-          borderRadius: BorderRadius.circular(15),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: borderColor, width: 1.0),
-          borderRadius: BorderRadius.circular(15),
-        ),
+        obscureText: obscureText,
       ),
-      obscureText: obscureText,
     );
   }
 }

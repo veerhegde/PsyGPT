@@ -35,78 +35,102 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(
-                    'lib/assets/mindq_right_bg.jpg'),
+                image: AssetImage('lib/assets/mindq_right_bg.jpg'),
                 fit: BoxFit.fill,
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              width: double.infinity,
-              padding: EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                gradient: ThemeGradient.LoginGradient,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
-                ),
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                            'lib/assets/phobe-removebg-preview.png'),
+          SafeArea(
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                return SingleChildScrollView(
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: constraints.maxHeight,
+                    ),
+                    child: IntrinsicHeight(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          if (isLogin)
+                          Align(
+                            alignment: Alignment.topRight,
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                top: constraints.maxHeight * 0.05,
+                                right: constraints.maxWidth * 0.05,
+                              ),
+                              child: SizedBox(
+                                width: constraints.maxWidth * 0.3,
+                                height: constraints.maxWidth * 0.3,
+                                child: Image.asset(
+                                  'lib/assets/phobe-removebg-preview.png',
+                                  fit: BoxFit.contain,
+                                  color: Colors.white.withOpacity(0.8),
+                                  colorBlendMode: BlendMode.modulate,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              width: double.infinity,
+                              padding: EdgeInsets.all(20),
+                              decoration: BoxDecoration(
+                                gradient: ThemeGradient.LoginGradient,
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(30),
+                                  topRight: Radius.circular(30),
+                                ),
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  AnimatedContainer(
+                                    duration: Duration(milliseconds: 300),
+                                    curve: Curves.easeInOut,
+                                    width: double.infinity,
+                                    padding: EdgeInsets.all(20),
+                                    decoration: BoxDecoration(
+                                      color: Color(0xff827327),
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: isLogin
+                                        ? buildLoginForm(constraints)
+                                        : buildRegistrationForm(constraints),
+                                  ),
+                                  SizedBox(height: 20),
+                                  buildSlidingButton(constraints),
+                                  SizedBox(height: 20),
+                                  Text("Or continue with"),
+                                  SizedBox(height: 10),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      buildSocialButton(
+                                          'lib/assets/icons/google.png',
+                                          constraints),
+                                      SizedBox(width: 20),
+                                      buildSocialButton(
+                                          'lib/assets/icons/twitter.png',
+                                          constraints),
+                                      SizedBox(width: 20),
+                                      buildSocialButton(
+                                          'lib/assets/icons/apple.png',
+                                          constraints),
+                                    ],
+                                  ),
+                                  SizedBox(height: 20),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                  AnimatedContainer(
-                    duration: Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                    width: double.infinity,
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: Color(0xff827327),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: isLogin ? buildLoginForm() : buildRegistrationForm(),
-                  ),
-                  SizedBox(height: 20),
-                  buildSlidingButton(),
-                  SizedBox(height: 20),
-                  Text("Or continue with"),
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      buildSocialButton('lib/assets/icons/google.png'),
-                      SizedBox(width: 20),
-                      buildSocialButton('lib/assets/icons/twitter.png'),
-                      SizedBox(width: 20),
-                      buildSocialButton('lib/assets/icons/apple.png'),
-                    ],
-                  ),
-                  SizedBox(height: 20)
-                ],
-              ),
-            ),
-          ),
-          Positioned(
-            top: 33,
-            right: -4.4,
-            child: Container(
-              width: 200,
-              height: 200,
-              child: Image.asset(
-                'lib/assets/phobe-removebg-preview.png',
-                fit: BoxFit.contain,
-                color: Colors.white.withOpacity(0.8),
-                colorBlendMode: BlendMode.modulate,
-              ),
+                );
+              },
             ),
           ),
         ],
@@ -114,99 +138,131 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
     );
   }
 
-  Widget buildLoginForm() {
+  Widget buildLoginForm(BoxConstraints constraints) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
-        Positioned(
-          top: 100,
-          left: 0,
-          right: 0,
-          child: Center(
-            child: Column(
-              children: [
-                Text(
-                  'Welcome Back!',
-                  style: TextStyle(
-                    fontSize: 44,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+        Padding(
+          padding: EdgeInsets.only(
+              top: constraints.maxHeight * 0.02,
+              bottom: constraints.maxHeight * 0.01),
+          child: Column(
+            children: [
+              Text(
+                'Welcome Back!',
+                style: TextStyle(
+                  fontSize: constraints.maxWidth * 0.08,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
-                Text(
-                  'we missed you...',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.black45,
-                  ),
+              ),
+              Text(
+                'we missed you...',
+                style: TextStyle(
+                  fontSize: constraints.maxWidth * 0.03,
+                  color: Colors.black45,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
-        SizedBox(height: 60),
-        CustomTextbox(labelText: FormTableText.UsernameLabel, prefixIcon: Icon(Icons.person_2_outlined, color: ThemeColor.FormIconShade), fillColor: ThemeColor.fieldbg),
-        SizedBox(height: 20),
-        CustomTextbox(labelText: FormTableText.PasswordLabel, prefixIcon: Icon(Icons.key_outlined, color: ThemeColor.FormIconShade), suffixIcon: Icon(Icons.visibility, color: ThemeColor.FormIconShade), fillColor: ThemeColor.fieldbg),
+        SizedBox(height: constraints.maxHeight * 0.02),
+        CustomTextbox(
+            labelText: FormTableText.UsernameLabel,
+            prefixIcon: Icons.person_2_outlined,
+            fillColor: ThemeColor.fieldbg,
+            constraints: constraints),
+        SizedBox(height: constraints.maxHeight * 0.02),
+        CustomTextbox(
+            labelText: FormTableText.PasswordLabel,
+            prefixIcon: Icons.key_outlined,
+            suffixIcon: Icons.visibility,
+            fillColor: ThemeColor.fieldbg,
+            constraints: constraints),
         Align(
           alignment: Alignment.centerRight,
           child: TextButton(
             onPressed: () {},
-            child: Text('Forgot Password?'),
-          ),
-        ),
-        SizedBox(height: 123),
-      ],
-    );
-  }
-  Widget buildRegistrationForm() {
-    return Column(
-      children: [
-        Positioned(
-          top: 100,
-          left: 0,
-          right: 0,
-
-          child: Center(
-            child: Column(
-              children: [
-                Text(
-                  'Get Started',
-                  style: TextStyle(
-                    fontSize: 40.33  ,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-
-                Text(
-                  'healing holistically',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.black45,
-                  ),
-                ),
-              ],
+            child: Text(
+              'Forgot Password?',
+              style: TextStyle(fontSize: constraints.maxWidth * 0.03),
             ),
           ),
         ),
-        SizedBox(height: 20),
-        CustomTextbox(labelText: FormTableText.UsernameLabel, prefixIcon: Icon(Icons.person_2_outlined, color: ThemeColor.FormIconShade), fillColor: ThemeColor.fieldbg),
-        SizedBox(height: 20),
-        CustomTextbox(labelText: FormTableText.EmailLabel, prefixIcon: Icon(Icons.email_outlined, color: ThemeColor.FormIconShade), fillColor: ThemeColor.fieldbg),
-        SizedBox(height: 20),
-        CustomTextbox(labelText: FormTableText.PasswordLabel, prefixIcon: Icon(Icons.key_outlined, color: ThemeColor.FormIconShade), suffixIcon: Icon(Icons.visibility, color: ThemeColor.FormIconShade), fillColor: ThemeColor.fieldbg),
-        SizedBox(height: 20),
-        CustomTextbox(labelText: FormTableText.ConfirmPasswordLabel, prefixIcon: Icon(Icons.key_outlined, color: ThemeColor.FormIconShade), fillColor: ThemeColor.fieldbg),
-        SizedBox(height: 20),
-        CustomTextbox(labelText: FormTableText.DOBLabel, prefixIcon: Icon(Icons.calendar_month_outlined, color: ThemeColor.FormIconShade), fillColor: ThemeColor.fieldbg),
-        SizedBox(height: 20),
-        buildGenderSlidingButton()
+        SizedBox(height: constraints.maxHeight * 0.05),
       ],
     );
   }
-  Widget buildSlidingButton() {
+
+  Widget buildRegistrationForm(BoxConstraints constraints) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(
+            top: constraints.maxHeight * 0.02,
+            bottom: constraints.maxHeight * 0.01,
+          ),
+          child: Column(
+            children: [
+              Text(
+                'Get Started',
+                style: TextStyle(
+                  fontSize: constraints.maxWidth * 0.08,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+              Text(
+                'healing holistically',
+                style: TextStyle(
+                  fontSize: constraints.maxWidth * 0.03,
+                  color: Colors.black45,
+                ),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: constraints.maxHeight * 0.02),
+        CustomTextbox(
+            labelText: FormTableText.UsernameLabel,
+            prefixIcon: Icons.person_2_outlined,
+            fillColor: ThemeColor.fieldbg,
+            constraints: constraints),
+        SizedBox(height: constraints.maxHeight * 0.02),
+        CustomTextbox(
+            labelText: FormTableText.EmailLabel,
+            prefixIcon: Icons.email_outlined,
+            fillColor: ThemeColor.fieldbg,
+            constraints: constraints),
+        SizedBox(height: constraints.maxHeight * 0.02),
+        CustomTextbox(
+            labelText: FormTableText.PasswordLabel,
+            prefixIcon: Icons.key_outlined,
+            suffixIcon: Icons.visibility,
+            fillColor: ThemeColor.fieldbg,
+            constraints: constraints),
+        SizedBox(height: constraints.maxHeight * 0.02),
+        CustomTextbox(
+            labelText: FormTableText.ConfirmPasswordLabel,
+            prefixIcon: Icons.key_outlined,
+            fillColor: ThemeColor.fieldbg,
+            constraints: constraints),
+        SizedBox(height: constraints.maxHeight * 0.02),
+        CustomTextbox(
+            labelText: FormTableText.DOBLabel,
+            prefixIcon: Icons.calendar_month_outlined,
+            fillColor: ThemeColor.fieldbg,
+            constraints: constraints),
+        SizedBox(height: constraints.maxHeight * 0.02),
+        buildGenderSlidingButton(constraints),
+      ],
+    );
+  }
+
+  Widget buildSlidingButton(BoxConstraints constraints) {
     return Container(
-      width: 300,
+      width: constraints.maxWidth * 0.8,
       height: 50,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
@@ -222,10 +278,10 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
           AnimatedPositioned(
             duration: Duration(milliseconds: 300),
             curve: Curves.easeInOut,
-            left: isLogin ? 0 : 150,
+            left: isLogin ? 0 : constraints.maxWidth * 0.4,
             top: 0,
             bottom: 0,
-            width: 150,
+            width: constraints.maxWidth * 0.4,
             child: GestureDetector(
               onTap: () {
                 setState(() {
@@ -259,7 +315,8 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                       'Login',
                       style: TextStyle(
                         color: isLogin ? Colors.white : Colors.black38,
-                        fontSize: 18, fontWeight:FontWeight.bold,
+                        fontSize: constraints.maxWidth * 0.04,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
@@ -276,8 +333,9 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                     child: Text(
                       'Register',
                       style: TextStyle(
-                        color: isLogin ? Colors.black38: Colors.white,
-                        fontSize: 18, fontWeight:FontWeight.bold,
+                        color: isLogin ? Colors.black38 : Colors.white,
+                        fontSize: constraints.maxWidth * 0.04,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
@@ -290,23 +348,22 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
     );
   }
 
-  Widget buildGenderSlidingButton() {
+  Widget buildGenderSlidingButton(BoxConstraints constraints) {
     return Container(
-      width: 300,
+      width: constraints.maxWidth * 0.8,
       height: 50,
       decoration: BoxDecoration(
         boxShadow: [
-          const BoxShadow(
+          BoxShadow(
             color: Colors.black12,
           ),
-          const BoxShadow(
+          BoxShadow(
             color: Colors.black12,
             spreadRadius: -12.0,
             blurRadius: 12.0,
           ),
         ],
         borderRadius: BorderRadius.circular(15),
-
         gradient: LinearGradient(
           colors: [
             Color(0xFF99627A),
@@ -316,17 +373,15 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
       ),
       child: Stack(
         children: [
-          // Animated Slider
           AnimatedPositioned(
             duration: Duration(milliseconds: 300),
             curve: Curves.easeInOut,
-            left: selectedGenderIndex * (300 / 3), // Calculate position based on index
+            left: selectedGenderIndex * (constraints.maxWidth * 0.8 / 3),
             top: 0,
             bottom: 0,
-            width: 300 / 3, // Each section is 1/3 of the total width
+            width: constraints.maxWidth * 0.8 / 3,
             child: GestureDetector(
               onTap: () {
-                // We don't need to do anything here as the labels handle the tap
               },
               child: Container(
                 decoration: BoxDecoration(
@@ -336,7 +391,6 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
               ),
             ),
           ),
-          // Gender Labels
           Row(
             children: [
               Expanded(
@@ -344,14 +398,16 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        selectedGenderIndex = 0; // Male
+                        selectedGenderIndex = 0;
                       });
                     },
                     child: Text(
                       'Male',
                       style: TextStyle(
-                        color: selectedGenderIndex == 0 ? Colors.black : Colors.white,
-                        fontSize: 18,
+                        color: selectedGenderIndex == 0
+                            ? Colors.black
+                            : Colors.white,
+                        fontSize: constraints.maxWidth * 0.04,
                       ),
                     ),
                   ),
@@ -362,14 +418,16 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        selectedGenderIndex = 1; // Female
+                        selectedGenderIndex = 1;
                       });
                     },
                     child: Text(
                       'Female',
                       style: TextStyle(
-                        color: selectedGenderIndex == 1 ? Colors.black : Colors.white,
-                        fontSize: 18,
+                        color: selectedGenderIndex == 1
+                            ? Colors.black
+                            : Colors.white,
+                        fontSize: constraints.maxWidth * 0.04,
                       ),
                     ),
                   ),
@@ -380,14 +438,16 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        selectedGenderIndex = 2; // Others
+                        selectedGenderIndex = 2;
                       });
                     },
                     child: Text(
                       'Others',
                       style: TextStyle(
-                        color: selectedGenderIndex == 2 ? Colors.black : Colors.white,
-                        fontSize: 18,
+                        color: selectedGenderIndex == 2
+                            ? Colors.black
+                            : Colors.white,
+                        fontSize: constraints.maxWidth * 0.04,
                       ),
                     ),
                   ),
@@ -400,7 +460,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
     );
   }
 
-  Widget buildSocialButton(String imagePath) {
+  Widget buildSocialButton(String imagePath, BoxConstraints constraints) {
     return InkWell(
       onTap: () {
         // TODO: Add your social media login logic here
@@ -418,7 +478,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             ),
           ],
           shape: BoxShape.rectangle,
-          borderRadius:  BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(5),
           border: Border.all(
             color: Colors.grey.shade400,
             width: 0.5,
@@ -426,8 +486,8 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
         ),
         child: Image.asset(
           imagePath,
-          width: 30,
-          height: 10,
+          width: constraints.maxWidth * 0.08,
+          height: constraints.maxWidth * 0.08,
         ),
       ),
     );
