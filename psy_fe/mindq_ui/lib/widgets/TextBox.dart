@@ -4,6 +4,7 @@ class CustomTextbox extends StatelessWidget {
   final Color fillColor;
   final String labelText;
   final Color borderColor;
+  final Color iconColor;
   final bool obscureText;
   final IconData? prefixIcon;
   final IconData? suffixIcon;
@@ -15,6 +16,7 @@ class CustomTextbox extends StatelessWidget {
     this.fillColor = Colors.white,
     required this.labelText,
     this.borderColor = Colors.black,
+    this.iconColor = Colors.grey,
     this.obscureText = false,
     this.prefixIcon,
     this.suffixIcon,
@@ -33,10 +35,10 @@ class CustomTextbox extends StatelessWidget {
           fillColor: fillColor,
           labelText: labelText,
           prefixIcon: prefixIcon != null
-              ? Icon(prefixIcon, color: borderColor)
+              ? Icon(prefixIcon, color: iconColor)
               : null,
           suffixIcon: suffixIcon != null
-              ? Icon(suffixIcon, color: borderColor)
+              ? Icon(suffixIcon, color: iconColor)
               : null,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
