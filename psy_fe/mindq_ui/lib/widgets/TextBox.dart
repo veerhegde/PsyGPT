@@ -24,7 +24,7 @@ class CustomTextbox extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.constraints,
-    this.textColor = Colors.black,
+    this.textColor = Colors.white30,
     this.iconColor = Colors.grey,
     this.gradientBegin = Alignment.topLeft,
     this.gradientEnd = Alignment.bottomRight,
