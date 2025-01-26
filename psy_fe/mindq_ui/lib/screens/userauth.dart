@@ -47,7 +47,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
               width: double.infinity,
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Colors.yellow.withOpacity(0.8),
+                gradient: ThemeGradient.LoginGradient,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30),
                   topRight: Radius.circular(30),
@@ -70,7 +70,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                     width: double.infinity,
                     padding: EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.8),
+                      color: Color(0xff827327),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: isLogin ? buildLoginForm() : buildRegistrationForm(),
@@ -179,10 +179,10 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                 ),
 
                 Text(
-                  'Healing Holistically',
+                  'healing holistically',
                   style: TextStyle(
                     fontSize: 16,
-                    color: Colors.black12,
+                    color: Colors.black45,
                   ),
                 ),
               ],
