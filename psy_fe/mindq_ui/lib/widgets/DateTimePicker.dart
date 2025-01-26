@@ -90,13 +90,12 @@ class _DateAndTimePickerState extends State<DateAndTimePicker> {
   @override
   void initState() {
     super.initState();
-    // Don't call _updateDateTimeText here
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _updateDateTimeText(); // Call it here instead
+    _updateDateTimeText();
   }
 
   @override
@@ -115,6 +114,7 @@ class _DateAndTimePickerState extends State<DateAndTimePicker> {
         child: TextField(
           controller: _dateTimeController,
           decoration: InputDecoration(
+            fillColor: Colors.black,
             labelText: 'Date of Birth',
             prefixIcon: Icon(Icons.calendar_today_rounded),
             border: OutlineInputBorder(),
