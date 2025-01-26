@@ -26,7 +26,6 @@ class _DateAndTimePickerState extends State<DateAndTimePicker> {
     }
   }
 
-  // Function to show the time picker in a BottomSheet
   Future<void> _showTimePicker(BuildContext context) async {
     final TimeOfDay? pickedTime = await showTimePicker(
       context: context,
@@ -57,9 +56,9 @@ class _DateAndTimePickerState extends State<DateAndTimePicker> {
               runAlignment: WrapAlignment.center,
               children: [
                 Column(
-                  mainAxisSize: MainAxisSize.min, // Make the column take up minimum space
-                  mainAxisAlignment: MainAxisAlignment.center, // Center vertically
-                  crossAxisAlignment: CrossAxisAlignment.center, // Center horizontally
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     ElevatedButton(
                       onPressed: () {
@@ -75,7 +74,7 @@ class _DateAndTimePickerState extends State<DateAndTimePicker> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.pop(context); // Close the BottomSheet
+                        Navigator.pop(context);
                       },
                       child: Text("Done"),
                     ),
