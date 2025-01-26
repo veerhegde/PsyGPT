@@ -59,12 +59,12 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                             alignment: Alignment.topRight,
                             child: Padding(
                               padding: EdgeInsets.only(
-                                top: constraints.maxHeight * 0.05,
-                                right: constraints.maxWidth * 0.05,
+                                top: constraints.maxHeight * 0.00,
+                                left: constraints.maxWidth * 0.00,
                               ),
                               child: SizedBox(
-                                width: constraints.maxWidth * 0.3,
-                                height: constraints.maxWidth * 0.3,
+                                width: constraints.maxWidth * 0.46,
+                                height: constraints.maxHeight * 0.25,
                                 child: Image.asset(
                                   'lib/assets/phobe-removebg-preview.png',
                                   fit: BoxFit.contain,
@@ -78,6 +78,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                             child: Container(
                               width: double.infinity,
                               padding: EdgeInsets.all(20),
+                              margin: EdgeInsets.only(top: constraints.maxHeight * 0.00),
                               decoration: BoxDecoration(
                                 gradient: ThemeGradient.LoginGradient,
                                 borderRadius: BorderRadius.only(
@@ -484,8 +485,8 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
         ),
         child: Image.asset(
           imagePath,
-          width: constraints.maxWidth * 0.08,
-          height: constraints.maxWidth * 0.08,
+          width: constraints.maxWidth * 0.09,
+          height: constraints.maxWidth * 0.04,
         ),
       ),
     );
