@@ -32,16 +32,20 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('lib/assets/mindq_right_bg.jpg'),
-                fit: BoxFit.fill,
+          Positioned.fill(
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('lib/assets/mindq_right_bg.jpg'),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
+
           SafeArea(
             child: LayoutBuilder(
               builder: (context, constraints) {
