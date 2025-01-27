@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mindq_ui/constants/string_const.dart';
 import 'package:mindq_ui/constants/styles/color_const.dart';
 import 'package:mindq_ui/widgets/TextBox.dart';
+import '../constants/styles/font_const.dart';
 
 import '../widgets/DateTimePicker.dart';
 
@@ -129,7 +130,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                                         padding: const EdgeInsets.symmetric(horizontal: 10),
                                         child: Text(
                                           "Or continue with",
-                                          style: TextStyle(
+                                          style: ThemeFont.primaryFont(
                                             color: Colors.black26, // Text color
                                             fontWeight: FontWeight.w500, // Text weight
                                           ),
@@ -196,24 +197,25 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
               bottom: constraints.maxHeight * 0.01),
           child: Column(
             children: [
-              Text(
-                'Welcome Back!',
-                style: TextStyle(
-                  fontSize: constraints.maxWidth * 0.1333,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  shadows: [
-                    Shadow(
-                      color: Colors.black.withOpacity(0.5), // Shadow color with opacity
-                      offset: Offset(0, 2), // Horizontal and vertical offset
-                      blurRadius: 6, // How blurry the shadow appears
-                    ),
-                  ],
+            Text(
+            'Welcome Back!',
+            style: ThemeFont.primaryFont(
+              fontSize: constraints.maxWidth * 0.1096,
+              fontWeight: FontWeight.w700,
+              color: Colors.white,
+            ).copyWith(
+              shadows: [
+                Shadow(
+                  color: Colors.black.withOpacity(0.5), // Shadow color with opacity
+                  offset: Offset(0, 2), // Horizontal and vertical offset
+                  blurRadius: 6, // How blurry the shadow appears
                 ),
-              ),
+              ],
+            ),
+          ),
               Text(
                 'we missed you...',
-                style: TextStyle(
+                style: ThemeFont.primaryFont(
                   fontSize: constraints.maxWidth * 0.05,
                   color: Colors.black45,
                 ),
@@ -240,7 +242,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             onPressed: () {},
             child: Text(
               'Forgot Password?',
-              style: TextStyle(fontSize: constraints.maxWidth * 0.03),
+              style: ThemeFont.primaryFont(fontSize: constraints.maxWidth * 0.03),
             ),
           ),
         ),
@@ -262,11 +264,11 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             children: [
               Text(
                 'Get Started',
-                style: TextStyle(
+                style: ThemeFont.primaryFont(
                   fontSize: constraints.maxWidth * 0.1333,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w700,
                   color: Colors.white,
-                  shadows: [
+                ).copyWith(shadows: [
                     Shadow(
                       color: Colors.black.withOpacity(0.5), // Shadow color with opacity
                       offset: Offset(0, 2), // Horizontal and vertical offset
@@ -276,8 +278,8 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                 ),
               ),
               Text(
-                'healing holistically',
-                style: TextStyle(
+                'Healing Holistically',
+                style: ThemeFont.primaryFont(
                   fontSize: constraints.maxWidth * 0.05,
                   color: Colors.black45,
                 ),
@@ -402,7 +404,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                     },
                     child: Text(
                       'Login',
-                      style: TextStyle(
+                      style: ThemeFont.primaryFont(
                         color: isLogin ? Colors.white : Colors.black38,
                         fontSize: constraints.maxWidth * 0.04,
                         fontWeight: FontWeight.bold,
@@ -421,7 +423,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                     },
                     child: Text(
                       'Register',
-                      style: TextStyle(
+                      style: ThemeFont.primaryFont(
                         color: isLogin ? Colors.black38 : Colors.white,
                         fontSize: constraints.maxWidth * 0.04,
                         fontWeight: FontWeight.bold,
@@ -512,7 +514,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                     },
                     child: Text(
                       'Male',
-                      style: TextStyle(
+                      style: ThemeFont.primaryFont(
                         color: selectedGenderIndex == 0
                             ? Colors.white
                             : Colors.black38,
@@ -538,7 +540,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                     },
                     child: Text(
                       'Female',
-                      style: TextStyle(
+                      style: ThemeFont.primaryFont(
                         color: selectedGenderIndex == 1
                             ? Colors.white
                             : Colors.black38,
@@ -566,7 +568,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                     },
                     child: Text(
                       'Others',
-                      style: TextStyle(
+                      style: ThemeFont.primaryFont(
                         color: selectedGenderIndex == 2
                             ? Colors.white
                             : Colors.black38,
