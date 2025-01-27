@@ -71,7 +71,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                                 height: constraints.maxHeight * 0.25,
                                 child: Image.asset(
                                   'lib/assets/phobe-removebg-preview.png',
-                                  fit: BoxFit.fill,
+                                  fit: BoxFit.contain,
                                   color: Colors.white.withOpacity(0.8),
                                   colorBlendMode: BlendMode.modulate,
                                 ),
@@ -99,7 +99,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                                     width: double.infinity,
                                     padding: EdgeInsets.all(20),
                                     decoration: BoxDecoration(
-                                      color: Color(0xff827327),
+                                      color: Colors.white.withOpacity(0.169),//(0xff827327),
                                       borderRadius: BorderRadius.circular(20),
                                     ),
                                     child: isLogin
@@ -199,22 +199,29 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
               Text(
                 'Welcome Back!',
                 style: TextStyle(
-                  fontSize: constraints.maxWidth * 0.08,
+                  fontSize: constraints.maxWidth * 0.1333,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
+                  shadows: [
+                    Shadow(
+                      color: Colors.black.withOpacity(0.5), // Shadow color with opacity
+                      offset: Offset(0, 2), // Horizontal and vertical offset
+                      blurRadius: 6, // How blurry the shadow appears
+                    ),
+                  ],
                 ),
               ),
               Text(
                 'we missed you...',
                 style: TextStyle(
-                  fontSize: constraints.maxWidth * 0.03,
+                  fontSize: constraints.maxWidth * 0.05,
                   color: Colors.black45,
                 ),
               ),
             ],
           ),
         ),
-        SizedBox(height: constraints.maxHeight * 0.02),
+        SizedBox(height: constraints.maxHeight * 0.04),
         CustomTextbox(
             labelText: FormTableText.UsernameLabel,
             prefixIcon: Icons.person_2_outlined,
@@ -256,15 +263,22 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
               Text(
                 'Get Started',
                 style: TextStyle(
-                  fontSize: constraints.maxWidth * 0.08,
+                  fontSize: constraints.maxWidth * 0.1333,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
+                  shadows: [
+                    Shadow(
+                      color: Colors.black.withOpacity(0.5), // Shadow color with opacity
+                      offset: Offset(0, 2), // Horizontal and vertical offset
+                      blurRadius: 6, // How blurry the shadow appears
+                    ),
+                  ],
                 ),
               ),
               Text(
                 'healing holistically',
                 style: TextStyle(
-                  fontSize: constraints.maxWidth * 0.03,
+                  fontSize: constraints.maxWidth * 0.05,
                   color: Colors.black45,
                 ),
               ),
