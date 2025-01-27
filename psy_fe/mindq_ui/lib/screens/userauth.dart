@@ -481,7 +481,14 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.3), // Shadow color with opacity
+                      offset: Offset(4, 4), // Horizontal and vertical shadow offset
+                      blurRadius: 10, // How blurry the shadow is
+                      spreadRadius: 2, // How far the shadow spreads
+                    ),
+                  ],color: Color(0xff99862A),
                   borderRadius: BorderRadius.circular(15),
                 ),
               ),
@@ -489,6 +496,12 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
           ),
           Row(
             children: [
+              SizedBox(width: 10),
+              Icon(
+                Icons.male_outlined,
+                color: selectedGenderIndex == 0 ? Colors.white : Colors.black38,
+                size: constraints.maxWidth * 0.0691, // Adjust the size based on your constraints
+              ),
               Expanded(
                 child: Center(
                   child: GestureDetector(
@@ -501,13 +514,19 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                       'Male',
                       style: TextStyle(
                         color: selectedGenderIndex == 0
-                            ? Colors.black
-                            : Colors.white,
+                            ? Colors.white
+                            : Colors.black38,
                         fontSize: constraints.maxWidth * 0.04,
                       ),
                     ),
                   ),
                 ),
+              ),
+              SizedBox(width: 10),
+              Icon(
+                Icons.female_outlined,
+                color: selectedGenderIndex == 0 ? Colors.white : Colors.black38,
+                size: constraints.maxWidth * 0.0691, // Adjust the size based on your constraints
               ),
               Expanded(
                 child: Center(
@@ -521,8 +540,8 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                       'Female',
                       style: TextStyle(
                         color: selectedGenderIndex == 1
-                            ? Colors.black
-                            : Colors.white,
+                            ? Colors.white
+                            : Colors.black38,
                         fontSize: constraints.maxWidth * 0.04,
                       ),
                     ),
@@ -541,8 +560,8 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                       'Others',
                       style: TextStyle(
                         color: selectedGenderIndex == 2
-                            ? Colors.black
-                            : Colors.white,
+                            ? Colors.white
+                            : Colors.black38,
                         fontSize: constraints.maxWidth * 0.04,
                       ),
                     ),
