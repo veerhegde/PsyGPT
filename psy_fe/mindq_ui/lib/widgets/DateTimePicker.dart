@@ -116,7 +116,7 @@ class _DateAndTimePickerState extends State<DateAndTimePicker> {
           decoration: InputDecoration(
             fillColor: Colors.black,
             labelText: 'Date of Birth',
-            prefixIcon: Icon(Icons.calendar_today_rounded),
+            prefixIcon: Icon(Icons.calendar_month_outlined),
             border: OutlineInputBorder(),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black, width: 2.0),

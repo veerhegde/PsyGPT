@@ -71,7 +71,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                                 height: constraints.maxHeight * 0.25,
                                 child: Image.asset(
                                   'lib/assets/phobe-removebg-preview.png',
-                                  fit: BoxFit.contain,
+                                  fit: BoxFit.fill,
                                   color: Colors.white.withOpacity(0.8),
                                   colorBlendMode: BlendMode.modulate,
                                 ),
@@ -109,8 +109,49 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                                   SizedBox(height: 20),
                                   buildSlidingButton(constraints),
                                   SizedBox(height: 20),
-                                  Text("Or continue with"),
-                                  SizedBox(height: 10),
+                                  Row(
+                                    children: [
+                                      // Left gradient divider
+                                      Expanded(
+                                        child: Container(
+                                          height: 1,
+                                          decoration: BoxDecoration(
+                                            gradient: LinearGradient(
+                                              colors: [
+                                                Colors.black26.withOpacity(0.0), // Start transparent
+                                                Colors.black26, // Fully visible in the middle
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                                        child: Text(
+                                          "Or continue with",
+                                          style: TextStyle(
+                                            color: Colors.black26, // Text color
+                                            fontWeight: FontWeight.w500, // Text weight
+                                          ),
+                                        ),
+                                      ),
+                                      // Right gradient divider
+                                      Expanded(
+                                        child: Container(
+                                          height: 1,
+                                          decoration: BoxDecoration(
+                                            gradient: LinearGradient(
+                                              colors: [
+                                                Colors.black26, // Fully visible in the middle
+                                                Colors.black26.withOpacity(0.0), // End transparent
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 30),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
@@ -253,10 +294,17 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
         CustomTextbox(
             labelText: FormTableText.ConfirmPasswordLabel,
             prefixIcon: Icons.key_outlined,
+            suffixIcon: Icons.visibility,
             fillColor: ThemeColor.fieldbg,
             constraints: constraints),
         SizedBox(height: constraints.maxHeight * 0.02),
-        DateAndTimePicker(),
+        CustomTextbox(
+
+            labelText: FormTableText.DOBLabel,
+            prefixIcon: Icons.calendar_month_outlined,
+            fillColor: ThemeColor.fieldbg,
+            constraints: constraints),
+            DateAndTimePicker(),
         SizedBox(height: constraints.maxHeight * 0.02),
         buildGenderSlidingButton(constraints),
       ],
@@ -278,6 +326,22 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
       ),
       child: Stack(
         children: [
+      Container(
+          decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+      gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [
+          Colors.black.withOpacity(0.44), // Dark shadow on top-left
+          Colors.transparent, // Fades to transparent
+          Colors.transparent,
+          Colors.white.withOpacity(0.44), // Dark shadow on bottom-right
+        ],
+        stops: [0.0, 0.2, 0.96, 1.0], // Adjust gradient stops for smooth transition
+      ),
+    ),
+    ),
           AnimatedPositioned(
             duration: Duration(milliseconds: 300),
             curve: Curves.easeInOut,
@@ -300,6 +364,14 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                       Color(0xFFC65647),
                     ],
                   ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.3), // Shadow color with opacity
+                      offset: Offset(4, 4), // Horizontal and vertical shadow offset
+                      blurRadius: 10, // How blurry the shadow is
+                      spreadRadius: 2, // How far the shadow spreads
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -356,16 +428,6 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
       width: constraints.maxWidth * 0.8,
       height: 50,
       decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-          ),
-          BoxShadow(
-            color: Colors.black12,
-            spreadRadius: -12.0,
-            blurRadius: 12.0,
-          ),
-        ],
         borderRadius: BorderRadius.circular(15),
         gradient: LinearGradient(
           colors: [
@@ -374,8 +436,25 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
           ],
         ),
       ),
+
       child: Stack(
         children: [
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.black.withOpacity(0.44), // Dark shadow on top-left
+                  Colors.transparent, // Fades to transparent
+                  Colors.transparent,
+                  Colors.white.withOpacity(0.44), // Dark shadow on bottom-right
+                ],
+                stops: [0.0, 0.2, 0.96, 1.0], // Adjust gradient stops for smooth transition
+              ),
+            ),
+          ),
           AnimatedPositioned(
             duration: Duration(milliseconds: 300),
             curve: Curves.easeInOut,
@@ -472,18 +551,18 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
       child: Container(
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Colors.white.withOpacity(0.1),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.2),
+              color: Colors.black.withOpacity(0.1),
               blurRadius: 5.0,
-              offset: Offset(0, 2),
+              offset: Offset(0, 4),
             ),
           ],
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.circular(5),
           border: Border.all(
-            color: Colors.grey.shade400,
+            color: Colors.grey.shade400.withOpacity(0.4),
             width: 0.5,
           ),
         ),

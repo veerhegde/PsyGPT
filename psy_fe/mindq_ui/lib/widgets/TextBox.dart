@@ -20,18 +20,18 @@ class CustomTextbox extends StatelessWidget {
     required this.labelText,
     this.borderColor = Colors.black,
     this.obscureText = false,
-    this.fillColor = Colors.black,
+    this.fillColor = Colors.grey,
     this.prefixIcon,
     this.suffixIcon,
     this.constraints,
-    this.textColor = Colors.white30,
+    this.textColor = Colors.white,
     this.iconColor = Colors.grey,
-    this.gradientBegin = Alignment.topLeft,
-    this.gradientEnd = Alignment.bottomRight,
+    this.gradientBegin = Alignment.topCenter,
+    this.gradientEnd = Alignment.bottomCenter,
     this.gradientColors = const [
-      Colors.black,
-      Colors.black,
-      Color(0xfffde900),
+      Color(0xff151316),
+      Color(0xff161306),
+      Color(0xff2B250B),
     ],
     this.gradientStops,
   }) : super(key: key);
@@ -42,7 +42,26 @@ class CustomTextbox extends StatelessWidget {
       constraints: constraints ?? BoxConstraints(),
       child: Container(
         decoration: BoxDecoration(
-          color: fillColor,
+         // color: fillColor,
+              image: DecorationImage(
+                image: AssetImage('assets/rectangle.png'), // Replace with your image path
+                fit: BoxFit.cover,
+              ),
+              boxShadow: [
+                // Inner shadow effect
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.9),
+                  offset: Offset(0, 0),
+                  blurRadius: 2,
+                  spreadRadius: 0,
+                ),
+                BoxShadow(
+                  color: Colors.white.withOpacity(0.4),
+                  offset: Offset(0, 1),
+                  blurRadius: 2,
+                  spreadRadius: 0,
+                ),
+              ],
           gradient: LinearGradient(
             begin: gradientBegin,
             end: gradientEnd,
@@ -55,7 +74,7 @@ class CustomTextbox extends StatelessWidget {
           style: TextStyle(color: textColor),
           decoration: InputDecoration(
             labelText: labelText,
-            fillColor: fillColor,
+            //fillColor: fillColor,
             prefixIcon: prefixIcon != null
                 ? Icon(prefixIcon, color: iconColor)
                 : null,

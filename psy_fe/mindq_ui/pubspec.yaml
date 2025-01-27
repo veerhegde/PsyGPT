@@ -90,7 +90,7 @@ flutter:
      - lib/assets/phobe-removebg-preview.png
      - lib/assets/mindq_right_bg.jpg
      - lib/assets/mindq2.svg
-     - lib/assets/tv.jpg
+     - lib/assets/rectangle.png
 #     - lib/assets/reg_logo.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
