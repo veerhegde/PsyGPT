@@ -525,7 +525,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
               SizedBox(width: 10),
               Icon(
                 Icons.female_outlined,
-                color: selectedGenderIndex == 0 ? Colors.white : Colors.black38,
+                color: selectedGenderIndex == 1 ? Colors.white : Colors.black38,
                 size: constraints.maxWidth * 0.0691, // Adjust the size based on your constraints
               ),
               Expanded(
@@ -547,6 +547,14 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                     ),
                   ),
                 ),
+              ),
+              SizedBox(width: 10),
+              Icon(
+                Icons.transgender_outlined,
+                color: selectedGenderIndex == 0
+                    ? Colors.black38
+                    : Colors.white,
+                size: constraints.maxWidth * 0.0691, // Adjust the size based on your constraints
               ),
               Expanded(
                 child: Center(
