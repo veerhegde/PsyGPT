@@ -100,6 +100,14 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                                     width: double.infinity,
                                     padding: EdgeInsets.all(20),
                                     decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage('lib/assets/reg_logo.png'),
+                                        fit: BoxFit.cover,
+                                        colorFilter: ColorFilter.mode(
+                                          Colors.black.withOpacity(0.5),
+                                          BlendMode.darken,
+                                        ),
+                                      ),
                                       color: Colors.white.withOpacity(0.169),//(0xff827327),
                                       borderRadius: BorderRadius.circular(20),
                                     ),
