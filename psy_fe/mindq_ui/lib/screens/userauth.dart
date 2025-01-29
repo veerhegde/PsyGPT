@@ -100,7 +100,10 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                                     width: double.infinity,
                                     padding: EdgeInsets.all(20),
                                     decoration: BoxDecoration(
-                                      image: DecorationImage(
+                                      color: isLogin ? ThemeColor.appPrimaryColor : Colors.white24,
+                                      image: isLogin
+                                          ? null
+                                          : DecorationImage(
                                         image: AssetImage('lib/assets/reg_logo.png'),
                                         fit: BoxFit.cover,
                                         colorFilter: ColorFilter.mode(
@@ -108,9 +111,9 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                                           BlendMode.darken,
                                         ),
                                       ),
-                                      color: Colors.white.withOpacity(0.169),//(0xff827327),
                                       borderRadius: BorderRadius.circular(20),
                                     ),
+
                                     child: isLogin
                                         ? buildLoginForm(constraints)
                                         : buildRegistrationForm(constraints),

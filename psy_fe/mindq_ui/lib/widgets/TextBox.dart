@@ -44,7 +44,7 @@ class CustomTextbox extends StatelessWidget {
         decoration: BoxDecoration(
          // color: fillColor,
               image: DecorationImage(
-                image: AssetImage('assets/rectangle.png'), // Replace with your image path
+                image: AssetImage('lib/assets/rectangle.png'),
                 fit: BoxFit.cover,
               ),
               boxShadow: [
