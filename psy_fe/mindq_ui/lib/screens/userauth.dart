@@ -85,6 +85,14 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                               padding: EdgeInsets.all(20),
                               margin: EdgeInsets.only(top: constraints.maxHeight * 0.00),
                               decoration: BoxDecoration(
+                                image: isLogin ? null : DecorationImage(
+                                  image: AssetImage('lib/assets/reg_logo.png'),
+                                  fit: BoxFit.cover,
+                                  colorFilter: ColorFilter.mode(
+                                    Colors.black.withOpacity(0.5),
+                                    BlendMode.darken,
+                                  ),
+                                ),
                                 gradient: ThemeGradient.LoginGradient,
                                 borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(30),
@@ -101,16 +109,6 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                                     padding: EdgeInsets.all(20),
                                     decoration: BoxDecoration(
                                       color: isLogin ? ThemeColor.appPrimaryColor : Colors.white24,
-                                      image: isLogin
-                                          ? null
-                                          : DecorationImage(
-                                        image: AssetImage('lib/assets/reg_logo.png'),
-                                        fit: BoxFit.cover,
-                                        colorFilter: ColorFilter.mode(
-                                          Colors.black.withOpacity(0.5),
-                                          BlendMode.darken,
-                                        ),
-                                      ),
                                       borderRadius: BorderRadius.circular(20),
                                     ),
 
