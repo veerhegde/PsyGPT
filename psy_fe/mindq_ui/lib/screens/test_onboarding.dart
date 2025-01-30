@@ -109,7 +109,7 @@ class _TestOnboardingScreenState extends State<TestOnboardingScreen> {
                                 fontStyle: FontStyle.italic,color: Colors.white60,
                               ),),
                             TextSpan(
-                              text: 'you best!',
+                              text: 'you best! ',
                             ),
 
                             ],
