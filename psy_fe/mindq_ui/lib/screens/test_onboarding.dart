@@ -128,7 +128,7 @@ class _TestOnboardingScreenState extends State<TestOnboardingScreen> {
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Text(
-                    'Be mindful while\nselecting the\nappropriate card for\neach question',
+                    'Be mindful while\nselecting the\nappropriate card for\neach upcoming question',
                     textAlign: TextAlign.center,
                     style: ThemeFont.primaryFont(
                       fontSize: 19.6,
