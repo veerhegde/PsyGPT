@@ -69,7 +69,7 @@ class _TestOnboardingScreenState extends State<TestOnboardingScreen> {
                   child: Column(
                     children: [
                       Text(
-                        'The Test',
+                        '9 Questions',
                         style: ThemeFont.primaryFont(
                           fontSize: 40.33,
                           fontWeight: FontWeight.bold,
@@ -85,15 +85,7 @@ class _TestOnboardingScreenState extends State<TestOnboardingScreen> {
                           ),
                           children: [
                             TextSpan(
-                              text: 'has\n',
-                              style: ThemeFont.primaryFont(color: Colors.white60,),
-                            ),
-                            TextSpan(
-                              text: '9 ',
-                              style: ThemeFont.primaryFont(fontWeight: FontWeight.bold,color: Colors.white60,),
-                            ),
-                            TextSpan(
-                              text: 'questions,\nto ',
+                              text: 'to ',
                             ),
                             TextSpan(
                               text: 'personalize ',
@@ -124,7 +116,7 @@ class _TestOnboardingScreenState extends State<TestOnboardingScreen> {
 
                         ),
                       ),
-                      SizedBox(height: 169),
+                      SizedBox(height: 123),
                     ],
                   ),
                 ),
