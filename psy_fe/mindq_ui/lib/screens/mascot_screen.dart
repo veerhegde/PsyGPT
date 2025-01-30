@@ -41,33 +41,35 @@ class MascotWelcomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SizedBox(height: 10),
+            SizedBox(height: 9),
             Align(
               alignment: Alignment.topLeft, // Aligns the image to the left
               child: Image.asset(
                 "lib/assets/Phoebe_mascot.png",
-                width: 190, // Adjust width as needed
-                height: 190, // Adjust height as needed
+                width: 196, // Adjust width as needed
+                height: 196, // Adjust height as needed
               ),
             ),
 
             Container(
-              padding: EdgeInsets.symmetric(vertical: 20),//padding: EdgeInsets.all(20),
+              padding: EdgeInsets.symmetric(vertical: 0),//padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage("lib/assets/mascot_bg.png"), // Your image path
                   fit: BoxFit.cover, // Cover the entire container
                 ),
                 //color: Colors.white.withOpacity(0),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30),
+               // borderRadius: BorderRadius.only(
+                 // topLeft: Radius.circular(30),
                  // topRight: Radius.circular(30),
 
-                ),
+                //),
               ),
               child: Column(
                 children: [
+                  SizedBox(height: 15),
     RichText(
+
     text: TextSpan(
     style: ThemeFont.primaryFont(fontSize: 40.33),
     children: [
@@ -106,23 +108,27 @@ class MascotWelcomePage extends StatelessWidget {
                     child: Column(
                       mainAxisSize: MainAxisSize.min, // Keeps the Column tight around its content
                       children: [
-                        // Main text
-                        SizedBox(height: 126),
+                        SizedBox(height: 126), // Spacing before text
+
+                        // RichText with Text Shadow
                         RichText(
                           textAlign: TextAlign.center, // Ensures the text is centered
                           text: TextSpan(
-                            style: ThemeFont.primaryFont(fontSize: 19.6),
+                            style: ThemeFont.primaryFont(
+                              fontSize: 19.6,
+                              color: Colors.white60,
+                            ),
                             children: [
                               TextSpan(text: 'I’ll be your'),
                           TextSpan(
                             text: ' guide, ',
                             style: ThemeFont.secondaryFont().copyWith(
-                              fontStyle: FontStyle.italic,
+                              fontStyle: FontStyle.italic,color: Colors.white60,
                             ),
                           ),
                           TextSpan(
                             text: 'buddy, ',
-                            style: ThemeFont.primaryFont(fontWeight: FontWeight.bold),
+                            style: ThemeFont.primaryFont(fontWeight: FontWeight.bold,color: Colors.white60,),
                           ),
                           TextSpan(
                             text: 'maybe even ',
@@ -130,7 +136,7 @@ class MascotWelcomePage extends StatelessWidget {
                           TextSpan(
                             text: 'partner-in-crime',
                             style: ThemeFont.secondaryFont().copyWith(
-                              fontStyle: FontStyle.italic,
+                              fontStyle: FontStyle.italic,color: Colors.white60,
                             ),
                           ),
                           TextSpan(
@@ -138,7 +144,7 @@ class MascotWelcomePage extends StatelessWidget {
                           ),
                           TextSpan(
                             text: 'first hangout',
-                            style: ThemeFont.primaryFont(fontWeight: FontWeight.bold),
+                            style: ThemeFont.primaryFont(fontWeight: FontWeight.bold,color: Colors.white60,),
                           ),
                           TextSpan(
                             text: ', let’s get to\nknow your ',
@@ -146,7 +152,7 @@ class MascotWelcomePage extends StatelessWidget {
                           TextSpan(
                             text: 'vibe',
                             style: ThemeFont.secondaryFont().copyWith(
-                              fontStyle: FontStyle.italic,
+                              fontStyle: FontStyle.italic,color: Colors.white60,
                             ),),
                           TextSpan(
                             text: '—what makes you',
@@ -154,7 +160,7 @@ class MascotWelcomePage extends StatelessWidget {
                           TextSpan(
                             text: 'tick',
                             style: ThemeFont.secondaryFont().copyWith(
-                              fontStyle: FontStyle.italic,
+                              fontStyle: FontStyle.italic,color: Colors.white60,
                             ),
                           ),
                           TextSpan(
@@ -162,15 +168,15 @@ class MascotWelcomePage extends StatelessWidget {
                           ),
                           TextSpan(
                             text: 'groove',
-                            style: ThemeFont.primaryFont(fontWeight: FontWeight.bold),
+                            style: ThemeFont.primaryFont(fontWeight: FontWeight.bold,color: Colors.white60,),
                           ),
                           TextSpan(
                             text: ', or go ',
                           ),
                           TextSpan(
                             text: '\'meh!\' ',
-                            style: ThemeFont.secondaryFont(fontStyle: FontStyle.italic).copyWith(
-                              fontStyle: FontStyle.italic,
+                            style: ThemeFont.secondaryFont().copyWith(
+                              fontStyle: FontStyle.italic,color: Colors.white60,
                             ),
                           ),
                           TextSpan(
@@ -178,7 +184,7 @@ class MascotWelcomePage extends StatelessWidget {
                           ),
                           TextSpan(
                             text: 'fun ',
-                            style: ThemeFont.primaryFont(fontWeight: FontWeight.bold),
+                            style: ThemeFont.primaryFont(fontWeight: FontWeight.bold,color: Colors.white60,),
                           ),
                           TextSpan(
                             text: '?',
@@ -279,7 +285,7 @@ class MascotWelcomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 40),
                 ],
               ),
             ),
