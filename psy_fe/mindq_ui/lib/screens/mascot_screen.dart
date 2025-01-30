@@ -94,9 +94,6 @@ class MascotWelcomePage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 13.2),
-
-
-
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 90, vertical: 0),
                     decoration: BoxDecoration(

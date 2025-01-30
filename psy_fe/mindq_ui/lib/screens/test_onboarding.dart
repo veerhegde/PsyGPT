@@ -85,6 +85,10 @@ class _TestOnboardingScreenState extends State<TestOnboardingScreen> {
                           ),
                           children: [
                             TextSpan(
+                              text: 'has\n',
+                              style: ThemeFont.primaryFont(color: Colors.white60,),
+                            ),
+                            TextSpan(
                               text: '9 ',
                               style: ThemeFont.primaryFont(fontWeight: FontWeight.bold,color: Colors.white60,),
                             ),
@@ -115,12 +119,16 @@ class _TestOnboardingScreenState extends State<TestOnboardingScreen> {
                             TextSpan(
                               text: 'you best!',
                             ),
+
                             ],
-                        ),),
+
+                        ),
+                      ),
+                      SizedBox(height: 169),
                     ],
                   ),
                 ),
-                SizedBox(height: 169),
+
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 40),
                   padding: EdgeInsets.all(20),
