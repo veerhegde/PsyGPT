@@ -127,12 +127,45 @@ class _TestOnboardingScreenState extends State<TestOnboardingScreen> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: Text(
-                    'Be mindful while\nselecting the\nappropriate card for\neach upcoming question',
-                    textAlign: TextAlign.center,
-                    style: ThemeFont.primaryFont(
-                      fontSize: 19.6,
-                      color: Colors.white60,
+
+                  child: RichText(
+                    textAlign: TextAlign.center, // Ensures the text is centered
+                    text: TextSpan(
+                      style: ThemeFont.primaryFont(
+                        fontSize: 19.6,
+                        color: Colors.white60,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: 'Be ',
+                        ),
+                        TextSpan(
+                          text: 'mindful',
+                          style: ThemeFont.secondaryFont().copyWith(
+                            fontStyle: FontStyle.italic,color: Colors.white60,
+                          ),
+                        ),
+                        TextSpan(
+                          text: ' while\nselecting the accurate',
+                        ),
+                        /*TextSpan(
+                          text: 'accurate\n',
+                          style: ThemeFont.secondaryFont().copyWith(
+                            fontStyle: FontStyle.italic,color: Colors.white60,
+                          ),),*/
+                        TextSpan(
+                          text: '\ncard for each\n ',
+                        ),
+                        TextSpan(
+                          text: 'upcoming ',
+                          style: ThemeFont.primaryFont(fontWeight: FontWeight.bold,color: Colors.white60,),
+                        ),
+                        TextSpan(
+                          text: 'question.',
+                        ),
+
+                      ],
+
                     ),
                   ),
                 ),
@@ -148,14 +181,14 @@ class _TestOnboardingScreenState extends State<TestOnboardingScreen> {
               child: Column(
                 children: [
                   CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.pink),
+                    valueColor: AlwaysStoppedAnimation<Color>(Colors.purpleAccent),
                   ),
                   SizedBox(height: 10),
                   Text(
                     'Building Test',
                     style: TextStyle(
                       fontSize: 14,
-                      color: Colors.pink,
+                      color: Colors.purpleAccent,
                     ),
                   ),
                 ],
