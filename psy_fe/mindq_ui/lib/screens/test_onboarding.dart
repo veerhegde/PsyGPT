@@ -69,7 +69,7 @@ class _TestOnboardingScreenState extends State<TestOnboardingScreen> {
                   child: Column(
                     children: [
                       Text(
-                        'The following Test',
+                        'The Test',
                         style: ThemeFont.primaryFont(
                           fontSize: 40.33,
                           fontWeight: FontWeight.bold,
