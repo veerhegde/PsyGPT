@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../constants/styles/font_const.dart';
 
 void main() {
   runApp(MyApp());
@@ -38,7 +39,7 @@ class _TestOnboardingScreenState extends State<TestOnboardingScreen> {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                    'lib/assets/reg_logo.png'),
+                    'lib/assets/pre_quest.png'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -69,37 +70,69 @@ class _TestOnboardingScreenState extends State<TestOnboardingScreen> {
                     children: [
                       Text(
                         'The following Test',
-                        style: TextStyle(
-                          fontSize: 32,
+                        style: ThemeFont.primaryFont(
+                          fontSize: 40.33,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
                       ),
-                      Text(
-                        'Consists of 9 questions\n& will help personalize\na Therapeutic model\nthat best suits you',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.white,
-                        ),
-                      ),
+                      RichText(
+                        textAlign: TextAlign.center, // Ensures the text is centered
+                        text: TextSpan(
+                          style: ThemeFont.primaryFont(
+                            fontSize: 19.6,
+                            color: Colors.white60,
+                          ),
+                          children: [
+                            TextSpan(
+                              text: '9 ',
+                              style: ThemeFont.primaryFont(fontWeight: FontWeight.bold,color: Colors.white60,),
+                            ),
+                            TextSpan(
+                              text: 'questions,\nto ',
+                            ),
+                            TextSpan(
+                              text: 'personalize ',
+                              style: ThemeFont.secondaryFont().copyWith(
+                                fontStyle: FontStyle.italic,color: Colors.white60,
+                              ),
+                            ),
+                            TextSpan(
+                              text: 'a\n',
+                            ),
+                            TextSpan(
+                              text: 'Therapeutic model\n',
+                              style: ThemeFont.primaryFont(fontWeight: FontWeight.bold,color: Colors.white60,),
+                            ),
+                            TextSpan(
+                              text: 'that ',
+                            ),
+                            TextSpan(
+                              text: 'suits ',
+                              style: ThemeFont.secondaryFont().copyWith(
+                                fontStyle: FontStyle.italic,color: Colors.white60,
+                              ),),
+                            TextSpan(
+                              text: 'you best!',
+                            ),
+                            ],
+                        ),),
                     ],
                   ),
                 ),
-
+                SizedBox(height: 169),
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 40),
                   padding: EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: Color(0xFFEFD377).withOpacity(0.8),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Text(
                     'Be mindful while\nselecting the\nappropriate card for\neach question',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.black,
+                    style: ThemeFont.primaryFont(
+                      fontSize: 19.6,
+                      color: Colors.white60,
                     ),
                   ),
                 ),
@@ -115,14 +148,14 @@ class _TestOnboardingScreenState extends State<TestOnboardingScreen> {
               child: Column(
                 children: [
                   CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                    valueColor: AlwaysStoppedAnimation<Color>(Colors.pink),
                   ),
                   SizedBox(height: 10),
                   Text(
                     'Building Test',
                     style: TextStyle(
                       fontSize: 14,
-                      color: Colors.white,
+                      color: Colors.pink,
                     ),
                   ),
                 ],

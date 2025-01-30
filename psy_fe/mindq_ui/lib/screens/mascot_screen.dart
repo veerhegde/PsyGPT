@@ -41,7 +41,7 @@ class MascotWelcomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SizedBox(height: 9),
+            SizedBox(height: 16),
             Align(
               alignment: Alignment.topLeft, // Aligns the image to the left
               child: Image.asset(
@@ -93,7 +93,7 @@ class MascotWelcomePage extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 13.2),
 
 
 
