@@ -140,6 +140,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                                         child: Text(
                                           "Or continue with",
                                           style: ThemeFont.primaryFont(
+                                            fontSize: 14,
                                             color: Colors.white30, // Text color
                                             fontWeight: FontWeight.w500, // Text weight
                                           ),

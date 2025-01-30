@@ -62,19 +62,28 @@ class MascotWelcomePage extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  Text(
-                    'Hi! I am Phoebe',
-                    style: ThemeFont.primaryFont(
-                      fontSize: 40.33,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
+    RichText(
+    text: TextSpan(
+    style: ThemeFont.primaryFont(fontSize: 40.33),
+    children: [
+    TextSpan(
+    text: 'Hi! ',
+      style: ThemeFont.primaryFont(fontSize: 40.33, fontWeight: FontWeight.bold),
+    ),
+      TextSpan(
+        text: 'I am ',
+      ),
+    TextSpan(
+    text: 'Phoebe',
+    style: ThemeFont.secondaryFont().copyWith(fontSize: 40.33,
+    fontStyle: FontStyle.italic,fontWeight: FontWeight.w900
+    ),
+    ),],),),
                   Text(
                     'welcome onboard!',
                     style: ThemeFont.primaryFont(
                       fontSize: 16,
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                   ),
                   SizedBox(height: 20),
@@ -82,10 +91,10 @@ class MascotWelcomePage extends StatelessWidget {
 
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 40, vertical: 30),
-                    padding: EdgeInsets.symmetric(horizontal: 40, vertical: 30),
+                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 40),
                     decoration: BoxDecoration(
                       color: Color(0xFFEFD377).withOpacity(0.8),
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(60),
                     ),
                     child: RichText(
                       text: TextSpan(
@@ -129,7 +138,7 @@ class MascotWelcomePage extends StatelessWidget {
                               fontStyle: FontStyle.italic,
                           ),),
                           TextSpan(
-                            text: '—what makes you\n',
+                            text: '—what makes you',
                           ),
                           TextSpan(
                             text: 'tick',
@@ -138,7 +147,7 @@ class MascotWelcomePage extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: ', ',
+                            text: ',\n ',
                           ),
                           TextSpan(
                             text: 'groove',
@@ -190,6 +199,7 @@ class MascotWelcomePage extends StatelessWidget {
                         child: Text(
                           "Continue to Test",
                           style: ThemeFont.primaryFont(
+                            fontSize: 14,
                             color: Colors.black26, // Text color
                             fontWeight: FontWeight.w500, // Text weight
                           ),
@@ -237,15 +247,15 @@ class MascotWelcomePage extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent, // Make button background transparent
                         shadowColor: Colors.transparent, // Remove default shadow
-                        padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                        padding: EdgeInsets.symmetric(horizontal: 90, vertical: 15),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(15),
                         ),
                       ),
                       child: Text(
                         "Lets do this",
                         style: ThemeFont.primaryFont(
-                          fontSize: 16,
+                          fontSize: 17.92,
                           fontWeight: FontWeight.bold,
                           color: Colors.white, // Ensure text is visible on gradient
                         ),
