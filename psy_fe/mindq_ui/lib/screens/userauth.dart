@@ -89,8 +89,8 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                                   image: AssetImage('lib/assets/reg_logo.png'),
                                   fit: BoxFit.cover,
                                   colorFilter: ColorFilter.mode(
-                                    Colors.black.withOpacity(0.5),
-                                    BlendMode.darken,
+                                    Colors.white.withOpacity(0.1),
+                                    BlendMode.overlay,
                                   ),
                                 ),
                                 gradient: ThemeGradient.LoginGradient,
@@ -128,8 +128,8 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                                           decoration: BoxDecoration(
                                             gradient: LinearGradient(
                                               colors: [
-                                                Colors.black26.withOpacity(0.0), // Start transparent
-                                                Colors.black26, // Fully visible in the middle
+                                                Colors.white30.withOpacity(0.0), // Start transparent
+                                                Colors.white30, // Fully visible in the middle
                                               ],
                                             ),
                                           ),
@@ -140,7 +140,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                                         child: Text(
                                           "Or continue with",
                                           style: ThemeFont.primaryFont(
-                                            color: Colors.black26, // Text color
+                                            color: Colors.white30, // Text color
                                             fontWeight: FontWeight.w500, // Text weight
                                           ),
                                         ),
@@ -152,8 +152,8 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                                           decoration: BoxDecoration(
                                             gradient: LinearGradient(
                                               colors: [
-                                                Colors.black26, // Fully visible in the middle
-                                                Colors.black26.withOpacity(0.0), // End transparent
+                                                Colors.white30, // Fully visible in the middle
+                                                Colors.white30.withOpacity(0.0), // End transparent
                                               ],
                                             ),
                                           ),
@@ -326,9 +326,11 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             DateAndTimePicker(),
         SizedBox(height: constraints.maxHeight * 0.02),
         buildGenderSlidingButton(constraints),
+        SizedBox(height: 44),
       ],
     );
   }
+
 
   Widget buildSlidingButton(BoxConstraints constraints) {
     return Container(
