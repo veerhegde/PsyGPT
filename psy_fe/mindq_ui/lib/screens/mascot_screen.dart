@@ -96,19 +96,45 @@ class MascotWelcomePage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: () {
-                    },
-                    child: Text(
-                      'Lets do this',
-                      style: TextStyle(fontSize: 18, color: Colors.white),
+                  Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Color(0xFF9C3FE4),
+                          Color(0xFFC65647),
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.pink.withOpacity(0.4), // Shadow color
+                          spreadRadius: 2, // How much the shadow spreads
+                          blurRadius: 10, // Blur effect
+                          offset: Offset(4, 4), // X and Y offset
+                        ),
+                      ],
                     ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red[400],
-                      padding:
-                      EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Your button action here
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent, // Make button background transparent
+                        shadowColor: Colors.transparent, // Remove default shadow
+                        padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: Text(
+                        "Lets do this",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white, // Ensure text is visible on gradient
+                        ),
                       ),
                     ),
                   ),
