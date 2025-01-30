@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mindq_ui/screens/mascot_screen.dart';
 import 'package:mindq_ui/screens/mindq_test.dart';
-import 'package:mindq_ui/screens/start_onboard.dart';
+import 'package:mindq_ui/screens/test_onboarding.dart';
 import 'package:mindq_ui/screens/userauth.dart';
 import 'screens/splashscreen.dart';
 import 'package:mindq_ui/screens/homescreen.dart';
