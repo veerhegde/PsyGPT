@@ -71,7 +71,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                                 width: constraints.maxWidth * 0.46,
                                 height: constraints.maxHeight * 0.25,
                                 child: Image.asset(
-                                  'lib/assets/phobe-removebg-preview.png',
+                                  'lib/assets/Phoebe_welcome.png',
                                   fit: BoxFit.contain,
                                   color: Colors.white.withOpacity(0.8),
                                   colorBlendMode: BlendMode.modulate,

@@ -4,9 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 class ThemeFont {
   // Define your primary font style
   static TextStyle primaryFont({
-    Color color = Colors.black,
+    Color color = Colors.white,
     FontWeight fontWeight = FontWeight.normal,
-    double fontSize = 14.0,
+    double fontSize = 19.6,
   }) {
     return GoogleFonts.montserrat(
       color: color,
@@ -17,11 +17,12 @@ class ThemeFont {
 
   // Define your secondary font style
   static TextStyle secondaryFont({
-    Color color = Colors.grey,
-    FontWeight fontWeight = FontWeight.normal,
-    double fontSize = 12.0,
+    Color color = Colors.white,
+    fontStyle = FontStyle.italic,
+    FontWeight fontWeight = FontWeight.w200,
+    double fontSize = 19.6,
   }) {
-    return GoogleFonts.roboto(
+    return GoogleFonts.montserrat(
       color: color,
       fontWeight: fontWeight,
       fontSize: fontSize,
