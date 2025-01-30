@@ -256,7 +256,7 @@ class MascotWelcomePage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.pink.withOpacity(0.3), // Shadow color with opacity
+                          color: Colors.black.withOpacity(0.3), // Shadow color with opacity
                           offset: Offset(4, 4), // Horizontal and vertical shadow offset
                           blurRadius: 10, // How blurry the shadow is
                           spreadRadius: 2, // How far the shadow spreads
