@@ -52,12 +52,17 @@ class MascotWelcomePage extends StatelessWidget {
             ),
 
             Container(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.symmetric(vertical: 20),//padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.8),
+                image: DecorationImage(
+                  image: AssetImage("lib/assets/mascot_bg.png"), // Your image path
+                  fit: BoxFit.cover, // Cover the entire container
+                ),
+                //color: Colors.white.withOpacity(0),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
+                 // topRight: Radius.circular(30),
+
                 ),
               ),
               child: Column(
@@ -89,20 +94,26 @@ class MascotWelcomePage extends StatelessWidget {
                   SizedBox(height: 20),
 
 
+
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 40, vertical: 30),
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 40),
+                    padding: EdgeInsets.symmetric(horizontal: 90, vertical: 0),
                     decoration: BoxDecoration(
-                      color: Color(0xFFEFD377).withOpacity(0.8),
-                      borderRadius: BorderRadius.circular(60),
+                      image: DecorationImage(
+                        image: AssetImage("lib/assets/phoebe_msg_bg.png"), // Background image
+                        fit: BoxFit.cover, // Full-screen fill
+                      ),
                     ),
-                    child: RichText(
-                      text: TextSpan(
-                        style: ThemeFont.primaryFont(fontSize: 19.6),
-                        children: [
-                          TextSpan(
-                            text: 'I’ll be your',
-                          ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min, // Keeps the Column tight around its content
+                      children: [
+                        // Main text
+                        SizedBox(height: 126),
+                        RichText(
+                          textAlign: TextAlign.center, // Ensures the text is centered
+                          text: TextSpan(
+                            style: ThemeFont.primaryFont(fontSize: 19.6),
+                            children: [
+                              TextSpan(text: 'I’ll be your'),
                           TextSpan(
                             text: ' guide, ',
                             style: ThemeFont.secondaryFont().copyWith(
@@ -136,7 +147,7 @@ class MascotWelcomePage extends StatelessWidget {
                             text: 'vibe',
                             style: ThemeFont.secondaryFont().copyWith(
                               fontStyle: FontStyle.italic,
-                          ),),
+                            ),),
                           TextSpan(
                             text: '—what makes you',
                           ),
@@ -171,57 +182,63 @@ class MascotWelcomePage extends StatelessWidget {
                           ),
                           TextSpan(
                             text: '?',
-                          ),
-                        ],
-                      ),
+                          ),],
+                        ),),
+
+                        SizedBox(height:100), // Adds spacing before the divider
+
+                        // Row with gradient dividers
+                        Row(
+                          children: [
+                            // Left gradient divider
+                            Expanded(
+                              child: Container(
+                                height: 1,
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Colors.black26.withOpacity(0.0), // Transparent start
+                                      Colors.black26, // Fully visible in the middle
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+
+                            // Center text
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 10),
+                              child: Text(
+                                "Continue to Test",
+                                style: ThemeFont.primaryFont(
+                                  fontSize: 14,
+                                  color: Colors.black26, // Text color
+                                  fontWeight: FontWeight.w500, // Text weight
+                                ),
+                              ),
+                            ),
+
+                            // Right gradient divider
+                            Expanded(
+                              child: Container(
+                                height: 1,
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Colors.black26, // Fully visible in the middle
+                                      Colors.black26.withOpacity(0.0), // Transparent end
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height:10),
+                      ],
                     ),
                   ),
 
-                  SizedBox(height: 20),
-                  Row(
-                    children: [
-                      // Left gradient divider
-                      Expanded(
-                        child: Container(
-                          height: 1,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                Colors.black26.withOpacity(0.0), // Start transparent
-                                Colors.black26, // Fully visible in the middle
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Text(
-                          "Continue to Test",
-                          style: ThemeFont.primaryFont(
-                            fontSize: 14,
-                            color: Colors.black26, // Text color
-                            fontWeight: FontWeight.w500, // Text weight
-                          ),
-                        ),
-                      ),
-                      // Right gradient divider
-                      Expanded(
-                        child: Container(
-                          height: 1,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                Colors.black26, // Fully visible in the middle
-                                Colors.black26.withOpacity(0.0), // End transparent
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 20),
                   Container(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
