@@ -108,7 +108,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                                     width: double.infinity,
                                     padding: EdgeInsets.all(20),
                                     decoration: BoxDecoration(
-                                      color: isLogin ? ThemeColor.appPrimaryColor : Colors.white24,
+                                      color: isLogin ? Colors.white24 : Colors.white24,
                                       borderRadius: BorderRadius.circular(20),
                                     ),
 
@@ -323,12 +323,6 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
             fillColor: ThemeColor.fieldbg,
             constraints: constraints),
         SizedBox(height: constraints.maxHeight * 0.02),
-        CustomTextbox(
-
-            labelText: FormTableText.DOBLabel,
-            prefixIcon: Icons.calendar_month_outlined,
-            fillColor: ThemeColor.fieldbg,
-            constraints: constraints),
             DateAndTimePicker(),
         SizedBox(height: constraints.maxHeight * 0.02),
         buildGenderSlidingButton(constraints),
