@@ -72,241 +72,250 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffb74093),
-      body: Container(
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.black,
-            width: 4,
-          ),
-          color: Color(0xffb74093),
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.black,
-              offset: Offset(6, 6),
-            ),
-          ],
-        ),
-        child: Column(
-          children: [
-            Expanded(
-              child: PageView.builder(
-                controller: _pageController,
-                itemCount: widget.questions.length,
-                physics: const NeverScrollableScrollPhysics(),
-                onPageChanged: (int index) {
-                  setState(() {
-                    _currentPage = index;
-                  });
-                },
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(color: Colors.black, width: 2),
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Color(0xFFe0e0e0),
-                                offset: Offset(3, 3),
-                              ),
-                            ],
-                          ),
-                          height: 250,
-                          child: DotLottieLoader.fromNetwork(
-                            widget.questions[index].lottieAnimationUrl,
-                            frameBuilder: (ctx, dotLottie) {
-                              if (dotLottie != null) {
-                                return Lottie.memory(
-                                  dotLottie.animations.values.first,
-                                  controller: _lottieControllers[index],
-                                  onLoaded: (composition) {
-                                    _lottieControllers[index]
-                                      ?..duration = composition.duration;
-                                  },
-                                );
-                              } else {
-                                return const CircularProgressIndicator();
-                              }
-                            },
-                            errorBuilder: (ctx, e, s) {
-                              print(s);
-                              return Text(e.toString());
-                            },
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-                        Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.black,
-                              width: 2,
-                            ),
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Colors.black,
-                                offset: Offset(4, 4),
-                              ),
-                            ],
-                            color: const Color(0xFFe0e0e0),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              widget.questions[index].text,
-                              style: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 40),
-                        Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.black,
-                              width: 2,
-                            ),
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Colors.black,
-                                offset: Offset(4, 4),
-                              ),
-                            ],
-                            color: const Color(0xfff4d738),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              _getAnswerText(index),
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                fontSize: 18,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-                        SliderTheme(
-                          data: SliderTheme.of(context).copyWith(
-                            activeTrackColor: const Color(0xFF77dd77),
-                            inactiveTrackColor: const Color(0xFFe0e0e0),
-                            trackHeight: 5.0,
-                            thumbColor: Colors.black,
-                            thumbShape: const RoundSliderThumbShape(
-                              enabledThumbRadius: 10.0,
-                            ),
-                            overlayColor: Colors.black.withAlpha(32),
-                            overlayShape: const RoundSliderOverlayShape(
-                              overlayRadius: 18.0,
-                            ),
-                            valueIndicatorShape:
-                            const PaddleSliderValueIndicatorShape(),
-                            valueIndicatorColor: const Color(0xFF77dd77),
-                            valueIndicatorTextStyle: const TextStyle(
-                              color: Colors.black,
-                            ),
-                          ),
-                          child: Slider(
-                            value: _answers[index] ?? 3,
-                            min: 1,
-                            max: 5,
-                            divisions: 4,
-                            label: _getAnswerText(index),
-                            onChanged: (double value) {
-                              setState(() {
-                                _answers[index] = value;
-                              });
-                              _applySliderValueToAnimation(index);
-                              widget.onAnswerChanged(index, value);
-                            },
-                            onChangeEnd: (double value) {},
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
+      body: Stack(
+        children: [
+          // Background Image Container
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('lib/assets/pre_quest.png'),
+                fit: BoxFit.cover,
               ),
             ),
-            Container(
-              padding: const EdgeInsets.all(20),
-              decoration: const BoxDecoration(
-                color: Color(0xfff4d738),
-                border: Border(
+          ),
+
+          // Foreground Content
+          Column(
+            children: [
+              Expanded(
+                child: PageView.builder(
+                  controller: _pageController,
+                  itemCount: widget.questions.length,
+                  physics: const NeverScrollableScrollPhysics(),
+                  onPageChanged: (int index) {
+                    setState(() {
+                      _currentPage = index;
+                    });
+                  },
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          // Lottie Animation Container
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(color: Colors.black, width: 2),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Color(0xFFe0e0e0),
+                                  offset: Offset(3, 3),
+                                ),
+                              ],
+                            ),
+                            height: 250,
+                            child: DotLottieLoader.fromNetwork(
+                              widget.questions[index].lottieAnimationUrl,
+                              frameBuilder: (ctx, dotLottie) {
+                                if (dotLottie != null) {
+                                  return Lottie.memory(
+                                    dotLottie.animations.values.first,
+                                    controller: _lottieControllers[index],
+                                    onLoaded: (composition) {
+                                      _lottieControllers[index]
+                                        ?..duration = composition.duration;
+                                    },
+                                  );
+                                } else {
+                                  return const CircularProgressIndicator();
+                                }
+                              },
+                              errorBuilder: (ctx, e, s) {
+                                print(s);
+                                return Text(e.toString());
+                              },
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+
+                          // Question Text Container
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.black,
+                                width: 2,
+                              ),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Colors.black,
+                                  offset: Offset(4, 4),
+                                ),
+                              ],
+                              color: const Color(0xFFe0e0e0),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                widget.questions[index].text,
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 40),
+
+                          // Answer Text Container
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.black,
+                                width: 2,
+                              ),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Colors.black,
+                                  offset: Offset(4, 4),
+                                ),
+                              ],
+                              color: const Color(0xfff4d738),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                _getAnswerText(index),
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+
+                          // Slider
+                          SliderTheme(
+                            data: SliderTheme.of(context).copyWith(
+                              activeTrackColor: const Color(0xFF77dd77),
+                              inactiveTrackColor: const Color(0xFFe0e0e0),
+                              trackHeight: 5.0,
+                              thumbColor: Colors.black,
+                              thumbShape: const RoundSliderThumbShape(
+                                enabledThumbRadius: 10.0,
+                              ),
+                              overlayColor: Colors.black.withAlpha(32),
+                              overlayShape: const RoundSliderOverlayShape(
+                                overlayRadius: 18.0,
+                              ),
+                              valueIndicatorShape:
+                              const PaddleSliderValueIndicatorShape(),
+                              valueIndicatorColor: const Color(0xFF77dd77),
+                              valueIndicatorTextStyle: const TextStyle(
+                                color: Colors.black,
+                              ),
+                            ),
+                            child: Slider(
+                              value: _answers[index] ?? 3,
+                              min: 1,
+                              max: 5,
+                              divisions: 4,
+                              label: _getAnswerText(index),
+                              onChanged: (double value) {
+                                setState(() {
+                                  _answers[index] = value;
+                                });
+                                _applySliderValueToAnimation(index);
+                                widget.onAnswerChanged(index, value);
+                              },
+                              onChangeEnd: (double value) {},
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
+
+              // Bottom Navigation Container
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: const BoxDecoration(
+                  color: Color(0xfff4d738),
+                  border: Border(
                     top: BorderSide(color: Colors.black, width: 2),
                     left: BorderSide(color: Colors.black, width: 2),
                     right: BorderSide(color: Colors.black, width: 2),
-                    bottom: BorderSide(color: Colors.black, width: 2)),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black,
-                    offset: Offset(4, 4),
+                    bottom: BorderSide(color: Colors.black, width: 2),
                   ),
-                ],
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Question ${_currentPage + 1} of ${widget.questions.length}",
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                  boxShadow: [
+                    BoxShadow(
                       color: Colors.black,
+                      offset: Offset(4, 4),
                     ),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      if (_currentPage < widget.questions.length - 1) {
-                        _pageController.nextPage(
-                          duration: const Duration(milliseconds: 300),
-                          curve: Curves.easeIn,
-                        );
-                      } else {
-                        widget.onTestComplete();
-                      }
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF77dd77),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 10,
-                      ),
-                      textStyle: const TextStyle(
+                  ],
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Question ${_currentPage + 1} of ${widget.questions.length}",
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                      ),
-                      side: const BorderSide(
                         color: Colors.black,
-                        width: 2,
                       ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        if (_currentPage < widget.questions.length - 1) {
+                          _pageController.nextPage(
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeIn,
+                          );
+                        } else {
+                          widget.onTestComplete();
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF77dd77),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 20,
+                          vertical: 10,
+                        ),
+                        textStyle: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        side: const BorderSide(
+                          color: Colors.black,
+                          width: 2,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        shadowColor: Colors.black,
+                        elevation: 4,
                       ),
-                      shadowColor: Colors.black,
-                      elevation: 4,
+                      child: Text(
+                        _currentPage < widget.questions.length - 1
+                            ? "Next"
+                            : "Finish",
+                        style: const TextStyle(color: Colors.black),
+                      ),
                     ),
-                    child: Text(
-                      _currentPage < widget.questions.length - 1
-                          ? "Next"
-                          : "Finish",
-                      style: const TextStyle(color: Colors.black),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
-        ),
+            ],
+          ),
+        ],
       ),
     );
   }

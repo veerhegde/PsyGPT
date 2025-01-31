@@ -26,7 +26,7 @@ class MascotWelcomePage extends StatelessWidget {
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
               Colors.black.withOpacity(0.5),
-              BlendMode.darken,
+              BlendMode.overlay,
             ),
           ),
           gradient: LinearGradient(

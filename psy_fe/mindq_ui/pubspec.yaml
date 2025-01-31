@@ -96,6 +96,7 @@ flutter:
      - lib/assets/phoebe_msg_bg.png
      - lib/assets/mascot_bg.png
      - lib/assets/pre_quest.png
+     - lib/assets/quest.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
