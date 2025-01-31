@@ -105,6 +105,25 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                         children: [
                           // Lottie Animation Container
                           Container(
+                            margin: const EdgeInsets.symmetric(horizontal: 40,),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(44),
+                              //color: const Color(0xFFe0e0e0),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 0, vertical:0),
+                              child: Text(
+                                widget.questions[index].text,
+                                style: ThemeFont.primaryFont(
+                                  fontSize: 19.6,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white60,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                          Container(
 
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
@@ -145,44 +164,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                           const SizedBox(height: 20),
 
                           // Question Text Container
-                          Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 40,),
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  Color(0xFFAB8B38),
-                                  Color(0xFF9A7636),
-                                      Color(0xFFB8963C),
-                                ],
-                              ),
-                              borderRadius: BorderRadius.circular(44),
-                              border: Border.all(
-                                color: Colors.white,
-                                width: 9.6,
-                              ),
-                              boxShadow: const [
-                                BoxShadow(
-                                  color: Colors.white,
-                                  offset: Offset(0, 4),
-                                  blurRadius: 10, // How blurry the shadow is
-                                  spreadRadius: 2, // How far the shadow spreads
-                                ),
-                              ],
-                              //color: const Color(0xFFe0e0e0),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 20, vertical:60),
-                              child: Text(
-                                widget.questions[index].text,
-                                style: ThemeFont.primaryFont(
-                                  fontSize: 19.6,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white60,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ),
+
 
                           // Answer Text Container
                           Container(
@@ -211,7 +193,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                               color: const Color(0xfff4d738),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.symmetric(horizontal: 20, vertical:60),
                               child: Text(
                                 _getAnswerText(index),
                                 textAlign: TextAlign.center,
