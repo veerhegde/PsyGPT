@@ -99,7 +99,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                   },
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: const EdgeInsets.only(top: 144.4),
+                      padding: const EdgeInsets.only(top: 0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -115,7 +115,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                               child: Text(
                                 widget.questions[index].text,
                                 style: ThemeFont.primaryFont(
-                                  fontSize: 19.6,
+                                  fontSize: 24,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white60,
                                 ),
@@ -209,10 +209,10 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                           // Slider
                           SliderTheme(
                             data: SliderTheme.of(context).copyWith(
-                              activeTrackColor: const Color(0xFF77dd77),
-                              inactiveTrackColor: const Color(0xFFe0e0e0),
+                              activeTrackColor: const Color(0xFF9A7636),
+                              inactiveTrackColor: const Color(0xFF000000),
                               trackHeight: 5.0,
-                              thumbColor: Colors.black,
+                              thumbColor: Color(0xFF9A7636),
                               thumbShape: const RoundSliderThumbShape(
                                 enabledThumbRadius: 10.0,
                               ),
@@ -222,7 +222,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                               ),
                               valueIndicatorShape:
                               const PaddleSliderValueIndicatorShape(),
-                              valueIndicatorColor: const Color(0xFF77dd77),
+                              valueIndicatorColor: const Color(0xFF9A7636),
                               valueIndicatorTextStyle: const TextStyle(
                                 color: Colors.black,
                               ),
