@@ -140,13 +140,13 @@ class _TestOnboardingScreenState extends State<TestOnboardingScreen> {
                           text: 'Be ',
                         ),
                         TextSpan(
-                          text: 'mindful',
+                          text: 'mindful,',
                           style: ThemeFont.secondaryFont().copyWith(
                             fontStyle: FontStyle.italic,color: Colors.white60,
                           ),
                         ),
                         TextSpan(
-                          text: ' while\nselecting the accurate',
+                          text: ' choosing\n the appropriate option,',
                         ),
                         /*TextSpan(
                           text: 'accurate\n',
@@ -154,14 +154,14 @@ class _TestOnboardingScreenState extends State<TestOnboardingScreen> {
                             fontStyle: FontStyle.italic,color: Colors.white60,
                           ),),*/
                         TextSpan(
-                          text: '\ncard for each\n ',
+                          text: '\nin the ',
                         ),
                         TextSpan(
                           text: 'upcoming ',
                           style: ThemeFont.primaryFont(fontWeight: FontWeight.bold,color: Colors.white60,),
                         ),
                         TextSpan(
-                          text: 'question.',
+                          text: '\nquestionnaire.',
                         ),
 
                       ],
