@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:dotlottie_loader/dotlottie_loader.dart';
-
+import '../constants/styles/font_const.dart';
 class Question {
   final String text;
   final List<String> options;
@@ -78,7 +78,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('lib/assets/pre_quest.png'),
+                image: AssetImage("lib/assets/Quest2.png"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -99,15 +99,18 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                   },
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: const EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.only(top: 144.4),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           // Lottie Animation Container
                           Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              border: Border.all(color: Colors.black, width: 2),
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(44),
+                                topRight: Radius.circular(44),
+                              ),
+                              //border: Border.all(color: Colors.black, width: 2),
                               boxShadow: const [
                                 BoxShadow(
                                   color: Color(0xFFe0e0e0),
@@ -115,7 +118,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                                 ),
                               ],
                             ),
-                            height: 250,
+                             width:600,height:240,
                             child: DotLottieLoader.fromNetwork(
                               widget.questions[index].lottieAnimationUrl,
                               frameBuilder: (ctx, dotLottie) {
@@ -142,10 +145,17 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
 
                           // Question Text Container
                           Container(
+                            margin: const EdgeInsets.symmetric(horizontal: 40,),
                             decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage("lib/assets/phoebe_msg_bg.png"), // Background image
+                                fit: BoxFit.cover, // Full-screen fill
+                              ),
+                              borderRadius: BorderRadius.circular(44),
                               border: Border.all(
-                                color: Colors.black,
-                                width: 2,
+
+                                color: Colors.white,
+                                width: 9.6,
                               ),
                               boxShadow: const [
                                 BoxShadow(
@@ -153,16 +163,16 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                                   offset: Offset(4, 4),
                                 ),
                               ],
-                              color: const Color(0xFFe0e0e0),
+                              //color: const Color(0xFFe0e0e0),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.symmetric(horizontal: 20, vertical:60),
                               child: Text(
                                 widget.questions[index].text,
-                                style: const TextStyle(
-                                  fontSize: 20,
+                                style: ThemeFont.primaryFont(
+                                  fontSize: 19.6,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.black,
+                                  color: Colors.white60,
                                 ),
                                 textAlign: TextAlign.center,
                               ),
@@ -247,31 +257,50 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
               Container(
                 padding: const EdgeInsets.all(20),
                 decoration: const BoxDecoration(
-                  color: Color(0xfff4d738),
-                  border: Border(
-                    top: BorderSide(color: Colors.black, width: 2),
-                    left: BorderSide(color: Colors.black, width: 2),
-                    right: BorderSide(color: Colors.black, width: 2),
-                    bottom: BorderSide(color: Colors.black, width: 2),
+                  //color: Color(0xfff4d738),
+                  //border: Border(
+                   // top: BorderSide(color: Colors.black, width: 2),
+                   // left: BorderSide(color: Colors.black, width: 2),
+                   // right: BorderSide(color: Colors.black, width: 2),
+                   // bottom: BorderSide(color: Colors.black, width: 2),
                   ),
-                  boxShadow: [
-                    BoxShadow(
+                  //boxShadow: [
+                  /*  BoxShadow(
                       color: Colors.black,
                       offset: Offset(4, 4),
-                    ),
-                  ],
-                ),
+                    ),*/
+                 // ],
+              //  ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Question ${_currentPage + 1} of ${widget.questions.length}",
+                      "Q ${_currentPage + 1} / ${widget.questions.length}",
                       style: const TextStyle(
-                        fontSize: 16,
+                        fontSize: 19.6,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: Colors.white60,
                       ),
                     ),
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Color(0xFF9C3FE4),
+                        Color(0xFFC65647),
+                      ],
+                    ),
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.3), // Shadow color with opacity
+                        offset: Offset(4, 4), // Horizontal and vertical shadow offset
+                        blurRadius: 10, // How blurry the shadow is
+                        spreadRadius: 2, // How far the shadow spreads
+                      ),
+                    ],
+                  ),
+                    child:
                     ElevatedButton(
                       onPressed: () {
                         if (_currentPage < widget.questions.length - 1) {
@@ -284,7 +313,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF77dd77),
+                       // backgroundColor: const Color(0xFF77dd77),
                         padding: const EdgeInsets.symmetric(
                           horizontal: 20,
                           vertical: 10,
@@ -293,13 +322,13 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
-                        side: const BorderSide(
+                       /* side: const BorderSide(
                           color: Colors.black,
                           width: 2,
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
-                        ),
+                        ),*/
                         shadowColor: Colors.black,
                         elevation: 4,
                       ),
@@ -307,9 +336,9 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                         _currentPage < widget.questions.length - 1
                             ? "Next"
                             : "Finish",
-                        style: const TextStyle(color: Colors.black),
+                        style: const TextStyle(color: Colors.white),
                       ),
-                    ),
+                    ),),
                   ],
                 ),
               ),
