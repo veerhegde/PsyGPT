@@ -228,7 +228,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                           // Slider
                           SliderTheme(
                             data: SliderTheme.of(context).copyWith(
-                              activeTrackColor: const Color(0xFF77dd77),
+                              activeTrackColor: const Color(0xfff4d738),
                               inactiveTrackColor: const Color(0xFFe0e0e0),
                               trackHeight: 5.0,
                               thumbColor: Colors.black,
@@ -241,9 +241,9 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                               ),
                               valueIndicatorShape:
                               const PaddleSliderValueIndicatorShape(),
-                              valueIndicatorColor: const Color(0xFF77dd77),
+                              valueIndicatorColor: const Color(0xfff4d738),
                               valueIndicatorTextStyle: const TextStyle(
-                                color: Colors.black,
+                                color: Color(0xFF9A7636),
                               ),
                             ),
                             child: Slider(
