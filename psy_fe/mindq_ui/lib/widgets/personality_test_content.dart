@@ -144,23 +144,27 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                           const SizedBox(height: 20),
 
                           // Question Text Container
-                          Container(
+                         /* Container(
                             margin: const EdgeInsets.symmetric(horizontal: 40,),
                             decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage("lib/assets/phoebe_msg_bg.png"), // Background image
-                                fit: BoxFit.cover, // Full-screen fill
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color(0xFFAB8B38),
+                                  Color(0xFF9A7636),
+                                      Color(0xFFB8963C),
+                                ],
                               ),
                               borderRadius: BorderRadius.circular(44),
                               border: Border.all(
-
                                 color: Colors.white,
                                 width: 9.6,
                               ),
                               boxShadow: const [
                                 BoxShadow(
-                                  color: Colors.black,
-                                  offset: Offset(4, 4),
+                                  color: Colors.white,
+                                  offset: Offset(0, 4),
+                                  blurRadius: 10, // How blurry the shadow is
+                                  spreadRadius: 2, // How far the shadow spreads
                                 ),
                               ],
                               //color: const Color(0xFFe0e0e0),
@@ -178,32 +182,44 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                               ),
                             ),
                           ),
-                          const SizedBox(height: 40),
+                          const SizedBox(height: 40),*/
 
                           // Answer Text Container
                           Container(
+                            margin: const EdgeInsets.symmetric(horizontal: 40,),
                             decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color(0xFFAB8B38),
+                                  Color(0xFF9A7636),
+                                  Color(0xFFB8963C),
+                                ],
+                              ),
+                              borderRadius: BorderRadius.circular(44),
                               border: Border.all(
-                                color: Colors.black,
-                                width: 2,
+                                color: Colors.white,
+                                width: 9.6,
                               ),
                               boxShadow: const [
                                 BoxShadow(
-                                  color: Colors.black,
-                                  offset: Offset(4, 4),
+                                  color: Colors.white,
+                                  offset: Offset(0, 4),
+                                  blurRadius: 10, // How blurry the shadow is
+                                  spreadRadius: 2, // How far the shadow spreads
                                 ),
                               ],
                               color: const Color(0xfff4d738),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.symmetric(horizontal: 20, vertical:60),
                               child: Text(
-                                _getAnswerText(index),
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.black,
+                                widget.questions[index].text,
+                                style: ThemeFont.primaryFont(
+                                  fontSize: 19.6,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white60,
                                 ),
+                                textAlign: TextAlign.center,
                               ),
                             ),
                           ),
@@ -290,10 +306,10 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                         Color(0xFFC65647),
                       ],
                     ),
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(15),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.3), // Shadow color with opacity
+                       // color: Colors.black.withOpacity(0.3), // Shadow color with opacity
                         offset: Offset(4, 4), // Horizontal and vertical shadow offset
                         blurRadius: 10, // How blurry the shadow is
                         spreadRadius: 2, // How far the shadow spreads
@@ -336,7 +352,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                         _currentPage < widget.questions.length - 1
                             ? "Next"
                             : "Finish",
-                        style: const TextStyle(color: Colors.white),
+                       // style: const TextStyle(color: Colors.white),
                       ),
                     ),),
                   ],
