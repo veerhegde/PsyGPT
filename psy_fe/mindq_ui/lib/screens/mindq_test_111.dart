@@ -22,8 +22,8 @@ class MindqTest111 extends StatelessWidget {
         child: buildPersonalityTestWidget(
           questions: [
             Question(
-              text: "Okay, so... do you like hanging out with people more, or are you like, 'Nah, me time, please'?.",
-              options: ["Nope!", "Eh.", "Meh.", "Yep!", "Totally!"],
+              text: "Spending time alone or with others?",
+              options: ["I love being around people all the time","I prefer spending time with others most of the time.","It depends on my mood; I’m fine with either.","I enjoy my alone time more than being with others.","I strongly prefer solitude over socializing."],
               lottieAnimationUrl: "https://lottie.host/8ef36c39-7b7c-43fb-bff9-f5864f5a10d8/OxcSr390OG.json",
             ),
             Question(

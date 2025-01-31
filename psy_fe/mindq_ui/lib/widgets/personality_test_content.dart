@@ -105,6 +105,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                         children: [
                           // Lottie Animation Container
                           Container(
+
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(44),
@@ -144,7 +145,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                           const SizedBox(height: 20),
 
                           // Question Text Container
-                         /* Container(
+                          Container(
                             margin: const EdgeInsets.symmetric(horizontal: 40,),
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
@@ -182,7 +183,6 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                               ),
                             ),
                           ),
-                          const SizedBox(height: 40),*/
 
                           // Answer Text Container
                           Container(
@@ -211,15 +211,14 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                               color: const Color(0xfff4d738),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 20, vertical:60),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                widget.questions[index].text,
-                                style: ThemeFont.primaryFont(
-                                  fontSize: 19.6,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white60,
-                                ),
+                                _getAnswerText(index),
                                 textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black,
+                                ),
                               ),
                             ),
                           ),
@@ -228,7 +227,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                           // Slider
                           SliderTheme(
                             data: SliderTheme.of(context).copyWith(
-                              activeTrackColor: const Color(0xfff4d738),
+                              activeTrackColor: const Color(0xFF77dd77),
                               inactiveTrackColor: const Color(0xFFe0e0e0),
                               trackHeight: 5.0,
                               thumbColor: Colors.black,
@@ -241,9 +240,9 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                               ),
                               valueIndicatorShape:
                               const PaddleSliderValueIndicatorShape(),
-                              valueIndicatorColor: const Color(0xfff4d738),
+                              valueIndicatorColor: const Color(0xFF77dd77),
                               valueIndicatorTextStyle: const TextStyle(
-                                color: Color(0xFF9A7636),
+                                color: Colors.black,
                               ),
                             ),
                             child: Slider(
