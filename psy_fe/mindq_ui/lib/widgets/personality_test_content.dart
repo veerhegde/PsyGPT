@@ -111,7 +111,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                               //color: const Color(0xFFe0e0e0),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 0, vertical:0),
+                              padding: const EdgeInsets.symmetric(horizontal: 19, vertical:10),
                               child: Text(
                                 widget.questions[index].text,
                                 style: ThemeFont.primaryFont(
@@ -179,12 +179,12 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                               ),
                               borderRadius: BorderRadius.circular(44),
                               border: Border.all(
-                                color: Colors.white,
+                                color: Colors.white60,
                                 width: 9.6,
                               ),
                               boxShadow: const [
                                 BoxShadow(
-                                  color: Colors.white,
+                                  color: Colors.white60,
                                   offset: Offset(0, 4),
                                   blurRadius: 10, // How blurry the shadow is
                                   spreadRadius: 2, // How far the shadow spreads
@@ -197,9 +197,9 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                               child: Text(
                                 _getAnswerText(index),
                                 textAlign: TextAlign.center,
-                                style: const TextStyle(
+                                style: ThemeFont.primaryFont(
                                   fontSize: 18,
-                                  color: Colors.black,
+                                  color: Colors.white60,
                                 ),
                               ),
                             ),
