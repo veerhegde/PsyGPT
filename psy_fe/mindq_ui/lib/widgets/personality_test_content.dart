@@ -2,17 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:dotlottie_loader/dotlottie_loader.dart';
 import '../constants/styles/font_const.dart';
-class Question {
-  final String text;
-  final List<String> options;
-  final String lottieAnimationUrl;
+import '../models/Questions.dart';
 
-  Question({
-    required this.text,
-    required this.options,
-    required this.lottieAnimationUrl,
-  });
-}
 
 Widget buildPersonalityTestWidget({
   required List<Question> questions,

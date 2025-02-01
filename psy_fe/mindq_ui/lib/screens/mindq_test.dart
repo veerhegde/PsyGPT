@@ -1,6 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import '../models/Questions.dart';
+import '../widgets/personality_test_content.dart';
+import '../widgets/personality_test_widget.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,98 +18,76 @@ class MyApp extends StatelessWidget {
 }
 
 class MindqTest extends StatelessWidget {
-  const MindqTest({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Slider')),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child:
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image.asset('lib/assets/qdnim.png'),
-              SvgPicture.asset('lib/assets/mindq_logo.svg', width: 100, height: 100, color: Colors.red,),
-              const SizedBox(height: 50),
-              Text(
-                    style: TextStyle(
-                      color: Colors.red
-                    ),
-                    "Answer the following questions"),
-              const SizedBox(height: 40),
-              _buildSlider(
-                  "are you introvert or extrovert ?", SimpleSlider(divisions: 5)),
-              _buildSlider(
-                  "Paddle Thumb Overlay",
-                  CustomThumbShape(
-                      valueIndicatorShape: PaddleSliderValueIndicatorShape()))
-            ]),
+      body: Center(
+        child: buildPersonalityWidget(
+          questions: [
+            Question(
+              text: "Spending time with others or alone?",
+              options: ["Nope!", "Eh.", "Meh.", "Yep!", "Totally!"],
+              lottieAnimationUrl:
+              "https://lottie.host/c47d9e9a-7db7-4289-8849-9f880144585c/4agQoMsOSN.lottie",
+            ),
+            Question(
+              text: "Trying out new places or sticking to favorites?",
+              options: ["Nope!", "Eh.", "Meh.", "Yep!", "Totally!"],
+              lottieAnimationUrl:
+              "https://lottie.host/e487425f-5ce4-4133-a356-901b4d1cdc78/lOiylY7Icn.json",
+            ),
+            Question(
+              text: "Having deep, meaningful conversations or keeping it light and fun?",
+              options: ["Nope!", "Eh.", "Meh.", "Yep!", "Totally!"],
+              lottieAnimationUrl:
+              "https://lottie.host/d1f4a79c-0204-4a92-9f5f-d3d906ccdb28/e3QvqgNPR7.json",
+            ),
+            Question(
+              text: "Planning everything out or going with the flow?",
+              options: ["Nope!", "Eh.", "Meh.", "Yep!", "Totally!"],
+              lottieAnimationUrl:
+              "https://lottie.host/e830bc87-a72b-43df-85bc-3f6e373b4de0/PRUkGNSFsT.json",
+            ),
+            Question(
+              text: "Reading books, articles, news or watching TV, movies, social media?",
+              options: ["Nope!", "Eh.", "Meh.", "Yep!", "Totally!"],
+              lottieAnimationUrl:
+              "https://lottie.host/d1f4a79c-0204-4a92-9f5f-d3d906ccdb28/e3QvqgNPR7.json",
+            ),
+            Question(
+              text: "Following your heart or your head?",
+              options: ["Nope!", "Eh.", "Meh.", "Yep!", "Totally!"],
+              lottieAnimationUrl:
+              "https://lottie.host/d1f4a79c-0204-4a92-9f5f-d3d906ccdb28/e3QvqgNPR7.json",
+            ),
+            Question(
+              text: "Focusing on the small details or the big picture?",
+              options: ["Nope!", "Eh.", "Meh.", "Yep!", "Totally!"],
+              lottieAnimationUrl:
+              "https://lottie.host/d1f4a79c-0204-4a92-9f5f-d3d906ccdb28/e3QvqgNPR7.json",
+            ),
+            Question(
+              text: "Connecting with others’ feelings or offering practical help?",
+              options: ["Nope!", "Eh.", "Meh.", "Yep!", "Totally!"],
+              lottieAnimationUrl:
+              "https://lottie.host/d1f4a79c-0204-4a92-9f5f-d3d906ccdb28/e3QvqgNPR7.json",
+            ),
+            Question(
+              text: "Sticking to a plan or changing it up as you go?",
+              options: ["Nope!", "Eh.", "Meh.", "Yep!", "Totally!"],
+              lottieAnimationUrl:
+              "https://lottie.host/d1f4a79c-0204-4a92-9f5f-d3d906ccdb28/e3QvqgNPR7.json",
+            ),
+          ],
+          onAnswerChanged: (int questionIndex, double answerValue) {
+            print("Question $questionIndex answered with value: $answerValue");
+          },
+          onTestComplete: () {
+            print("Personality test completed!");
+            Navigator.pushNamed(context, '/main');
+          },
+        ),
       ),
     );
-  }
-
-  Widget _buildSlider(String title, Widget child) {
-    return SizedBox(
-      width: double.infinity,
-      child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[Text(
-              style:TextStyle(
-                fontFamily: "Arial",
-                fontSize: 20
-              ),title), child, Divider()]),
-    );
-  }
-}
-
-class SimpleSlider extends StatefulWidget {
-  final Color? thumbColor;
-  final int? divisions;
-
-  const SimpleSlider(
-      {Key? key,
-        this.thumbColor,
-        this.divisions})
-      : super(key: key);
-
-  @override
-  _SimpleSliderState createState() => _SimpleSliderState();
-}
-
-class _SimpleSliderState extends State<SimpleSlider> {
-  double _currentSliderValue = 20;
-
-  @override
-  Widget build(BuildContext context) {
-    return Slider(
-      value: _currentSliderValue,
-      min: 0,
-      max: 100,
-      label: _currentSliderValue.toInt().toString(),
-      thumbColor: widget.thumbColor,
-      divisions: widget.divisions,
-      onChanged: (double value) {
-        setState(() {
-          _currentSliderValue = value;
-        });
-      },
-    );
-  }
-}
-
-class CustomThumbShape extends StatelessWidget {
-  final SliderComponentShape valueIndicatorShape;
-  const CustomThumbShape({Key? key, required this.valueIndicatorShape})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SliderTheme(
-        data: SliderTheme.of(context)
-            .copyWith(valueIndicatorShape: valueIndicatorShape),
-        child: SimpleSlider(divisions: 100));
   }
 }
