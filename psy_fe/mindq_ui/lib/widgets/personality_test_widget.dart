@@ -74,9 +74,35 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF371942),
-      body: Column(
-        children: [
+      body: Stack(
+          children: [
+      Container(
+      decoration: BoxDecoration(
+      image: DecorationImage(
+          image: AssetImage(
+          'lib/assets/Quest2.png'),
+      fit: BoxFit.cover,
+    ),
+    ),
+    ),
+    Container(
+    decoration: BoxDecoration(
+    gradient: RadialGradient(
+    center: Alignment(0, -0.5),
+    radius: 0.8,
+    colors: [
+    Color(0xFF371942).withOpacity(0.5),
+    Colors.transparent,
+    ],
+    stops: [0.0, 1.0],
+    ),
+    ),
+    ),
+
+    Center(
+    child: Column(
+    mainAxisAlignment: MainAxisAlignment.start,
+    children: [
           Expanded(
             child: PageView.builder(
               controller: _pageController,
@@ -94,7 +120,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 40),
+                        margin: const EdgeInsets.only(left: 40, right:40, top:60),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(44),
                         ),
@@ -126,7 +152,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                           ],
                         ),
                         width: 600,
-                        height: 240,
+                        height: 305,
                         child: DotLottieLoader.fromNetwork(
                           widget.questions[index].lottieAnimationUrl,
                           frameBuilder: (ctx, dotLottie) {
@@ -150,10 +176,9 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                           },
                         ),
                       ),
-                      SizedBox(height: 20),
                       Expanded(
                         child: Container(
-                          margin: EdgeInsets.only(bottom: 20),
+                          margin: EdgeInsets.only(left:60, right:60, top:0, bottom: 120),
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [
@@ -181,7 +206,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
-                                height: 150,
+                                height: 100,
                                 child: PageView.builder(
                                   controller: _optionPageControllers[index],
                                   itemCount: widget.questions[index].options.length,
@@ -191,7 +216,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                                   itemBuilder: (context, optionIndex) {
                                     return Center(
                                       child: Padding(
-                                        padding: const EdgeInsets.all(20.0),
+                                        padding: const EdgeInsets.all(0.0),
                                         child: Text(
                                           widget.questions[index].options[optionIndex],
                                           textAlign: TextAlign.center,
@@ -210,17 +235,17 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 0.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
-                              'Swipe left or right.\nChoose the option\nthat suits you best.',
+                            /*Text(
+                              'Swipe left or right. Choose the option\nthat represents you best.',
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.white70,
+                                color: Colors.white30.withOpacity(0),
                               ),
-                            ),
+                            ),*/
                           ],
                         ),
                       ),
@@ -232,7 +257,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
           ),
           Container(
             padding: EdgeInsets.all(20),
-            color: Colors.white,
+            color: Colors.white.withOpacity(0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -270,9 +295,9 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                 Text(
                   "Q${_currentPage + 1} / ${widget.questions.length}",
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: Colors.white60,
                   ),
                 ),
 
@@ -313,6 +338,8 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
           ),
         ],
       ),
+    ),
+    ],),
     );
   }
 

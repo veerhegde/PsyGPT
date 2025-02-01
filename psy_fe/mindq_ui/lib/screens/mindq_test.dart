@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../models/Questions.dart';
-import '../widgets/personality_test_content.dart';
 import '../widgets/personality_test_widget.dart';
 
 void main() {
