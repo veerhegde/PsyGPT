@@ -1,21 +1,12 @@
+//BEST - Lottie not scrolling
+
+
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:dotlottie_loader/dotlottie_loader.dart';
+
 import '../constants/styles/font_const.dart';
 import '../models/Questions.dart';
-
-
-Widget buildPersonalityTestWidget({
-  required List<Question> questions,
-  required Function(int, double) onAnswerChanged,
-  required Function() onTestComplete,
-}) {
-  return PersonalityTestContent(
-    questions: questions,
-    onAnswerChanged: onAnswerChanged,
-    onTestComplete: onTestComplete,
-  );
-}
 
 class PersonalityTestContent extends StatefulWidget {
   final List<Question> questions;
@@ -39,6 +30,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
   int _currentPage = 0;
   final Map<int, double> _answers = {};
   final Map<int, AnimationController> _lottieControllers = {};
+  final Map<int, PageController> _optionPageControllers = {};
 
   @override
   void initState() {
@@ -48,13 +40,21 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
 
   void _initializeAnimationControllers() {
     for (int i = 0; i < widget.questions.length; i++) {
-      _lottieControllers[i] = AnimationController(vsync: this);
+      _lottieControllers[i] = AnimationController(
+        vsync: this,
+        duration: const Duration(seconds: 1), // Adjust duration
+      );
+      _optionPageControllers[i] = PageController(viewportFraction: 0.4);
     }
   }
 
   @override
   void dispose() {
     for (final controller in _lottieControllers.values) {
+      controller.dispose();
+    }
+    _pageController.dispose();
+    for (final controller in _optionPageControllers.values) {
       controller.dispose();
     }
     super.dispose();
@@ -65,63 +65,58 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
     return Scaffold(
       body: Stack(
         children: [
-          // Background Image Container
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("lib/assets/Quest2.png"),
+                image: AssetImage('lib/assets/Quest2.png'),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-
-          // Foreground Content
-          Column(
-            children: [
-              Expanded(
-                child: PageView.builder(
-                  controller: _pageController,
-                  itemCount: widget.questions.length,
-                  physics: const NeverScrollableScrollPhysics(),
-                  onPageChanged: (int index) {
-                    setState(() {
-                      _currentPage = index;
-                    });
-                  },
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(top: 0),
-                      child: Column(
+          Container(
+            decoration: BoxDecoration(
+              gradient: RadialGradient(
+                center: const Alignment(0, -0.5),
+                radius: 0.8,
+                colors: [
+                  const Color(0xFF371942).withOpacity(0.5),
+                  Colors.transparent,
+                ],
+                stops: const [0.0, 1.0],
+              ),
+            ),
+          ),
+          Center(
+            child: Column(
+              children: [
+                Expanded(
+                  child: PageView.builder(
+                    controller: _pageController,
+                    itemCount: widget.questions.length,
+                    physics: const NeverScrollableScrollPhysics(),
+                    onPageChanged: (int index) {
+                      setState(() {
+                        _currentPage = index;
+                      });
+                    },
+                    itemBuilder: (context, index) {
+                      return Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          // Lottie Animation Container
-                          Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 40,),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(44),
-                              //color: const Color(0xFFe0e0e0),
+                          Text(
+                            widget.questions[index].text,
+                            style: const TextStyle(
+                              fontSize: 24,
+                              color: Colors.white,
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 19, vertical:10),
-                              child: Text(
-                                widget.questions[index].text,
-                                style: ThemeFont.primaryFont(
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white60,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
+                            textAlign: TextAlign.center,
                           ),
                           Container(
-
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(44),
                                 topRight: Radius.circular(44),
                               ),
-                              //border: Border.all(color: Colors.black, width: 2),
                               boxShadow: const [
                                 BoxShadow(
                                   color: Color(0xFFe0e0e0),
@@ -129,7 +124,8 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                                 ),
                               ],
                             ),
-                             width:600,height:240,
+                            width: 600,
+                            height: 240,
                             child: DotLottieLoader.fromNetwork(
                               widget.questions[index].lottieAnimationUrl,
                               frameBuilder: (ctx, dotLottie) {
@@ -138,8 +134,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                                     dotLottie.animations.values.first,
                                     controller: _lottieControllers[index],
                                     onLoaded: (composition) {
-                                      _lottieControllers[index]
-                                        ?..duration = composition.duration;
+                                      _lottieControllers[index]!.duration = composition.duration;
                                     },
                                   );
                                 } else {
@@ -153,188 +148,148 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                             ),
                           ),
                           const SizedBox(height: 20),
-
-                          // Question Text Container
-
-
-                          // Answer Text Container
-                          Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 40,),
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  Color(0xFFAB8B38),
-                                  Color(0xFF9A7636),
-                                  Color(0xFFB8963C),
-                                ],
-                              ),
-                              borderRadius: BorderRadius.circular(44),
-                              border: Border.all(
-                                color: Colors.white60,
-                                width: 9.6,
-                              ),
-                              boxShadow: const [
-                                BoxShadow(
-                                  color: Colors.white60,
-                                  offset: Offset(0, 4),
-                                  blurRadius: 10, // How blurry the shadow is
-                                  spreadRadius: 2, // How far the shadow spreads
-                                ),
-                              ],
-                              color: const Color(0xfff4d738),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 20, vertical:60),
-                              child: Text(
-                                _getAnswerText(index),
-                                textAlign: TextAlign.center,
-                                style: ThemeFont.primaryFont(
-                                  fontSize: 18,
-                                  color: Colors.white60,
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-
-                          // Slider
-                          SliderTheme(
-                            data: SliderTheme.of(context).copyWith(
-                              activeTrackColor: const Color(0xFF9A7636),
-                              inactiveTrackColor: const Color(0xFF000000),
-                              trackHeight: 5.0,
-                              thumbColor: Color(0xFF9A7636),
-                              thumbShape: const RoundSliderThumbShape(
-                                enabledThumbRadius: 10.0,
-                              ),
-                              overlayColor: Colors.black.withAlpha(32),
-                              overlayShape: const RoundSliderOverlayShape(
-                                overlayRadius: 18.0,
-                              ),
-                              valueIndicatorShape:
-                              const PaddleSliderValueIndicatorShape(),
-                              valueIndicatorColor: const Color(0xFF9A7636),
-                              valueIndicatorTextStyle: const TextStyle(
-                                color: Colors.black,
-                              ),
-                            ),
-                            child: Slider(
-                              value: _answers[index] ?? 3,
-                              min: 1,
-                              max: 5,
-                              divisions: 4,
-                              label: _getAnswerText(index),
-                              onChanged: (double value) {
-                                setState(() {
-                                  _answers[index] = value;
-                                });
-                                _applySliderValueToAnimation(index);
-                                widget.onAnswerChanged(index, value);
+                          SizedBox(
+                            height: 250,
+                            child: PageView.builder(
+                              controller: _optionPageControllers[index],
+                              itemCount: widget.questions[index].options.length,
+                              onPageChanged: (optionIndex) {
+                                _updateAnswer(index, (optionIndex + 1).toDouble());
                               },
-                              onChangeEnd: (double value) {},
+                              itemBuilder: (context, optionIndex) {
+                                bool isSelected = (_answers[index] ?? -1) == (optionIndex + 1);
+                                return Transform.scale(
+                                  scale: isSelected ? 1.1 : 0.6,
+                                  child: Container(
+                                    height: 120,
+                                    margin: const EdgeInsets.symmetric(vertical: 40),
+                                    decoration: BoxDecoration(
+                                      gradient: const LinearGradient(
+                                        colors: [
+                                          Color(0xFFAB8B38),
+                                          Color(0xFF9A7636),
+                                          Color(0xFFB8963C),
+                                        ],
+                                      ),
+                                      borderRadius: BorderRadius.circular(44),
+                                      border: isSelected
+                                          ? Border.all(color: Colors.white60, width: 9.6)
+                                          : null,
+                                      boxShadow: isSelected
+                                          ? const [
+                                        BoxShadow(
+                                          color: Colors.white60,
+                                          offset: Offset(0, 4),
+                                          blurRadius: 10,
+                                          spreadRadius: 2,
+                                        ),
+                                      ]
+                                          : null,
+                                    ),
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      widget.questions[index].options[optionIndex],
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
                             ),
                           ),
                         ],
-                      ),
-                    );
-                  },
-                ),
-              ),
-
-              // Bottom Navigation Container
-              Container(
-                padding: const EdgeInsets.all(20),
-                decoration: const BoxDecoration(
-                  //color: Color(0xfff4d738),
-                  //border: Border(
-                   // top: BorderSide(color: Colors.black, width: 2),
-                   // left: BorderSide(color: Colors.black, width: 2),
-                   // right: BorderSide(color: Colors.black, width: 2),
-                   // bottom: BorderSide(color: Colors.black, width: 2),
-                  ),
-                  //boxShadow: [
-                  /*  BoxShadow(
-                      color: Colors.black,
-                      offset: Offset(4, 4),
-                    ),*/
-                 // ],
-              //  ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Q ${_currentPage + 1} / ${widget.questions.length}",
-                      style: const TextStyle(
-                        fontSize: 19.6,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white60,
-                      ),
-                    ),
+                      );
+                    },),),
                 Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Color(0xFF9C3FE4),
-                        Color(0xFFC65647),
-                      ],
-                    ),
-                    borderRadius: BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(
-                       // color: Colors.black.withOpacity(0.3), // Shadow color with opacity
-                        offset: Offset(4, 4), // Horizontal and vertical shadow offset
-                        blurRadius: 10, // How blurry the shadow is
-                        spreadRadius: 2, // How far the shadow spreads
-                      ),
-                    ],
-                  ),
-                    child:
-                    ElevatedButton(
-                      onPressed: () {
-                        if (_currentPage < widget.questions.length - 1) {
-                          _pageController.nextPage(
-                            duration: const Duration(milliseconds: 300),
-                            curve: Curves.easeIn,
-                          );
-                        } else {
-                          widget.onTestComplete();
-                        }
-                      },
-                      style: ElevatedButton.styleFrom(
-                       // backgroundColor: const Color(0xFF77dd77),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 20,
-                          vertical: 10,
-                        ),
-                        textStyle: const TextStyle(
-                          fontSize: 16,
+                  padding: const EdgeInsets.all(20),
+                  decoration: const BoxDecoration(),
+
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Q ${_currentPage + 1} / ${widget.questions.length}",
+                        style: const TextStyle(
+                          fontSize: 19.6,
                           fontWeight: FontWeight.bold,
+                          color: Colors.white60,
                         ),
-                       /* side: const BorderSide(
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xFF9C3FE4),
+                              Color(0xFFC65647),
+                            ],
+                          ),
+                          borderRadius: BorderRadius.circular(15),
+                          boxShadow: [
+                            BoxShadow(
+                              // color: Colors.black.withOpacity(0.3), // Shadow color with opacity
+                              offset: Offset(4, 4), // Horizontal and vertical shadow offset
+                              blurRadius: 10, // How blurry the shadow is
+                              spreadRadius: 2, // How far the shadow spreads
+                            ),
+                          ],
+                        ),
+                        child:
+                        ElevatedButton(
+                          onPressed: () {
+                            if (_currentPage < widget.questions.length - 1) {
+                              _pageController.nextPage(
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeIn,
+                              );
+                            } else {
+                              widget.onTestComplete();
+                            }
+                          },
+                          style: ElevatedButton.styleFrom(
+                            // backgroundColor: const Color(0xFF77dd77),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 20,
+                              vertical: 10,
+                            ),
+                            textStyle: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            /* side: const BorderSide(
                           color: Colors.black,
                           width: 2,
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),*/
-                        shadowColor: Colors.black,
-                        elevation: 4,
-                      ),
-                      child: Text(
-                        _currentPage < widget.questions.length - 1
-                            ? "Next"
-                            : "Finish",
-                       // style: const TextStyle(color: Colors.white),
-                      ),
-                    ),),
-                  ],
+                            shadowColor: Colors.black,
+                            elevation: 4,
+                          ),
+                          child: Text(
+                            _currentPage < widget.questions.length - 1
+                                ? "Next"
+                                : "Finish",
+                            // style: const TextStyle(color: Colors.white),
+                          ),
+                        ),),
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ),],
       ),
     );
+  }
+
+  void _updateAnswer(int index, double value) {
+    setState(() {
+      _answers[index] = value;
+    });
+    _applySliderValueToAnimation(index);
   }
 
   void _applySliderValueToAnimation(int index) {
@@ -355,3 +310,4 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
     return widget.questions[questionIndex].options[index];
   }
 }
+

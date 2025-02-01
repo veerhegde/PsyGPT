@@ -21,61 +21,58 @@ class MindqTest extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: buildPersonalityWidget(
+        child: PersonalityTestContent(
           questions: [
             Question(
               text: "Spending time with others or alone?",
-              options: ["Nope!", "Eh.", "Meh.", "Yep!", "Totally!"],
-              lottieAnimationUrl:
-              "https://lottie.host/c47d9e9a-7db7-4289-8849-9f880144585c/4agQoMsOSN.lottie",
+              options: ["Always with others.", "Mostly with others.", "It depends.", "Mostly alone.", "Always alone."],
+              lottieAnimationUrl: "https://lottie.host/8ef36c39-7b7c-43fb-bff9-f5864f5a10d8/OxcSr390OG.json",
             ),
             Question(
-              text: "Trying out new places or sticking to favorites?",
-              options: ["Nope!", "Eh.", "Meh.", "Yep!", "Totally!"],
-              lottieAnimationUrl:
-              "https://lottie.host/e487425f-5ce4-4133-a356-901b4d1cdc78/lOiylY7Icn.json",
+              text: "What do you focus on more?",
+              options: ["Every little detail.", "Mostly the details.", "Both equally.", "Mostly the big picture.", "Only the big picture."],
+              lottieAnimationUrl: "https://lottie.host/e487425f-5ce4-4133-a356-901b4d1cdc78/lOiylY7Icn.json",
             ),
             Question(
-              text: "Having deep, meaningful conversations or keeping it light and fun?",
-              options: ["Nope!", "Eh.", "Meh.", "Yep!", "Totally!"],
-              lottieAnimationUrl:
-              "https://lottie.host/d1f4a79c-0204-4a92-9f5f-d3d906ccdb28/e3QvqgNPR7.json",
+              text: "How do you make decisions?",
+              options: ["Purely logical.", "Mostly logical.", "Balanced logic and emotions.", "Mostly emotional.", "Purely emotional."],
+              lottieAnimationUrl: "https://lottie.host/d1f4a79c-0204-4a92-9f5f-d3d906ccdb28/e3QvqgNPR7.json",
             ),
+
             Question(
-              text: "Planning everything out or going with the flow?",
-              options: ["Nope!", "Eh.", "Meh.", "Yep!", "Totally!"],
-              lottieAnimationUrl:
-              "https://lottie.host/e830bc87-a72b-43df-85bc-3f6e373b4de0/PRUkGNSFsT.json",
+              text: "Plans or spontaneity?",
+              options: ["Love detailed plans.", "Prefer some structure.", "Flexible, either works.", "Prefer going with the flow.", "Avoid plans entirely."],
+              lottieAnimationUrl: "https://lottie.host/d1f4a79c-0204-4a92-9f5f-d3d906ccdb28/e3QvqgNPR7.json",
             ),
+
             Question(
-              text: "Reading books, articles, news or watching TV, movies, social media?",
-              options: ["Nope!", "Eh.", "Meh.", "Yep!", "Totally!"],
-              lottieAnimationUrl:
-              "https://lottie.host/d1f4a79c-0204-4a92-9f5f-d3d906ccdb28/e3QvqgNPR7.json",
+              text: "Do you enjoy learning new things?",
+              options: ["Always excited to learn.", "Often enjoy learning.", "Neutral about it.", "Rarely seek new experiences.", "Not excited to learn."],
+              lottieAnimationUrl: "https://lottie.host/d1f4a79c-0204-4a92-9f5f-d3d906ccdb28/e3QvqgNPR7.json",
             ),
+
             Question(
-              text: "Following your heart or your head?",
-              options: ["Nope!", "Eh.", "Meh.", "Yep!", "Totally!"],
-              lottieAnimationUrl:
-              "https://lottie.host/d1f4a79c-0204-4a92-9f5f-d3d906ccdb28/e3QvqgNPR7.json",
+              text: "Do you trust your intuition?",
+              options: ["Always trust it.", "Trust it often.", "Neutral about it.", "Rarely trust it.", "Don’t trust it at all."],
+              lottieAnimationUrl: "https://lottie.host/d1f4a79c-0204-4a92-9f5f-d3d906ccdb28/e3QvqgNPR7.json",
             ),
+
             Question(
-              text: "Focusing on the small details or the big picture?",
-              options: ["Nope!", "Eh.", "Meh.", "Yep!", "Totally!"],
-              lottieAnimationUrl:
-              "https://lottie.host/d1f4a79c-0204-4a92-9f5f-d3d906ccdb28/e3QvqgNPR7.json",
+              text: "How important is productivity?",
+              options: ["Very important every day.", "Important most of the time.", "Neutral about it.", "Prefer a relaxed pace.", "Not important at all."],
+              lottieAnimationUrl: "https://lottie.host/d1f4a79c-0204-4a92-9f5f-d3d906ccdb28/e3QvqgNPR7.json",
             ),
+
             Question(
-              text: "Connecting with others’ feelings or offering practical help?",
-              options: ["Nope!", "Eh.", "Meh.", "Yep!", "Totally!"],
-              lottieAnimationUrl:
-              "https://lottie.host/d1f4a79c-0204-4a92-9f5f-d3d906ccdb28/e3QvqgNPR7.json",
+              text: "How empathic are you?",
+              options: ["Deeply empathic always.", "Empathic most of the time.", "Neutral about it.", "Rarely empathic.", "Not empathic at all."],
+              lottieAnimationUrl: "https://lottie.host/d1f4a79c-0204-4a92-9f5f-d3d906ccdb28/e3QvqgNPR7.json",
             ),
+
             Question(
-              text: "Sticking to a plan or changing it up as you go?",
-              options: ["Nope!", "Eh.", "Meh.", "Yep!", "Totally!"],
-              lottieAnimationUrl:
-              "https://lottie.host/d1f4a79c-0204-4a92-9f5f-d3d906ccdb28/e3QvqgNPR7.json",
+              text: "How do you feel about spontaneity?",
+              options: ["Love improvising.", "Enjoy it often.", "Neutral about it.", "Prefer plans.", "Avoid spontaneity."],
+              lottieAnimationUrl: "https://lottie.host/d1f4a79c-0204-4a92-9f5f-d3d906ccdb28/e3QvqgNPR7.json",
             ),
           ],
           onAnswerChanged: (int questionIndex, double answerValue) {
