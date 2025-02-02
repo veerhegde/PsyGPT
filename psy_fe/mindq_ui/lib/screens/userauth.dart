@@ -423,6 +423,7 @@ class _LoginRegistrationScreenState extends State<AuthScreen> {
                 child: Center(
                   child: GestureDetector(
                     onTap: () {
+                      Navigator.pushReplacementNamed(context, '/mascotpage');
                       setState(() {
                         isLogin = false;
                       });

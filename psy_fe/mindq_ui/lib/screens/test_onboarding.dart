@@ -26,7 +26,7 @@ class _TestOnboardingScreenState extends State<TestOnboardingScreen> {
     super.initState();
 
     Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, '/next_screen');
+      Navigator.pushReplacementNamed(context, '/main');
     });
   }
 

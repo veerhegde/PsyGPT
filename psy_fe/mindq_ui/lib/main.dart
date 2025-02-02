@@ -5,7 +5,6 @@ import 'package:mindq_ui/screens/test_onboarding.dart';
 import 'package:mindq_ui/screens/userauth.dart';
 import 'screens/splashscreen.dart';
 import 'package:mindq_ui/screens/homescreen.dart';
-import 'package:mindq_ui/screens/onboarding.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -26,15 +25,14 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         useMaterial3: true,
       ),
-      initialRoute: '/', // Splash screen as initial route
+      initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreen(),
         '/main': (context) => const MyHomePage(title: 'MindQ'),
         '/home':(context) =>  HomeScreen(),
-        '/onboarding':(context) => OnboardingScreen(),
         '/userauth':(context) => AuthScreen(),
         '/mindqtest':(context) => MindqTest(),
-        '/startonboard':(context) => MascotWelcomePage()
+        '/mascotpage':(context) => MascotWelcomePage()
       },
     );
   }
@@ -56,9 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    print("MyHomePage initState"); // Debugging print
-    // If you have asynchronous operations here, handle null states properly
-    // and use setState after data is loaded. Also check mounted before calling setState.
+    print("MyHomePage initState");
   }
 
   void _incrementCounter() {
@@ -69,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    print("MyHomePage build"); // Debugging print
+    print("MyHomePage build");
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
