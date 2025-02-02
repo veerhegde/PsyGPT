@@ -213,7 +213,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                       gradient: LinearGradient(
                         colors: [
                           Color(0xFF454045),
-                          Color(0xFFa4a4a4), // Purple gradient start// Red gradient end
+                          Color(0xFF2f2f2f), // Purple gradient start// Red gradient end
                         ],
                       ),
                       borderRadius: BorderRadius.circular(8),
@@ -242,7 +242,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                       ),
                       child: Text(
                         "Previous",
-                        style: ThemeFont.primaryFont(color: Color(0xFF252525),fontWeight: FontWeight.bold),
+                        style: ThemeFont.primaryFont(color: Color(0xFF121212),fontWeight: FontWeight.bold),
                       ),
 
                           ),
@@ -283,7 +283,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                       backgroundColor: Colors.transparent,
                       shadowColor: Colors.transparent,
                       padding: EdgeInsets.symmetric(
-                        horizontal: 20,
+                        horizontal: 37,
                         vertical: 10,
                       ),
                       textStyle: ThemeFont.primaryFont(
