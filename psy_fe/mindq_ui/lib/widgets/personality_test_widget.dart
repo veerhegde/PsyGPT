@@ -1,6 +1,3 @@
-//BEST - Lottie not scrolling
-
-
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:dotlottie_loader/dotlottie_loader.dart';
@@ -105,7 +102,7 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                         children: [
                           Text(
                             widget.questions[index].text,
-                            style: const TextStyle(
+                            style: ThemeFont.primaryFont(
                               fontSize: 24,
                               color: Colors.white,
                             ),
@@ -134,7 +131,8 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                                     dotLottie.animations.values.first,
                                     controller: _lottieControllers[index],
                                     onLoaded: (composition) {
-                                      _lottieControllers[index]!.duration = composition.duration;
+                                      _lottieControllers[index]!.duration =
+                                          composition.duration;
                                     },
                                   );
                                 } else {
@@ -147,22 +145,24 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                               },
                             ),
                           ),
-                          const SizedBox(height: 20),
                           SizedBox(
                             height: 250,
                             child: PageView.builder(
                               controller: _optionPageControllers[index],
                               itemCount: widget.questions[index].options.length,
                               onPageChanged: (optionIndex) {
-                                _updateAnswer(index, (optionIndex + 1).toDouble());
+                                _updateAnswer(
+                                    index, (optionIndex + 1).toDouble());
                               },
                               itemBuilder: (context, optionIndex) {
-                                bool isSelected = (_answers[index] ?? -1) == (optionIndex + 1);
+                                bool isSelected = (_answers[index] ?? -1) ==
+                                    (optionIndex + 1);
                                 return Transform.scale(
                                   scale: isSelected ? 1.1 : 0.6,
                                   child: Container(
                                     height: 120,
-                                    margin: const EdgeInsets.symmetric(vertical: 40),
+                                    margin: const EdgeInsets.symmetric(
+                                        vertical: 40),
                                     decoration: BoxDecoration(
                                       gradient: const LinearGradient(
                                         colors: [
@@ -173,23 +173,25 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                                       ),
                                       borderRadius: BorderRadius.circular(44),
                                       border: isSelected
-                                          ? Border.all(color: Colors.white60, width: 9.6)
+                                          ? Border.all(
+                                              color: Colors.white60, width: 9.6)
                                           : null,
                                       boxShadow: isSelected
                                           ? const [
-                                        BoxShadow(
-                                          color: Colors.white60,
-                                          offset: Offset(0, 4),
-                                          blurRadius: 10,
-                                          spreadRadius: 2,
-                                        ),
-                                      ]
+                                              BoxShadow(
+                                                color: Colors.white60,
+                                                offset: Offset(0, 4),
+                                                blurRadius: 10,
+                                                spreadRadius: 2,
+                                              ),
+                                            ]
                                           : null,
                                     ),
                                     alignment: Alignment.center,
                                     child: Text(
-                                      widget.questions[index].options[optionIndex],
-                                      style: const TextStyle(
+                                      widget.questions[index]
+                                          .options[optionIndex],
+                                      style: ThemeFont.primaryFont(
                                         fontSize: 18,
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
@@ -202,18 +204,47 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                           ),
                         ],
                       );
-                    },),),
+                    },
+                  ),
+                ),
                 Container(
-                  padding: const EdgeInsets.all(20),
-                  decoration: const BoxDecoration(),
-
+                  padding: EdgeInsets.all(20),
+                  color: Colors.white.withOpacity(0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      if (_currentPage > 0)
+                        ElevatedButton(
+                          onPressed: () {
+                            _pageController.previousPage(
+                              duration: Duration(milliseconds: 300),
+                              curve: Curves.easeIn,
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.grey[300],
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 20,
+                              vertical: 10,
+                            ),
+                            textStyle: ThemeFont.primaryFont(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          child: Text(
+                            "Previous",
+                            style: ThemeFont.primaryFont(color: Colors.black),
+                          ),
+                        ),
+                      if (_currentPage == 0) SizedBox(width: 98),
                       Text(
-                        "Q ${_currentPage + 1} / ${widget.questions.length}",
-                        style: const TextStyle(
-                          fontSize: 19.6,
+                        "Q${_currentPage + 1} / ${widget.questions.length}",
+                        style: ThemeFont.primaryFont(
+                          fontSize: 24,
                           fontWeight: FontWeight.bold,
                           color: Colors.white60,
                         ),
@@ -226,22 +257,23 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                               Color(0xFFC65647),
                             ],
                           ),
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius: BorderRadius.circular(10),
                           boxShadow: [
                             BoxShadow(
-                              // color: Colors.black.withOpacity(0.3), // Shadow color with opacity
-                              offset: Offset(4, 4), // Horizontal and vertical shadow offset
+                              color: Colors.black.withOpacity(
+                                  0.3), // Shadow color with opacity
+                              offset: Offset(4,
+                                  4), // Horizontal and vertical shadow offset
                               blurRadius: 10, // How blurry the shadow is
                               spreadRadius: 2, // How far the shadow spreads
                             ),
                           ],
                         ),
-                        child:
-                        ElevatedButton(
+                        child: ElevatedButton(
                           onPressed: () {
                             if (_currentPage < widget.questions.length - 1) {
                               _pageController.nextPage(
-                                duration: const Duration(milliseconds: 300),
+                                duration: Duration(milliseconds: 300),
                                 curve: Curves.easeIn,
                               );
                             } else {
@@ -249,38 +281,34 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
                             }
                           },
                           style: ElevatedButton.styleFrom(
-                            // backgroundColor: const Color(0xFF77dd77),
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 20,
-                              vertical: 10,
+                            backgroundColor: Colors
+                                .transparent, // Make button background transparent
+                            shadowColor:
+                                Colors.transparent, // Remove default shadow
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 40, vertical: 15),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
                             ),
-                            textStyle: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            /* side: const BorderSide(
-                          color: Colors.black,
-                          width: 2,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),*/
-                            shadowColor: Colors.black,
-                            elevation: 4,
                           ),
                           child: Text(
                             _currentPage < widget.questions.length - 1
                                 ? "Next"
                                 : "Finish",
-                            // style: const TextStyle(color: Colors.white),
+                            style: ThemeFont.primaryFont(
+                                fontSize: 17.92,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
                           ),
-                        ),),
+                        ),
+                      ),
                     ],
                   ),
                 ),
               ],
             ),
-          ),],
+          ),
+        ],
       ),
     );
   }
@@ -299,15 +327,4 @@ class _PersonalityTestContentState extends State<PersonalityTestContent>
       _lottieControllers[index]!.value = progress;
     }
   }
-
-  String _getAnswerText(int questionIndex) {
-    double? value = _answers[questionIndex];
-    if (value == null) {
-      return widget.questions[questionIndex].options[2];
-    }
-
-    int index = (value - 1).round();
-    return widget.questions[questionIndex].options[index];
-  }
 }
-

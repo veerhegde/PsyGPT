@@ -26,7 +26,7 @@ class MascotWelcomePage extends StatelessWidget {
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
               Colors.black.withOpacity(0.5),
-              BlendMode.darken,
+              BlendMode.overlay,
             ),
           ),
           gradient: LinearGradient(
@@ -41,68 +41,91 @@ class MascotWelcomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SizedBox(height: 10),
+            SizedBox(height: 16),
             Align(
               alignment: Alignment.topLeft, // Aligns the image to the left
               child: Image.asset(
                 "lib/assets/Phoebe_mascot.png",
-                width: 190, // Adjust width as needed
-                height: 190, // Adjust height as needed
+                width: 196, // Adjust width as needed
+                height: 196, // Adjust height as needed
               ),
             ),
 
             Container(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.symmetric(vertical: 0),//padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.8),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
+                image: DecorationImage(
+                  image: AssetImage("lib/assets/mascot_bg.png"), // Your image path
+                  fit: BoxFit.cover, // Cover the entire container
                 ),
+                //color: Colors.white.withOpacity(0),
+               // borderRadius: BorderRadius.only(
+                 // topLeft: Radius.circular(30),
+                 // topRight: Radius.circular(30),
+
+                //),
               ),
               child: Column(
                 children: [
-                  Text(
-                    'Hi! I am Phoebe',
-                    style: ThemeFont.primaryFont(
-                      fontSize: 40.33,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
+                  SizedBox(height: 15),
+    RichText(
+
+    text: TextSpan(
+    style: ThemeFont.primaryFont(fontSize: 40.33),
+    children: [
+    TextSpan(
+    text: 'Hi! ',
+      style: ThemeFont.primaryFont(fontSize: 40.33, fontWeight: FontWeight.bold),
+    ),
+      TextSpan(
+        text: 'I am ',
+      ),
+    TextSpan(
+    text: 'Phoebe',
+    style: ThemeFont.secondaryFont().copyWith(fontSize: 40.33,
+    fontStyle: FontStyle.italic,fontWeight: FontWeight.w900
+    ),
+    ),],),),
                   Text(
                     'welcome onboard!',
                     style: ThemeFont.primaryFont(
                       fontSize: 16,
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                   ),
-                  SizedBox(height: 20),
-
-
+                  SizedBox(height: 13.2),
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 40, vertical: 30),
-                    padding: EdgeInsets.symmetric(horizontal: 40, vertical: 30),
+                    padding: EdgeInsets.symmetric(horizontal: 90, vertical: 0),
                     decoration: BoxDecoration(
-                      color: Color(0xFFEFD377).withOpacity(0.8),
-                      borderRadius: BorderRadius.circular(20),
+                      image: DecorationImage(
+                        image: AssetImage("lib/assets/phoebe_msg_bg.png"), // Background image
+                        fit: BoxFit.cover, // Full-screen fill
+                      ),
                     ),
-                    child: RichText(
-                      text: TextSpan(
-                        style: ThemeFont.primaryFont(fontSize: 19.6),
-                        children: [
-                          TextSpan(
-                            text: 'I’ll be your',
-                          ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min, // Keeps the Column tight around its content
+                      children: [
+                        SizedBox(height: 126), // Spacing before text
+
+                        // RichText with Text Shadow
+                        RichText(
+                          textAlign: TextAlign.center, // Ensures the text is centered
+                          text: TextSpan(
+                            style: ThemeFont.primaryFont(
+                              fontSize: 19.6,
+                              color: Colors.white60,
+                            ),
+                            children: [
+                              TextSpan(text: 'I’ll be your'),
                           TextSpan(
                             text: ' guide, ',
                             style: ThemeFont.secondaryFont().copyWith(
-                              fontStyle: FontStyle.italic,
+                              fontStyle: FontStyle.italic,color: Colors.white60,
                             ),
                           ),
                           TextSpan(
                             text: 'buddy, ',
-                            style: ThemeFont.primaryFont(fontWeight: FontWeight.bold),
+                            style: ThemeFont.primaryFont(fontWeight: FontWeight.bold,color: Colors.white60,),
                           ),
                           TextSpan(
                             text: 'maybe even ',
@@ -110,7 +133,7 @@ class MascotWelcomePage extends StatelessWidget {
                           TextSpan(
                             text: 'partner-in-crime',
                             style: ThemeFont.secondaryFont().copyWith(
-                              fontStyle: FontStyle.italic,
+                              fontStyle: FontStyle.italic,color: Colors.white60,
                             ),
                           ),
                           TextSpan(
@@ -118,7 +141,7 @@ class MascotWelcomePage extends StatelessWidget {
                           ),
                           TextSpan(
                             text: 'first hangout',
-                            style: ThemeFont.primaryFont(fontWeight: FontWeight.bold),
+                            style: ThemeFont.primaryFont(fontWeight: FontWeight.bold,color: Colors.white60,),
                           ),
                           TextSpan(
                             text: ', let’s get to\nknow your ',
@@ -126,31 +149,31 @@ class MascotWelcomePage extends StatelessWidget {
                           TextSpan(
                             text: 'vibe',
                             style: ThemeFont.secondaryFont().copyWith(
-                              fontStyle: FontStyle.italic,
-                          ),),
+                              fontStyle: FontStyle.italic,color: Colors.white60,
+                            ),),
                           TextSpan(
-                            text: '—what makes you\n',
+                            text: '—what makes you',
                           ),
                           TextSpan(
                             text: 'tick',
                             style: ThemeFont.secondaryFont().copyWith(
-                              fontStyle: FontStyle.italic,
+                              fontStyle: FontStyle.italic,color: Colors.white60,
                             ),
                           ),
                           TextSpan(
-                            text: ', ',
+                            text: ',\n ',
                           ),
                           TextSpan(
                             text: 'groove',
-                            style: ThemeFont.primaryFont(fontWeight: FontWeight.bold),
+                            style: ThemeFont.primaryFont(fontWeight: FontWeight.bold,color: Colors.white60,),
                           ),
                           TextSpan(
                             text: ', or go ',
                           ),
                           TextSpan(
                             text: '\'meh!\' ',
-                            style: ThemeFont.secondaryFont(fontStyle: FontStyle.italic).copyWith(
-                              fontStyle: FontStyle.italic,
+                            style: ThemeFont.secondaryFont().copyWith(
+                              fontStyle: FontStyle.italic,color: Colors.white60,
                             ),
                           ),
                           TextSpan(
@@ -158,60 +181,67 @@ class MascotWelcomePage extends StatelessWidget {
                           ),
                           TextSpan(
                             text: 'fun ',
-                            style: ThemeFont.primaryFont(fontWeight: FontWeight.bold),
+                            style: ThemeFont.primaryFont(fontWeight: FontWeight.bold,color: Colors.white60,),
                           ),
                           TextSpan(
                             text: '?',
-                          ),
-                        ],
-                      ),
+                          ),],
+                        ),),
+
+                        SizedBox(height:100), // Adds spacing before the divider
+
+                        // Row with gradient dividers
+                        Row(
+                          children: [
+                            // Left gradient divider
+                            Expanded(
+                              child: Container(
+                                height: 1,
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Colors.black26.withOpacity(0.0), // Transparent start
+                                      Colors.black26, // Fully visible in the middle
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+
+                            // Center text
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 10),
+                              child: Text(
+                                "Continue to Test",
+                                style: ThemeFont.primaryFont(
+                                  fontSize: 14,
+                                  color: Colors.black26, // Text color
+                                  fontWeight: FontWeight.w500, // Text weight
+                                ),
+                              ),
+                            ),
+
+                            // Right gradient divider
+                            Expanded(
+                              child: Container(
+                                height: 1,
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Colors.black26, // Fully visible in the middle
+                                      Colors.black26.withOpacity(0.0), // Transparent end
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height:10),
+                      ],
                     ),
                   ),
 
-                  SizedBox(height: 20),
-                  Row(
-                    children: [
-                      // Left gradient divider
-                      Expanded(
-                        child: Container(
-                          height: 1,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                Colors.black26.withOpacity(0.0), // Start transparent
-                                Colors.black26, // Fully visible in the middle
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Text(
-                          "Continue to Test",
-                          style: ThemeFont.primaryFont(
-                            color: Colors.black26, // Text color
-                            fontWeight: FontWeight.w500, // Text weight
-                          ),
-                        ),
-                      ),
-                      // Right gradient divider
-                      Expanded(
-                        child: Container(
-                          height: 1,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                Colors.black26, // Fully visible in the middle
-                                Colors.black26.withOpacity(0.0), // End transparent
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 20),
                   Container(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
@@ -223,7 +253,7 @@ class MascotWelcomePage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.pink.withOpacity(0.3), // Shadow color with opacity
+                          color: Colors.black.withOpacity(0.3), // Shadow color with opacity
                           offset: Offset(4, 4), // Horizontal and vertical shadow offset
                           blurRadius: 10, // How blurry the shadow is
                           spreadRadius: 2, // How far the shadow spreads
@@ -237,22 +267,22 @@ class MascotWelcomePage extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent, // Make button background transparent
                         shadowColor: Colors.transparent, // Remove default shadow
-                        padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                        padding: EdgeInsets.symmetric(horizontal: 90, vertical: 15),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(15),
                         ),
                       ),
                       child: Text(
                         "Lets do this",
                         style: ThemeFont.primaryFont(
-                          fontSize: 16,
+                          fontSize: 17.92,
                           fontWeight: FontWeight.bold,
                           color: Colors.white, // Ensure text is visible on gradient
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 40),
                 ],
               ),
             ),
