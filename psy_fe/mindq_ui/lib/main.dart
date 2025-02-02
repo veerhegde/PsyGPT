@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'MindQ',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: GoogleFonts.montserratTextTheme(
           Theme.of(context).textTheme,
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
         '/home':(context) =>  HomeScreen(),
         '/userauth':(context) => AuthScreen(),
         '/mindqtest':(context) => MindqTest(),
-        '/mascotpage':(context) => MascotWelcomePage()
+        '/mascotpage':(context) => MascotWelcomePage(),
+        '/test_onboarding':(context) => TestOnboardingScreen()
       },
     );
   }
