@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CustomTextbox extends StatelessWidget {
+class CustomTextbox extends StatefulWidget {
   final Color fillColor;
   final String labelText;
   final Color borderColor;
-  final bool obscureText;
+  bool obscureText;
   final IconData? prefixIcon;
   final IconData? suffixIcon;
   final BoxConstraints? constraints;
@@ -14,9 +14,9 @@ class CustomTextbox extends StatelessWidget {
   final AlignmentGeometry gradientEnd;
   final List<Color> gradientColors;
   final List<double>? gradientStops;
-  final TextEditingController? controller; // Add controller property
+  final TextEditingController? controller;
 
-  const CustomTextbox({
+  CustomTextbox({
     Key? key,
     required this.labelText,
     this.borderColor = Colors.black,
@@ -35,13 +35,26 @@ class CustomTextbox extends StatelessWidget {
       Color(0xff2B250B),
     ],
     this.gradientStops,
-    this.controller, // Add controller to constructor
+    this.controller,
   }) : super(key: key);
+
+  @override
+  _CustomTextboxState createState() => _CustomTextboxState();
+}
+
+class _CustomTextboxState extends State<CustomTextbox> {
+  late bool _isPasswordVisible;
+
+  @override
+  void initState() {
+    super.initState();
+    _isPasswordVisible = widget.obscureText;
+  }
 
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: constraints ?? BoxConstraints(),
+      constraints: widget.constraints ?? BoxConstraints(),
       child: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -63,38 +76,51 @@ class CustomTextbox extends StatelessWidget {
             ),
           ],
           gradient: LinearGradient(
-            begin: gradientBegin,
-            end: gradientEnd,
-            colors: gradientColors,
-            stops: gradientStops,
+            begin: widget.gradientBegin,
+            end: widget.gradientEnd,
+            colors: widget.gradientColors,
+            stops: widget.gradientStops,
           ),
           borderRadius: BorderRadius.circular(15),
         ),
-        child: TextField(
-          controller: controller, // Assign the controller to the TextField
-          style: TextStyle(color: textColor),
-          decoration: InputDecoration(
-            labelText: labelText,
-            prefixIcon: prefixIcon != null
-                ? Icon(prefixIcon, color: iconColor)
-                : null,
-            suffixIcon: suffixIcon != null
-                ? Icon(suffixIcon, color: iconColor)
-                : null,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide.none,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0), // Add padding
+          child: TextField(
+            controller: widget.controller,
+            style: TextStyle(color: widget.textColor),
+            decoration: InputDecoration(
+              labelText: widget.labelText,
+              labelStyle: TextStyle(color: widget.textColor), // Set label color
+              prefixIcon: widget.prefixIcon != null
+                  ? Icon(widget.prefixIcon, color: widget.iconColor)
+                  : null,
+              suffixIcon: widget.suffixIcon != null
+                  ? GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _isPasswordVisible = !_isPasswordVisible;
+                  });
+                },
+                child: Icon(
+                  _isPasswordVisible
+                      ? Icons.visibility_off
+                      : Icons.visibility,
+                  color: widget.iconColor,
+                ),
+              )
+                  : null,
+              border: InputBorder.none, // Remove default border
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: widget.borderColor, width: 2.0),
+                borderRadius: BorderRadius.circular(15),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: widget.borderColor, width: 1.0),
+                borderRadius: BorderRadius.circular(15),
+              ),
             ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: borderColor, width: 2.0),
-              borderRadius: BorderRadius.circular(15),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: borderColor, width: 1.0),
-              borderRadius: BorderRadius.circular(15),
-            ),
+            obscureText: _isPasswordVisible,
           ),
-          obscureText: obscureText,
         ),
       ),
     );
