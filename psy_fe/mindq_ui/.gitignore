@@ -11,7 +11,8 @@
 .svn/
 .swiftpm/
 migrate_working_dir/
-
+psy_fe/mindq_ui/.idea/
+psy_fe/mindq_ui/.idea/*
 # IntelliJ related
 *.iml
 *.ipr
